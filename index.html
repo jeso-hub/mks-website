@@ -140,6 +140,17 @@
   .sector-tab { background: none; border: none; padding: 8px 2px; font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.95rem; color: var(--ink-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color 200ms ease-out, border-color 200ms ease-out, transform 200ms cubic-bezier(.2,.7,.2,1); }
   .sector-tab:hover { color: var(--ink); transform: translateY(-3px); }
   .sector-tab.is-active { color: var(--site-red); border-bottom-color: var(--site-red); }
+  /* Gentle "try me" cue: one inactive tab at a time warms up with a soft underline */
+  .sector-tab { position: relative; }
+  .sector-tab::after { content: ''; position: absolute; left: 50%; right: 50%; bottom: -2px; height: 2px; background: color-mix(in oklch, var(--site-red) 55%, transparent); border-radius: 2px; opacity: 0; transition: left 700ms cubic-bezier(.2,.7,.2,1), right 700ms cubic-bezier(.2,.7,.2,1), opacity 700ms ease-out; }
+  .sector-tab.is-hinting:not(.is-active) { color: color-mix(in oklch, var(--site-red) 60%, var(--ink-muted)); transform: translateY(-2px); transition: color 700ms ease-out, transform 700ms cubic-bezier(.2,.7,.2,1); }
+  .sector-tab.is-hinting:not(.is-active)::after { left: 0; right: 0; opacity: 1; }
+  .sector-photo-progress { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: color-mix(in oklch, var(--bg) 80%, transparent); transform-origin: left; transform: scaleX(0); z-index: 2; pointer-events: none; }
+  .sector-photo-progress.is-running { transition: transform var(--sector-interval, 5000ms) linear; transform: scaleX(1); }
+  @media (prefers-reduced-motion: reduce) {
+    .sector-tab::after, .sector-tab.is-hinting:not(.is-active) { transition: none; }
+    .sector-photo-progress { display: none; }
+  }
   .sector-display { position: relative; max-width: 640px; margin: 0 auto; text-align: center; overflow: hidden; }
   .sector-watermark { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(3.5rem, 20vw, 6rem); color: var(--panel); z-index: 0; white-space: nowrap; letter-spacing: 0.02em; user-select: none; line-height: 1; }
   .sector-photo { position: relative; z-index: 1; aspect-ratio: 4/3; max-width: 420px; margin: 56px auto 24px; box-shadow: 0 20px 40px -20px color-mix(in oklch, var(--ink) 35%, transparent); overflow: hidden; }
@@ -365,6 +376,7 @@
             <div class="cap" data-sector-photo-cap><div><span class="tag mono">IMAGE <span data-sector-image-index>1/3</span></span><span data-sector-image-caption>completed electronics or beauty retail store</span></div></div>
             <button class="sector-photo-nav sector-photo-prev" type="button" aria-label="Previous photo">&lsaquo;</button>
             <button class="sector-photo-nav sector-photo-next" type="button" aria-label="Next photo">&rsaquo;</button>
+            <span class="sector-photo-progress" data-sector-progress aria-hidden="true"></span>
           </div>
           <div class="sector-photo-realcap" data-sector-photo-realcap hidden>
             <span class="sector-photo-realcaption" data-sector-photo-realcaption></span>
@@ -726,15 +738,87 @@
     var count = sectorData[currentSectorKey].images.length;
     currentImageIdx = (currentImageIdx - 1 + count) % count;
     renderSectorImage(true);
+    restartAutoplay();
   });
   nextBtn.addEventListener('click', function () {
     var count = sectorData[currentSectorKey].images.length;
     currentImageIdx = (currentImageIdx + 1) % count;
     renderSectorImage(true);
+    restartAutoplay();
   });
+
+  // Auto-advance photos every 5s. Pauses while hovered/focused, off-screen,
+  // or the browser tab is hidden; a manual click restarts the full 5s.
+  var SECTOR_INTERVAL = 5000;
+  var sectorDisplay = document.querySelector('.sector-display');
+  var sectorProgress = document.querySelector('[data-sector-progress]');
+  var autoplayTimer = null;
+  var isHovering = false;
+  var isInView = false;
+  sectorDisplay.style.setProperty('--sector-interval', SECTOR_INTERVAL + 'ms');
+
+  function canAutoplay() {
+    return !reduceMotion && !isHovering && isInView && !document.hidden &&
+      sectorData[currentSectorKey].images.length > 1;
+  }
+  function stopAutoplay() {
+    clearTimeout(autoplayTimer);
+    autoplayTimer = null;
+    sectorProgress.classList.remove('is-running');
+  }
+  function restartAutoplay() {
+    stopAutoplay();
+    if (!canAutoplay()) return;
+    void sectorProgress.offsetWidth; // reset the progress bar
+    sectorProgress.classList.add('is-running');
+    autoplayTimer = setTimeout(function () {
+      var count = sectorData[currentSectorKey].images.length;
+      currentImageIdx = (currentImageIdx + 1) % count;
+      renderSectorImage(true);
+      restartAutoplay();
+    }, SECTOR_INTERVAL);
+  }
+  sectorDisplay.addEventListener('mouseenter', function () { isHovering = true; stopAutoplay(); });
+  sectorDisplay.addEventListener('mouseleave', function () { isHovering = false; restartAutoplay(); });
+  sectorDisplay.addEventListener('focusin', function () { isHovering = true; stopAutoplay(); });
+  sectorDisplay.addEventListener('focusout', function () { isHovering = false; restartAutoplay(); });
+  document.addEventListener('visibilitychange', function () { document.hidden ? stopAutoplay() : restartAutoplay(); });
+
+  // Hint cue: softly highlight each inactive tab in turn so visitors notice
+  // the other sectors. Stops for good once they pick a tab themselves.
+  var hintTimer = null;
+  var hintIdx = 0;
+  var userPickedTab = false;
+  function clearHint() { sectorTabs.forEach(function (t) { t.classList.remove('is-hinting'); }); }
+  function stopHints() { clearInterval(hintTimer); hintTimer = null; clearHint(); }
+  function startHints() {
+    if (reduceMotion || userPickedTab || hintTimer || !isInView) return;
+    var step = function () {
+      var inactive = Array.prototype.filter.call(sectorTabs, function (t) { return !t.classList.contains('is-active'); });
+      clearHint();
+      if (!inactive.length) return;
+      var tab = inactive[hintIdx % inactive.length];
+      hintIdx++;
+      setTimeout(function () { if (hintTimer) tab.classList.add('is-hinting'); }, 250);
+      setTimeout(function () { tab.classList.remove('is-hinting'); }, 1700);
+    };
+    hintTimer = setInterval(step, 2600);
+    setTimeout(function () { if (hintTimer) step(); }, 900);
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      isInView = entries[0].isIntersecting;
+      if (isInView) { restartAutoplay(); startHints(); } else { stopAutoplay(); stopHints(); }
+    }, { threshold: 0.35 }).observe(document.querySelector('.sector-tabs').parentNode);
+  } else {
+    isInView = true; restartAutoplay(); startHints();
+  }
 
   sectorTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
+      userPickedTab = true;
+      stopHints();
       if (tab.classList.contains('is-active')) return;
       sectorTabs.forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
       tab.classList.add('is-active');
@@ -762,6 +846,7 @@
           sectorCaption.style.opacity = '1';
         }, 150);
       }
+      restartAutoplay();
     });
   });
 
