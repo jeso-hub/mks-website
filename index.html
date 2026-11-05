@@ -705,6 +705,12 @@
   var currentSectorKey = 'retail';
   var currentImageIdx = 0;
 
+  // Sector name shown next to the photo counter, e.g. "RETAIL · 2/4"
+  function sectorLabel() {
+    var active = document.querySelector('.sector-tab.is-active');
+    return active ? active.textContent.trim().toUpperCase() : '';
+  }
+
   function applyImageSlot(item) {
     sectorImageCaption.textContent = item.caption;
     sectorRealCaption.textContent = item.caption;
@@ -727,7 +733,7 @@
       applyImageSlot(data.images[currentImageIdx]);
       var idxText = (currentImageIdx + 1) + '/' + data.images.length;
       sectorImageIndexEl.textContent = idxText;
-      sectorRealIndexEl.textContent = idxText;
+      sectorRealIndexEl.textContent = sectorLabel() + ' · ' + idxText;
     };
     if (reduceMotion || !fade) {
       render();
@@ -834,7 +840,7 @@
         sectorWatermark.textContent = data.watermark;
         applyImageSlot(data.images[0]);
         sectorImageIndexEl.textContent = '1/' + data.images.length;
-        sectorRealIndexEl.textContent = '1/' + data.images.length;
+        sectorRealIndexEl.textContent = sectorLabel() + ' · 1/' + data.images.length;
         sectorCaption.textContent = data.caption;
       };
       if (reduceMotion) {
@@ -859,7 +865,7 @@
   (function () {
     var initIdxText = '1/' + sectorData.retail.images.length;
     sectorImageIndexEl.textContent = initIdxText;
-    sectorRealIndexEl.textContent = initIdxText;
+    sectorRealIndexEl.textContent = sectorLabel() + ' · ' + initIdxText;
   })();
 
   // Areas We Serve: hover or click a map pin (dot + city label are one hit
