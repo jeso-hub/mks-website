@@ -140,15 +140,19 @@
   .sector-tab { background: none; border: none; padding: 8px 2px; font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.95rem; color: var(--ink-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color 200ms ease-out, border-color 200ms ease-out, transform 200ms cubic-bezier(.2,.7,.2,1); }
   .sector-tab:hover { color: var(--ink); transform: translateY(-3px); }
   .sector-tab.is-active { color: var(--site-red); border-bottom-color: var(--site-red); }
-  /* Gentle "try me" cue: one inactive tab at a time warms up with a soft underline */
-  .sector-tab { position: relative; }
-  .sector-tab::after { content: ''; position: absolute; left: 50%; right: 50%; bottom: -2px; height: 2px; background: color-mix(in oklch, var(--site-red) 55%, transparent); border-radius: 2px; opacity: 0; transition: left 700ms cubic-bezier(.2,.7,.2,1), right 700ms cubic-bezier(.2,.7,.2,1), opacity 700ms ease-out; }
-  .sector-tab.is-hinting:not(.is-active) { color: color-mix(in oklch, var(--site-red) 60%, var(--ink-muted)); transform: translateY(-2px); transition: color 700ms ease-out, transform 700ms cubic-bezier(.2,.7,.2,1); }
-  .sector-tab.is-hinting:not(.is-active)::after { left: 0; right: 0; opacity: 1; }
+  /* Gentle "try me" cue: one inactive tab at a time darkens and does a small
+     nudge. No red, no underline, so it never looks like the selected tab. */
+  @keyframes sector-tab-nudge {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-4px); }
+    55% { transform: translateY(0); }
+    75% { transform: translateY(-2px); }
+  }
+  .sector-tab.is-hinting:not(.is-active) { color: var(--ink); animation: sector-tab-nudge 900ms cubic-bezier(.3,.7,.3,1); transition: color 500ms ease-out; }
   .sector-photo-progress { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: color-mix(in oklch, var(--bg) 80%, transparent); transform-origin: left; transform: scaleX(0); z-index: 2; pointer-events: none; }
   .sector-photo-progress.is-running { transition: transform var(--sector-interval, 5000ms) linear; transform: scaleX(1); }
   @media (prefers-reduced-motion: reduce) {
-    .sector-tab::after, .sector-tab.is-hinting:not(.is-active) { transition: none; }
+    .sector-tab.is-hinting:not(.is-active) { animation: none; transition: none; }
     .sector-photo-progress { display: none; }
   }
   .sector-display { position: relative; max-width: 640px; margin: 0 auto; text-align: center; overflow: hidden; }
