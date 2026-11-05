@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Multi Karya Sukses — Commercial Fit-Out & Interior Design</title>
-<meta name="description" content="Commercial spaces, built and delivered with precision.">
+<title data-i18n="meta.title">Multi Karya Sukses — Commercial Fit-Out & Interior Design</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="Commercial spaces, built and delivered with precision.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -47,6 +47,13 @@
   .nav-links a { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); transition: color 200ms ease-out; }
   .nav-links a:hover { color: var(--steel); }
   .brand img { display: block; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-right .btn-cta { white-space: nowrap; }
+  .lang-toggle { display: inline-flex; background: var(--panel-light); border: 1.5px solid var(--site-red); border-radius: 999px; padding: 2px; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; }
+  .lang-toggle button { background: none; border: none; cursor: pointer; font: inherit; letter-spacing: inherit; padding: 6px 12px; border-radius: 999px; color: var(--ink-muted); transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .lang-toggle button:hover { color: var(--ink); }
+  .lang-toggle button[aria-pressed="true"] { background: var(--site-red); color: var(--panel-light); cursor: default; }
+  @media (max-width: 480px) { .nav-right { gap: 12px; } .brand-text { display: none; } }
 
   /* ---------- Buttons ---------- */
   .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.95rem; padding: 13px 22px; border-radius: 999px; min-height: 44px; transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out, transform 200ms cubic-bezier(.2,.7,.2,1), box-shadow 200ms ease-out; }
@@ -290,11 +297,17 @@
     <div class="wrap">
       <span class="brand"><img src="assets/brand/logo-mks.png" alt="" width="46" height="46"><span class="brand-text">Multi Karya Sukses</span></span>
       <div class="nav-links">
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#area">Area</a>
+        <a data-i18n="nav.about" href="#about">About Us</a>
+        <a data-i18n="nav.services" href="#services">Services</a>
+        <a data-i18n="nav.area" href="#area">Area</a>
       </div>
-      <a class="btn btn-cta btn-pill-blue" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Let's Talk <span aria-hidden="true">&rarr;</span></a>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language / Bahasa">
+          <button type="button" lang="id" data-lang="id" aria-pressed="false" title="Bahasa Indonesia">ID</button>
+          <button type="button" lang="en" data-lang="en" aria-pressed="true" title="English">EN</button>
+        </div>
+        <a class="btn btn-cta btn-pill-blue" data-wa data-i18n="cta.talk" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Let's Talk <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </div>
 
@@ -303,15 +316,15 @@
     <!-- HERO -->
     <header class="hero photo-section" id="hero">
       <div class="photo-fill">
-        <div class="cap"><span class="tag mono">IMAGE — full bleed</span><span>completed commercial interior, wall bay with laptop docked, warm ambient light</span></div>
+        <div class="cap"><span class="tag mono" data-i18n="ph.fullbleed">IMAGE — full bleed</span><span data-i18n="ph.hero">completed commercial interior, wall bay with laptop docked, warm ambient light</span></div>
       </div>
       <div class="scrim"></div>
       <div class="wrap hero-content">
-        <h1>Commercial spaces, built and delivered with precision.</h1>
-        <p class="lede">Commercial fit-outs and interiors, from the first wall to the last piece of signage.</p>
+        <h1 data-i18n="hero.h1">Commercial spaces, built and delivered with precision.</h1>
+        <p data-i18n="hero.lede" class="lede">Commercial fit-outs and interiors, from the first wall to the last piece of signage.</p>
         <div class="actions">
-          <a class="hero-link hero-link-primary" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Let's Talk <span class="arrow" aria-hidden="true">&#8599;</span></a>
-          <a class="hero-link" href="#work">View Our Work <span class="arrow" aria-hidden="true">&#8599;</span></a>
+          <a class="hero-link hero-link-primary" data-wa data-i18n="cta.talk.hero" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Let's Talk <span class="arrow" aria-hidden="true">&#8599;</span></a>
+          <a data-i18n="hero.work" class="hero-link" href="#work">View Our Work <span class="arrow" aria-hidden="true">&#8599;</span></a>
         </div>
       </div>
     </header>
@@ -328,34 +341,34 @@
     <section class="about reveal" id="about">
       <div class="wrap">
         <div class="section-head">
-          <span class="microlabel">(About Us)</span>
+          <span class="microlabel" data-i18n="about.label">(About Us)</span>
         </div>
-        <p class="section-statement" style="margin-bottom:20px;"><span style="display:block; margin-bottom:0.2em;">You have a business to run.</span><span style="display:block;">We take care of the space.</span></p>
-        <p class="lede" style="color:var(--ink-muted); font-size:0.9rem; max-width:52ch; margin-bottom:16px;">Multi Karya Sukses turns your vision into a space built around how your business works.</p>
-        <p class="mono" style="color:var(--steel);">Your vision. Built right. Delivered on time.</p>
+        <p class="section-statement" data-i18n="about.statement" style="margin-bottom:20px;"><span style="display:block; margin-bottom:0.2em;">You have a business to run.</span><span style="display:block;">We take care of the space.</span></p>
+        <p class="lede" data-i18n="about.lede" style="color:var(--ink-muted); font-size:0.9rem; max-width:52ch; margin-bottom:16px;">Multi Karya Sukses turns your vision into a space built around how your business works.</p>
+        <p class="mono" data-i18n="about.tagline" style="color:var(--steel);">Your vision. Built right. Delivered on time.</p>
         <div class="see-more-divider"></div>
-        <button class="see-more" type="button" id="about-see-more">See More <span aria-hidden="true">&rarr;</span></button>
+        <button data-i18n="about.more" class="see-more" type="button" id="about-see-more">See More <span aria-hidden="true">&rarr;</span></button>
       </div>
     </section>
 
     <!-- PROOF: stats over photo -->
     <section class="stats-photo photo-section reveal" id="stats">
       <div class="photo-fill">
-        <div class="cap"><span class="tag mono">IMAGE — full bleed</span><span>a second finished space — the renovated government office</span></div>
+        <div class="cap"><span class="tag mono" data-i18n="ph.fullbleed">IMAGE — full bleed</span><span data-i18n="ph.stats">a second finished space — the renovated government office</span></div>
       </div>
       <div class="scrim"></div>
       <div class="wrap stats-grid">
         <div>
           <div class="stat-figure" data-target="8" data-suffix="+">8+</div>
-          <div class="stat-label mono">YEARS IN BUSINESS</div>
+          <div data-i18n="stats.years" class="stat-label mono">YEARS IN BUSINESS</div>
         </div>
         <div>
           <div class="stat-figure" data-target="2700" data-suffix="+">2,700+</div>
-          <div class="stat-label mono">PROJECTS DELIVERED</div>
+          <div data-i18n="stats.projects" class="stat-label mono">PROJECTS DELIVERED</div>
         </div>
         <div>
           <div class="stat-figure" data-target="150" data-suffix="+">150+</div>
-          <div class="stat-label mono">CLIENTS, MANY RETURNING</div>
+          <div data-i18n="stats.clients" class="stat-label mono">CLIENTS, MANY RETURNING</div>
         </div>
       </div>
     </section>
@@ -363,23 +376,23 @@
     <!-- COMMERCIAL PROJECT EXPERTISE (sector tabs) -->
     <section class="expertise reveal" id="work">
       <div class="wrap">
-        <span class="microlabel">(What we build)</span>
-        <p class="section-statement center">Commercial project expertise<br>across every sector.</p>
+        <span data-i18n="work.label" class="microlabel">(What we build)</span>
+        <p data-i18n="work.statement" class="section-statement center">Commercial project expertise<br>across every sector.</p>
 
         <div class="sector-tabs" role="tablist">
-          <button class="sector-tab is-active" type="button" role="tab" aria-selected="true" data-sector="retail">Retail</button>
-          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="fnb">F&amp;B</button>
-          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="corporate">Corporate &amp; Government</button>
-          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="hospitality">Hospitality</button>
+          <button class="sector-tab is-active" type="button" role="tab" aria-selected="true" data-sector="retail" data-i18n="sector.retail">Retail</button>
+          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="fnb" data-i18n="sector.fnb">F&amp;B</button>
+          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="corporate" data-i18n="sector.corporate">Corporate &amp; Government</button>
+          <button class="sector-tab" type="button" role="tab" aria-selected="false" data-sector="hospitality" data-i18n="sector.hospitality">Hospitality</button>
         </div>
 
         <div class="sector-display">
           <span class="sector-watermark" aria-hidden="true" data-watermark>RETAIL</span>
           <div class="photo-fill sector-photo" style="position: relative;" data-sector-photo>
             <img class="sector-photo-img" data-sector-photo-img alt="" hidden>
-            <div class="cap" data-sector-photo-cap><div><span class="tag mono">IMAGE <span data-sector-image-index>1/3</span></span><span data-sector-image-caption>completed electronics or beauty retail store</span></div></div>
-            <button class="sector-photo-nav sector-photo-prev" type="button" aria-label="Previous photo">&lsaquo;</button>
-            <button class="sector-photo-nav sector-photo-next" type="button" aria-label="Next photo">&rsaquo;</button>
+            <div class="cap" data-sector-photo-cap><div><span class="tag mono"><span data-i18n="ph.image">IMAGE</span> <span data-sector-image-index>1/3</span></span><span data-sector-image-caption>completed electronics or beauty retail store</span></div></div>
+            <button class="sector-photo-nav sector-photo-prev" type="button" data-i18n-attr="aria-label:photo.prev" aria-label="Previous photo">&lsaquo;</button>
+            <button class="sector-photo-nav sector-photo-next" type="button" data-i18n-attr="aria-label:photo.next" aria-label="Next photo">&rsaquo;</button>
             <span class="sector-photo-progress" data-sector-progress aria-hidden="true"></span>
           </div>
           <div class="sector-photo-realcap" data-sector-photo-realcap hidden>
@@ -394,21 +407,21 @@
     <!-- HOW WE WORK -->
     <section class="how-work reveal">
       <div class="wrap">
-        <span class="microlabel">(How we work)</span>
-        <h2 class="how-heading">One team.<br>Clear communication.<br>No surprises.</h2>
+        <span data-i18n="how.label" class="microlabel">(How we work)</span>
+        <h2 data-i18n="how.heading" class="how-heading">One team.<br>Clear communication.<br>No surprises.</h2>
         <div class="how-list">
           <div class="how-row">
             <span class="how-num mono">01</span>
             <div>
-              <div class="how-title">One team, start to finish</div>
-              <p class="how-body">Construction, interiors, furniture, and signage under one contract. No handoffs between trades.</p>
+              <div data-i18n="how.1.title" class="how-title">One team, start to finish</div>
+              <p data-i18n="how.1.body" class="how-body">Construction, interiors, furniture, and signage under one contract. No handoffs between trades.</p>
             </div>
           </div>
           <div class="how-row">
             <span class="how-num mono">02</span>
             <div>
-              <div class="how-title">Full visibility</div>
-              <p class="how-body">From design to handover, every stage is clearly communicated so you always know what's happening.</p>
+              <div data-i18n="how.2.title" class="how-title">Full visibility</div>
+              <p data-i18n="how.2.body" class="how-body">From design to handover, every stage is clearly communicated so you always know what's happening.</p>
             </div>
           </div>
         </div>
@@ -418,67 +431,67 @@
     <!-- FULL SCOPE OF WORK (services accordion) -->
     <section class="scope reveal" id="services">
       <div class="wrap">
-        <span class="microlabel">(Services)</span>
-        <p class="section-statement" style="margin-top:12px;">The full scope of work, category by category.</p>
+        <span data-i18n="svc.label" class="microlabel">(Services)</span>
+        <p class="section-statement" data-i18n="svc.statement" style="margin-top:12px;">The full scope of work, category by category.</p>
         <div class="scope-list">
           <div class="scope-row">
             <span class="scope-num">01</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Architecture / Civil</div>
-                <p class="scope-desc">Structural renovation, indoor and outdoor.</p>
+                <div data-i18n="svc.1.title" class="scope-title">Architecture / Civil</div>
+                <p data-i18n="svc.1.desc" class="scope-desc">Structural renovation, indoor and outdoor.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>Electrical &amp; AC installation</div><div>Floor tiling</div><div>Granite installation</div><div>Gypsum ceiling</div><div>Rolling door</div><div>Steel canopy</div><div>Store renovation (indoor &amp; outdoor)</div><div>Wall painting</div><div>Wall partition</div><div>Water installation</div><div>WPC ceiling</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.1.items"><div>Electrical &amp; AC installation</div><div>Floor tiling</div><div>Granite installation</div><div>Gypsum ceiling</div><div>Rolling door</div><div>Steel canopy</div><div>Store renovation (indoor &amp; outdoor)</div><div>Wall painting</div><div>Wall partition</div><div>Water installation</div><div>WPC ceiling</div></div></div>
             </div>
           </div>
           <div class="scope-row">
             <span class="scope-num">02</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Furniture / Interior</div>
-                <p class="scope-desc">Built-ins and custom furniture for the finished space.</p>
+                <div data-i18n="svc.2.title" class="scope-title">Furniture / Interior</div>
+                <p data-i18n="svc.2.desc" class="scope-desc">Built-ins and custom furniture for the finished space.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>Cabinets</div><div>Chairs</div><div>Custom sofas</div><div>Custom tables</div><div>Display booths</div><div>Exhibition booths</div><div>Office backdrops</div><div>TV backdrops</div><div>Wall bays</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.2.items"><div>Cabinets</div><div>Chairs</div><div>Custom sofas</div><div>Custom tables</div><div>Display booths</div><div>Exhibition booths</div><div>Office backdrops</div><div>TV backdrops</div><div>Wall bays</div></div></div>
             </div>
           </div>
           <div class="scope-row">
             <span class="scope-num">03</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Advertising &amp; Branding</div>
-                <p class="scope-desc">Signage and brand identity, fabricated and installed.</p>
+                <div data-i18n="svc.3.title" class="scope-title">Advertising &amp; Branding</div>
+                <p data-i18n="svc.3.desc" class="scope-desc">Signage and brand identity, fabricated and installed.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>ACP signage</div><div>Baliho</div><div>Dimensional letters (stainless / acrylic)</div><div>Lightbox</div><div>Neon box</div><div>Printing</div><div>Revisual</div><div>Storefront signage</div><div>UV fabric print</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.3.items"><div>ACP signage</div><div>Baliho</div><div>Dimensional letters (stainless / acrylic)</div><div>Lightbox</div><div>Neon box</div><div>Printing</div><div>Revisual</div><div>Storefront signage</div><div>UV fabric print</div></div></div>
             </div>
           </div>
           <div class="scope-row">
             <span class="scope-num">04</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Tax &amp; Permits</div>
-                <p class="scope-desc">Paperwork handled on your behalf.</p>
+                <div data-i18n="svc.4.title" class="scope-title">Tax &amp; Permits</div>
+                <p data-i18n="svc.4.desc" class="scope-desc">Paperwork handled on your behalf.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>Billboard tax &amp; permits</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.4.items"><div>Billboard tax &amp; permits</div></div></div>
             </div>
           </div>
           <div class="scope-row">
             <span class="scope-num">05</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Delivery Service</div>
-                <p class="scope-desc">Packing, shipping, and on-site installation.</p>
+                <div data-i18n="svc.5.title" class="scope-title">Delivery Service</div>
+                <p data-i18n="svc.5.desc" class="scope-desc">Packing, shipping, and on-site installation.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>Packing, delivery, installation and renovation across Sumatra (excluding Aceh)</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.5.items"><div>Packing, delivery, installation and renovation across Sumatra (excluding Aceh)</div></div></div>
             </div>
           </div>
           <div class="scope-row">
             <span class="scope-num">06</span>
             <div class="scope-content">
               <button class="scope-btn" aria-expanded="false">
-                <div class="scope-title">Maintenance / Demolition</div>
-                <p class="scope-desc">Upkeep and teardown, including debris removal.</p>
+                <div data-i18n="svc.6.title" class="scope-title">Maintenance / Demolition</div>
+                <p data-i18n="svc.6.desc" class="scope-desc">Upkeep and teardown, including debris removal.</p>
               </button>
-              <div class="scope-panel"><div class="scope-panel-inner"><div>Debris removal</div><div>Demolition — mall stores, shophouses, old houses</div><div>Maintenance</div></div></div>
+              <div class="scope-panel"><div class="scope-panel-inner" data-i18n="svc.6.items"><div>Debris removal</div><div>Demolition — mall stores, shophouses, old houses</div><div>Maintenance</div></div></div>
             </div>
           </div>
         </div>
@@ -488,12 +501,12 @@
     <!-- AREAS WE SERVE -->
     <section class="areas reveal" id="area">
       <div class="wrap">
-        <span class="microlabel">(Areas We Serve)</span>
-        <p class="section-statement" style="margin-top:12px;">Sumatra-wide, based in Palembang.</p>
+        <span data-i18n="area.label" class="microlabel">(Areas We Serve)</span>
+        <p class="section-statement" data-i18n="area.statement" style="margin-top:12px;">Sumatra-wide, based in Palembang.</p>
         <div class="areas-layout">
           <div class="areas-map-full">
             <div class="areas-map">
-              <img src="assets/sumatra-map.svg" alt="Map of Sumatra with pins marking Multi Karya Sukses service hubs: Medan, Padang, Pekanbaru, Batam, Jambi, Palembang, Bangka Belitung, Bengkulu, and Bandar Lampung." width="998" height="899" loading="lazy">
+              <img src="assets/sumatra-map.svg" data-i18n-attr="alt:area.mapalt" alt="Map of Sumatra with pins marking Multi Karya Sukses service hubs: Medan, Padang, Pekanbaru, Batam, Jambi, Palembang, Bangka Belitung, Bengkulu, and Bandar Lampung." width="998" height="899" loading="lazy">
               <button class="map-pin" type="button" style="left:23.70%;top:15.51%;width:11.67%;height:4.45%" data-anchor-left="24.90%" data-anchor-top="17.74%" data-province="Sumatera Utara" data-cities="Medan" aria-label="Sumatera Utara: Medan"></button>
               <button class="map-pin" type="button" style="left:34.89%;top:50.92%;width:12.92%;height:4.45%" data-anchor-left="36.09%" data-anchor-top="53.15%" data-province="Sumatera Barat" data-cities="Padang, Bukittinggi" aria-label="Sumatera Barat: Padang, Bukittinggi"></button>
               <button class="map-pin" type="button" style="left:42.20%;top:39.55%;width:16.68%;height:4.45%" data-anchor-left="43.41%" data-anchor-top="41.78%" data-province="Riau" data-cities="Pekanbaru" aria-label="Riau: Pekanbaru"></button>
@@ -508,7 +521,7 @@
                 <ul class="map-popup-cities" data-map-popup-cities></ul>
               </div>
             </div>
-            <p class="map-credit">Base map: Wikimedia Commons, CC BY-SA 3.0 &mdash; tap a pin for details.</p>
+            <p data-i18n="area.credit" class="map-credit">Base map: Wikimedia Commons, CC BY-SA 3.0 &mdash; tap a pin for details.</p>
           </div>
         </div>
       </div>
@@ -518,27 +531,27 @@
     <section class="contact reveal">
       <div class="wrap contact-grid">
         <div>
-          <h2 style="font-size:2rem; font-weight:500; margin-bottom:16px;">Have a space in mind?</h2>
-          <p class="lede" style="color:var(--ink); font-size:1.0625rem; max-width:36ch; margin-bottom:28px;">Tell us what you're planning.<br>We'll take it from there.</p>
+          <h2 data-i18n="contact.h" style="font-size:2rem; font-weight:500; margin-bottom:16px;">Have a space in mind?</h2>
+          <p class="lede" data-i18n="contact.lede" style="color:var(--ink); font-size:1.0625rem; max-width:36ch; margin-bottom:28px;">Tell us what you're planning.<br>We'll take it from there.</p>
           <div class="actions">
-            <a class="btn btn-cta" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Tell Us About Your Space <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn-cta" data-wa data-i18n="contact.cta" href="https://wa.me/6281273234788?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20fit-out%20project">Tell Us About Your Space <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="mono call-note contact-note" style="margin-top:20px;">Same-day response during business hours.</p>
-          <p class="mono call-note">Prefer a call? <a href="tel:+6281279531753">+62 812-7953-1753</a> · <a href="tel:+6281273234788">+62 812-7323-4788</a></p>
+          <p class="mono call-note contact-note" data-i18n="contact.same" style="margin-top:20px;">Same-day response during business hours.</p>
+          <p class="mono call-note" data-i18n="contact.call">Prefer a call? <a href="tel:+6281279531753">+62 812-7953-1753</a> · <a href="tel:+6281273234788">+62 812-7323-4788</a></p>
         </div>
         <div class="contact-details">
           <div class="contact-details-row">
             <div>
-              <div class="label mono">HOURS</div>
-              <p style="margin:0;">Mon–Sat, 9:30am–5:30pm</p>
+              <div data-i18n="contact.hours" class="label mono">HOURS</div>
+              <p data-i18n="contact.hoursval" style="margin:0;">Mon–Sat, 9:30am–5:30pm</p>
             </div>
             <div>
-              <div class="label mono">ADDRESS</div>
+              <div data-i18n="contact.address" class="label mono">ADDRESS</div>
               <p style="margin:0;">Komplek Kedamaian Permai 2,<br>Jalan Gajah Blok EE No. 18<br>Palembang, Sumatera Selatan</p>
             </div>
           </div>
           <div class="office-map">
-            <iframe src="https://www.google.com/maps?q=-2.9457995,104.7776453&z=17&output=embed" width="100%" height="160" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Multi Karya Sukses office location"></iframe>
+            <iframe src="https://www.google.com/maps?q=-2.9457995,104.7776453&z=17&output=embed" width="100%" height="160" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-i18n-attr="title:contact.maptitle" title="Multi Karya Sukses office location"></iframe>
           </div>
         </div>
       </div>
@@ -549,13 +562,13 @@
   <!-- ABOUT: "See More" modal -->
   <div class="modal-backdrop" id="about-modal" hidden>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
-      <button class="modal-close" type="button" id="about-modal-close" aria-label="Close">&times;</button>
-      <p class="microlabel">(About Us)</p>
-      <h2 id="about-modal-title" class="section-statement" style="margin-bottom:20px;">Bringing hospitality &amp; retail spaces to life.</h2>
-      <p class="lede" style="color:var(--ink); font-size:1.0625rem; margin-bottom:24px;">End-to-end project delivery, from concept through completion.</p>
-      <p style="margin-bottom:20px;">We deliver interior fit-out projects for retail, hospitality, and government clients across Sumatra — with a focus on clarity, precision, and strong commercial outcomes.</p>
-      <p style="margin-bottom:20px;">With 8+ years working alongside developers, hospitality groups, and asset owners, we act as a single embedded partner from planning through to opening — managing approvals, design coordination, and construction so every stage stays on track.</p>
-      <p class="mono" style="color:var(--steel);">Spaces that don't just look exceptional — they perform.</p>
+      <button class="modal-close" type="button" id="about-modal-close" data-i18n-attr="aria-label:modal.close" aria-label="Close">&times;</button>
+      <p data-i18n="about.label" class="microlabel">(About Us)</p>
+      <h2 id="about-modal-title" data-i18n="modal.h" class="section-statement" style="margin-bottom:20px;">Bringing hospitality &amp; retail spaces to life.</h2>
+      <p class="lede" data-i18n="modal.lede" style="color:var(--ink); font-size:1.0625rem; margin-bottom:24px;">End-to-end project delivery, from concept through completion.</p>
+      <p data-i18n="modal.p1" style="margin-bottom:20px;">We deliver interior fit-out projects for retail, hospitality, and government clients across Sumatra — with a focus on clarity, precision, and strong commercial outcomes.</p>
+      <p data-i18n="modal.p2" style="margin-bottom:20px;">With 8+ years working alongside developers, hospitality groups, and asset owners, we act as a single embedded partner from planning through to opening — managing approvals, design coordination, and construction so every stage stays on track.</p>
+      <p class="mono" data-i18n="modal.tagline" style="color:var(--steel);">Spaces that don't just look exceptional — they perform.</p>
     </div>
   </div>
 
@@ -566,6 +579,153 @@
     </div>
   </footer>
 
+<script>
+// ---------- Language (Bahasa Indonesia / English) ----------
+// English lives in the HTML. Elements with data-i18n="key" get their
+// Indonesian HTML from ID below; data-i18n-attr="attr:key" does the same for
+// an attribute. First visit: Indonesian if the browser prefers Indonesian,
+// otherwise English. A manual choice is remembered in localStorage.
+(function () {
+  var ID = {
+    'meta.title': 'Multi Karya Sukses — Fit-Out &amp; Desain Interior Komersial',
+    'meta.desc': 'Ruang komersial, dibangun dan diselesaikan dengan presisi.',
+    'nav.about': 'Tentang Kami',
+    'nav.services': 'Layanan',
+    'nav.area': 'Area',
+    'cta.talk': 'Hubungi Kami <span aria-hidden="true">&rarr;</span>',
+    'cta.talk.hero': 'Hubungi Kami <span class="arrow" aria-hidden="true">&#8599;</span>',
+    'ph.fullbleed': 'GAMBAR — layar penuh',
+    'ph.hero': 'interior komersial yang sudah selesai, wall bay dengan laptop terpasang, pencahayaan hangat',
+    'ph.stats': 'ruang kedua yang sudah selesai — kantor pemerintahan yang direnovasi',
+    'ph.image': 'GAMBAR',
+    'hero.h1': 'Ruang komersial, dibangun dan diselesaikan dengan presisi.',
+    'hero.lede': 'Fit-out dan interior komersial, dari dinding pertama hingga papan nama terakhir.',
+    'hero.work': 'Lihat Proyek Kami <span class="arrow" aria-hidden="true">&#8599;</span>',
+    'about.label': '(Tentang Kami)',
+    'about.statement': '<span style="display:block; margin-bottom:0.2em;">Anda fokus menjalankan bisnis.</span><span style="display:block;">Urusan ruang, serahkan kepada kami.</span>',
+    'about.lede': 'Multi Karya Sukses mewujudkan visi Anda menjadi ruang yang dirancang sesuai cara bisnis Anda berjalan.',
+    'about.tagline': 'Visi Anda. Dikerjakan dengan benar. Selesai tepat waktu.',
+    'about.more': 'Selengkapnya <span aria-hidden="true">&rarr;</span>',
+    'stats.years': 'TAHUN BERPENGALAMAN',
+    'stats.projects': 'PROYEK SELESAI',
+    'stats.clients': 'KLIEN, BANYAK YANG KEMBALI',
+    'work.label': '(Yang kami bangun)',
+    'work.statement': 'Keahlian proyek komersial<br>untuk setiap sektor.',
+    'sector.retail': 'Ritel',
+    'sector.fnb': 'F&amp;B',
+    'sector.corporate': 'Korporat &amp; Pemerintahan',
+    'sector.hospitality': 'Perhotelan',
+    'photo.prev': 'Foto sebelumnya',
+    'photo.next': 'Foto berikutnya',
+    'how.label': '(Cara kami bekerja)',
+    'how.heading': 'Satu tim.<br>Komunikasi jelas.<br>Tanpa kejutan.',
+    'how.1.title': 'Satu tim, dari awal hingga akhir',
+    'how.1.body': 'Konstruksi, interior, furnitur, dan signage dalam satu kontrak. Tanpa oper-operan antar kontraktor.',
+    'how.2.title': 'Transparan di setiap tahap',
+    'how.2.body': 'Dari desain hingga serah terima, setiap tahap dikomunikasikan dengan jelas sehingga Anda selalu tahu perkembangannya.',
+    'svc.label': '(Layanan)',
+    'svc.statement': 'Lingkup pekerjaan lengkap, per kategori.',
+    'svc.1.title': 'Arsitektur / Sipil',
+    'svc.1.desc': 'Renovasi struktural, indoor maupun outdoor.',
+    'svc.1.items': '<div>Instalasi listrik &amp; AC</div><div>Pemasangan keramik lantai</div><div>Pemasangan granit</div><div>Plafon gipsum</div><div>Rolling door</div><div>Kanopi baja</div><div>Renovasi toko (indoor &amp; outdoor)</div><div>Pengecatan dinding</div><div>Partisi dinding</div><div>Instalasi air</div><div>Plafon WPC</div>',
+    'svc.2.title': 'Furnitur / Interior',
+    'svc.2.desc': 'Furnitur built-in dan custom untuk ruang yang siap pakai.',
+    'svc.2.items': '<div>Kabinet</div><div>Kursi</div><div>Sofa custom</div><div>Meja custom</div><div>Booth display</div><div>Booth pameran</div><div>Backdrop kantor</div><div>Backdrop TV</div><div>Wall bay</div>',
+    'svc.3.title': 'Periklanan &amp; Branding',
+    'svc.3.desc': 'Signage dan identitas merek, diproduksi dan dipasang.',
+    'svc.3.items': '<div>Signage ACP</div><div>Baliho</div><div>Huruf timbul (stainless / akrilik)</div><div>Lightbox</div><div>Neon box</div><div>Percetakan</div><div>Revisual</div><div>Signage fasad toko</div><div>Cetak kain UV</div>',
+    'svc.4.title': 'Pajak &amp; Perizinan',
+    'svc.4.desc': 'Urusan dokumen kami tangani untuk Anda.',
+    'svc.4.items': '<div>Pajak &amp; izin reklame</div>',
+    'svc.5.title': 'Layanan Pengiriman',
+    'svc.5.desc': 'Pengemasan, pengiriman, dan pemasangan di lokasi.',
+    'svc.5.items': '<div>Pengemasan, pengiriman, pemasangan, dan renovasi di seluruh Sumatra (kecuali Aceh)</div>',
+    'svc.6.title': 'Perawatan / Pembongkaran',
+    'svc.6.desc': 'Perawatan dan pembongkaran, termasuk pembuangan puing.',
+    'svc.6.items': '<div>Pembuangan puing</div><div>Pembongkaran — toko di mal, ruko, rumah lama</div><div>Perawatan</div>',
+    'area.label': '(Area Layanan)',
+    'area.statement': 'Melayani seluruh Sumatra, berbasis di Palembang.',
+    'area.mapalt': 'Peta Sumatra dengan pin yang menandai pusat layanan Multi Karya Sukses: Medan, Padang, Pekanbaru, Batam, Jambi, Palembang, Bangka Belitung, Bengkulu, dan Bandar Lampung.',
+    'area.credit': 'Peta dasar: Wikimedia Commons, CC BY-SA 3.0 &mdash; ketuk pin untuk detail.',
+    'contact.h': 'Punya rencana untuk ruang usaha Anda?',
+    'contact.lede': 'Ceritakan rencana Anda.<br>Selebihnya biar kami yang urus.',
+    'contact.cta': 'Ceritakan Proyek Anda <span aria-hidden="true">&rarr;</span>',
+    'contact.same': 'Dibalas di hari yang sama selama jam kerja.',
+    'contact.call': 'Lebih suka telepon? <a href="tel:+6281279531753">+62 812-7953-1753</a> · <a href="tel:+6281273234788">+62 812-7323-4788</a>',
+    'contact.hours': 'JAM KERJA',
+    'contact.hoursval': 'Senin–Sabtu, 09.30–17.30',
+    'contact.address': 'ALAMAT',
+    'contact.maptitle': 'Lokasi kantor Multi Karya Sukses',
+    'modal.close': 'Tutup',
+    'modal.h': 'Menghidupkan ruang perhotelan &amp; ritel.',
+    'modal.lede': 'Pengerjaan proyek menyeluruh, dari konsep hingga selesai.',
+    'modal.p1': 'Kami mengerjakan proyek fit-out interior untuk klien ritel, perhotelan, dan pemerintahan di seluruh Sumatra, dengan fokus pada kejelasan, presisi, dan hasil komersial yang nyata.',
+    'modal.p2': 'Dengan pengalaman lebih dari 8 tahun bersama developer, grup perhotelan, dan pemilik aset, kami hadir sebagai satu mitra terpadu dari perencanaan hingga pembukaan: mengurus perizinan, koordinasi desain, dan konstruksi agar setiap tahap tetap sesuai rencana.',
+    'modal.tagline': 'Ruang yang bukan hanya indah dilihat, tetapi juga mendukung bisnis Anda.'
+  };
+  var WA = {
+    en: 'Hi, I\'d like a quote for a fit-out project',
+    id: 'Halo, saya ingin minta penawaran untuk proyek fit-out/interior'
+  };
+  var KEY = 'mks-lang';
+  var listeners = [];
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var attrNodes = document.querySelectorAll('[data-i18n-attr]');
+  // Remember the English originals once
+  nodes.forEach(function (el) { el._en = el.innerHTML; });
+  attrNodes.forEach(function (el) {
+    var parts = el.getAttribute('data-i18n-attr').split(':');
+    el._attr = parts[0]; el._key = parts[1]; el._enAttr = el.getAttribute(parts[0]);
+  });
+
+  function pickInitial() {
+    try { var saved = localStorage.getItem(KEY); if (saved === 'id' || saved === 'en') return saved; } catch (e) {}
+    var langs = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < langs.length; i++) {
+      var l = (langs[i] || '').toLowerCase();
+      if (l.indexOf('id') === 0 || l.indexOf('in') === 0 || l.indexOf('ms') === 0) return 'id';
+      if (l.indexOf('en') === 0) return 'en';
+    }
+    return 'en';
+  }
+
+  function apply(lang) {
+    var isId = lang === 'id';
+    document.documentElement.lang = lang;
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      el.innerHTML = isId && ID[key] ? ID[key] : el._en;
+    });
+    attrNodes.forEach(function (el) {
+      el.setAttribute(el._attr, isId && ID[el._key] ? ID[el._key] : el._enAttr);
+    });
+    var title = document.querySelector('title[data-i18n]');
+    if (title) document.title = title.textContent;
+    document.querySelectorAll('a[data-wa]').forEach(function (a) {
+      a.href = 'https://wa.me/6281273234788?text=' + encodeURIComponent(WA[lang]);
+    });
+    document.querySelectorAll('.lang-toggle [data-lang]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    window.MKSLang.lang = lang;
+    listeners.forEach(function (fn) { fn(lang); });
+  }
+
+  window.MKSLang = {
+    lang: 'en',
+    onChange: function (fn) { listeners.push(fn); },
+    set: function (lang) {
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+      if (lang !== window.MKSLang.lang) apply(lang);
+    }
+  };
+  document.querySelectorAll('.lang-toggle [data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { window.MKSLang.set(b.getAttribute('data-lang')); });
+  });
+  var initial = pickInitial();
+  if (initial !== 'en') apply(initial);
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script>
 (function () {
@@ -652,40 +812,44 @@
   // Sector tabs: swap watermark, photo caption, and description on click
   var sectorData = {
     retail: {
-      watermark: 'RETAIL',
+      watermark: 'RETAIL', watermark_id: 'RITEL',
       images: [
-        { caption: 'Service center', src: 'assets/sector/retail-1-oppo-service-centre.jpg' },
-        { caption: 'Beauty retail fit-out', src: 'assets/sector/retail-2-skintific-store.jpg' },
-        { caption: 'Telecom service counter', src: 'assets/sector/retail-3-grapari-telkomsel.jpg' },
-        { caption: 'Wall bay fit-out', src: 'assets/sector/retail-4-accessory-kiosk.jpg' }
+        { caption: 'Service center', caption_id: 'Service center', src: 'assets/sector/retail-1-oppo-service-centre.jpg' },
+        { caption: 'Beauty retail fit-out', caption_id: 'Fit-out toko kecantikan', src: 'assets/sector/retail-2-skintific-store.jpg' },
+        { caption: 'Telecom service counter', caption_id: 'Konter layanan telekomunikasi', src: 'assets/sector/retail-3-grapari-telkomsel.jpg' },
+        { caption: 'Wall bay fit-out', caption_id: 'Fit-out wall bay', src: 'assets/sector/retail-4-accessory-kiosk.jpg' }
       ],
+      caption_id: 'Toko elektronik, service center, booth kecantikan, dan ritel khusus, dari rak pertama hingga papan nama terakhir.',
       caption: 'Electronics stores, service centers, beauty booths, and specialty retail — from first fixture to final signage.'
     },
     fnb: {
-      watermark: 'F&B',
+      watermark: 'F&B', watermark_id: 'F&B',
       images: [
-        { caption: 'coffee shop or drink bar interior, ready to open', src: null },
-        { caption: 'counter and menu board', src: null },
-        { caption: 'seating area', src: null }
+        { caption: 'coffee shop or drink bar interior, ready to open', caption_id: 'interior kedai kopi atau minuman, siap buka', src: null },
+        { caption: 'counter and menu board', caption_id: 'konter dan papan menu', src: null },
+        { caption: 'seating area', caption_id: 'area tempat duduk', src: null }
       ],
+      caption_id: 'Kafe dan kedai minuman yang dibangun agar cepat buka dan siap melayani ramainya pengunjung setiap hari.',
       caption: 'Cafés and drink bars built to open fast and handle daily volume.'
     },
     corporate: {
-      watermark: 'CORPORATE',
+      watermark: 'CORPORATE', watermark_id: 'KORPORAT',
       images: [
-        { caption: 'renovated government or corporate office, wall bay in use', src: null },
-        { caption: 'reception / lobby area', src: null },
-        { caption: 'workstation close-up', src: null }
+        { caption: 'renovated government or corporate office, wall bay in use', caption_id: 'kantor pemerintahan atau korporat yang sudah direnovasi, wall bay terpakai', src: null },
+        { caption: 'reception / lobby area', caption_id: 'area resepsionis / lobi', src: null },
+        { caption: 'workstation close-up', caption_id: 'detail meja kerja', src: null }
       ],
+      caption_id: 'Kantor, service center, dan fasilitas pemerintahan, lengkap dengan wall bay, meja kerja, dan signage.',
       caption: 'Offices, service centers, and government facilities — wall bays, workstations, and signage included.'
     },
     hospitality: {
-      watermark: 'HOSPITALITY',
+      watermark: 'HOSPITALITY', watermark_id: 'PERHOTELAN',
       images: [
-        { caption: 'hotel lobby or coliving common area', src: null },
-        { caption: 'guest room interior', src: null },
-        { caption: 'common area / amenity space', src: null }
+        { caption: 'hotel lobby or coliving common area', caption_id: 'lobi hotel atau area bersama coliving', src: null },
+        { caption: 'guest room interior', caption_id: 'interior kamar tamu', src: null },
+        { caption: 'common area / amenity space', caption_id: 'area bersama / fasilitas', src: null }
       ],
+      caption_id: 'Hotel dan coliving, dari renovasi struktural hingga fit-out interior.',
       caption: 'Hotels and coliving spaces, from structural renovation to interior fit-out.'
     }
   };
@@ -711,12 +875,18 @@
     return active ? active.textContent.trim().toUpperCase() : '';
   }
 
+  // Pick the Indonesian field (foo_id) when the page is in Indonesian
+  function loc(obj, key) {
+    return (window.MKSLang && MKSLang.lang === 'id' && obj[key + '_id']) || obj[key];
+  }
+
   function applyImageSlot(item) {
-    sectorImageCaption.textContent = item.caption;
-    sectorRealCaption.textContent = item.caption;
+    var cap = loc(item, 'caption');
+    sectorImageCaption.textContent = cap;
+    sectorRealCaption.textContent = cap;
     if (item.src) {
       sectorPhotoImg.src = item.src;
-      sectorPhotoImg.alt = item.caption;
+      sectorPhotoImg.alt = cap;
       sectorPhotoImg.hidden = false;
       sectorPhotoCap.hidden = true;
       sectorPhotoRealCap.hidden = false;
@@ -837,11 +1007,11 @@
       currentImageIdx = 0;
       var data = sectorData[currentSectorKey];
       var swap = function () {
-        sectorWatermark.textContent = data.watermark;
+        sectorWatermark.textContent = loc(data, 'watermark');
         applyImageSlot(data.images[0]);
         sectorImageIndexEl.textContent = '1/' + data.images.length;
         sectorRealIndexEl.textContent = sectorLabel() + ' · 1/' + data.images.length;
-        sectorCaption.textContent = data.caption;
+        sectorCaption.textContent = loc(data, 'caption');
       };
       if (reduceMotion) {
         swap();
@@ -860,7 +1030,20 @@
     });
   });
 
+  // Language switch: redraw the sector panel in the new language
+  if (window.MKSLang) MKSLang.onChange(function () {
+    var data = sectorData[currentSectorKey];
+    sectorWatermark.textContent = loc(data, 'watermark');
+    sectorCaption.textContent = loc(data, 'caption');
+    applyImageSlot(data.images[currentImageIdx]);
+    var idxText = (currentImageIdx + 1) + '/' + data.images.length;
+    sectorImageIndexEl.textContent = idxText;
+    sectorRealIndexEl.textContent = sectorLabel() + ' · ' + idxText;
+  });
+
   // Initial paint: retail's first slot is a real photo, not the placeholder
+  sectorWatermark.textContent = loc(sectorData.retail, 'watermark');
+  sectorCaption.textContent = loc(sectorData.retail, 'caption');
   applyImageSlot(sectorData.retail.images[0]);
   (function () {
     var initIdxText = '1/' + sectorData.retail.images.length;
@@ -924,12 +1107,21 @@
         if (!start) start = ts;
         var progress = Math.min((ts - start) / duration, 1);
         var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+        el.textContent = Math.round(target * eased).toLocaleString(window.MKSLang && MKSLang.lang === 'id' ? 'id-ID' : 'en-US') + suffix;
         if (progress < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
     });
   }
+
+  // Re-format finished stat figures (2,700 vs 2.700) when the language changes
+  if (window.MKSLang) MKSLang.onChange(function (lang) {
+    document.querySelectorAll('.stat-figure[data-target]').forEach(function (el) {
+      var suffix = el.getAttribute('data-suffix') || '';
+      var n = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+      if (!isNaN(n)) el.textContent = n.toLocaleString(lang === 'id' ? 'id-ID' : 'en-US') + suffix;
+    });
+  });
 
   var revealEls = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
