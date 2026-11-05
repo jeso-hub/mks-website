@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Scope of Work — 3 Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: oklch(0.408 0.071 251.2);
+    --site-red: oklch(0.556 0.178 29.3);
+    --warm-divider: oklch(0.807 0.032 86.5);
+    --bg: oklch(0.914 0.021 85.9);
+    --panel: oklch(0.873 0.029 84.6);
+    --panel-light: oklch(0.953 0.016 86.4);
+    --ink: oklch(0.258 0.017 67.0);
+    --ink-muted: oklch(0.258 0.017 67.0 / 0.62);
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Work Sans',sans-serif; font-size:16px; line-height:1.5; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .intro { padding: 56px 0 40px; border-bottom: 1px solid var(--warm-divider); }
+  .intro .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.02em; color:var(--ink-muted); margin:0 0 10px; }
+  .intro h1 { font-family:'Fraunces',serif; font-weight:600; font-size:2rem; margin:0 0 10px; }
+  .intro p { color:var(--ink-muted); max-width:60ch; margin:0; }
+
+  .variant { padding: 56px 0; border-bottom: 1px solid var(--warm-divider); }
+  .variant-head { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom: 8px; flex-wrap:wrap; }
+  .variant-name { font-family:'Fraunces',serif; font-weight:500; font-size:1.5rem; }
+  .badge { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.02em; background:var(--site-red); color:var(--panel-light); padding:4px 10px; border-radius:3px; }
+  .variant-why { color:var(--ink-muted); font-size:.95rem; max-width:70ch; margin: 0 0 32px; }
+
+  /* ---------- Variant 1: numbered list accordion ---------- */
+  .v1-row { border-top: 1px solid var(--warm-divider); }
+  .v1-row:last-child { border-bottom: 1px solid var(--warm-divider); }
+  .v1-btn { display:flex; align-items:center; gap:20px; width:100%; text-align:left; background:none; border:none; padding:20px 0; cursor:pointer; font-family:inherit; color:inherit; }
+  .v1-num { font-family:'Fraunces',serif; font-weight:500; font-size:1.25rem; color:var(--steel); width:32px; flex-shrink:0; }
+  .v1-title { font-family:'Fraunces',serif; font-weight:500; font-size:1.15rem; flex:1; }
+  .v1-icon { font-family:'IBM Plex Mono',monospace; color:var(--ink-muted); transition: transform 200ms; }
+  .v1-row.is-open .v1-icon { transform: rotate(45deg); }
+  .v1-panel { max-height:0; overflow:hidden; transition: max-height 250ms ease-out; }
+  .v1-row.is-open .v1-panel { max-height: 400px; }
+  .v1-panel-inner { padding: 0 0 24px 52px; color:var(--ink-muted); font-size:.95rem; columns: 2; column-gap: 24px; }
+  .v1-panel-inner div { break-inside: avoid; padding: 3px 0; }
+
+  /* ---------- Variant 2: card grid ---------- */
+  .v2-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background:var(--warm-divider); border:1px solid var(--warm-divider); }
+  .v2-card { background:var(--bg); padding:24px; cursor:pointer; }
+  .v2-card-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .v2-card-num { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--steel); letter-spacing:.02em; }
+  .v2-card-title { font-family:'Fraunces',serif; font-weight:500; font-size:1.1rem; margin: 6px 0 0; }
+  .v2-plus { color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; transition: transform 200ms; }
+  .v2-card.is-open .v2-plus { transform: rotate(45deg); }
+  .v2-panel { max-height:0; overflow:hidden; transition: max-height 250ms ease-out; }
+  .v2-card.is-open .v2-panel { max-height: 400px; }
+  .v2-panel-inner { padding-top:16px; color:var(--ink-muted); font-size:.9rem; }
+  .v2-panel-inner div { padding: 2px 0; }
+
+  /* ---------- Variant 3: editorial single-open with descriptions ---------- */
+  .v3-row { display:grid; grid-template-columns: 28px 1fr; gap:20px; border-left: 2px solid var(--warm-divider); padding: 4px 0 4px 20px; margin-bottom: 2px; transition: border-color 200ms; }
+  .v3-row.is-open { border-left-color: var(--site-red); }
+  .v3-btn { display:block; width:100%; text-align:left; background:none; border:none; padding:18px 0; cursor:pointer; font-family:inherit; color:inherit; }
+  .v3-num { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-muted); padding-top:22px; }
+  .v3-row.is-open .v3-num { color:var(--site-red); }
+  .v3-title { font-family:'Fraunces',serif; font-weight:500; font-size:1.3rem; margin: 0 0 6px; }
+  .v3-desc { color:var(--ink-muted); font-size:.95rem; max-width:52ch; margin:0; }
+  .v3-panel { max-height:0; overflow:hidden; transition: max-height 300ms ease-out; }
+  .v3-row.is-open .v3-panel { max-height: 300px; }
+  .v3-panel-inner { padding: 4px 0 20px; color:var(--ink); font-size:.9rem; display:flex; flex-wrap:wrap; gap:8px 10px; }
+  .v3-tag { background:var(--panel); border:1px solid var(--warm-divider); border-radius:3px; padding:4px 10px; font-size:.85rem; }
+
+  @media (max-width: 640px) {
+    .v2-grid { grid-template-columns: 1fr; }
+    .v1-panel-inner { columns: 1; padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="intro">
+    <p class="eyebrow">FULL SCOPE OF WORK — 3 OPTIONS</p>
+    <h1>Same content, three ways to present it.</h1>
+    <p>All three use the real six categories from your services sheet. Click any row to expand it — try all three, then tell me which one to build into the actual page.</p>
+  </div>
+
+  <!-- ============ VARIANT 1 ============ -->
+  <div class="variant">
+    <div class="variant-head">
+      <span class="variant-name">Version 1 — Numbered list</span>
+    </div>
+    <p class="variant-why">Closest to how the rest of the site already reads (matches the "How we work" numbered rows). Quiet, no visual noise, scans fast. Most "premium" in a restrained way — it doesn't try hard.</p>
+
+    <div id="v1"></div>
+  </div>
+
+  <!-- ============ VARIANT 2 ============ -->
+  <div class="variant">
+    <div class="variant-head">
+      <span class="variant-name">Version 2 — Card grid</span>
+    </div>
+    <p class="variant-why">More scannable at a glance — six tiles instead of a tall list, better if someone's skimming on mobile. Reads slightly more "corporate brochure" than editorial; less distinctive than Version 1.</p>
+
+    <div class="v2-grid" id="v2"></div>
+  </div>
+
+  <!-- ============ VARIANT 3 ============ -->
+  <div class="variant">
+    <div class="variant-head">
+      <span class="variant-name">Version 3 — Editorial, independent expand</span>
+      <span class="badge">Your pick</span>
+    </div>
+    <p class="variant-why">Version 3's look (descriptions, tags, red left-border accent) with Version 2's behavior — each row expands on its own now; opening one doesn't close another, so you can compare a few categories side by side instead of one at a time.</p>
+
+    <div id="v3"></div>
+  </div>
+</div>
+
+<script>
+const DATA = [
+  {
+    name: "Architecture / Civil",
+    desc: "Structural renovation, indoor and outdoor.",
+    items: ["Store renovation (indoor & outdoor)", "Granite installation", "Floor tiling", "Gypsum ceiling", "WPC ceiling", "Electrical & AC installation", "Water installation", "Rolling door", "Wall partition", "Wall painting", "Steel canopy"]
+  },
+  {
+    name: "Furniture / Interior",
+    desc: "Built-ins and custom furniture for the finished space.",
+    items: ["Display booths", "Exhibition booths", "Wall bays", "Custom tables", "Chairs", "Custom sofas", "Cabinets", "TV backdrops", "Office backdrops"]
+  },
+  {
+    name: "Advertising & Branding",
+    desc: "Signage and brand identity, fabricated and installed.",
+    items: ["Revisual", "ACP signage", "Printing", "Storefront signage", "Neon box", "Lightbox", "UV fabric print", "Billboards", "Dimensional letters (stainless / acrylic)"]
+  },
+  {
+    name: "Tax & Permits",
+    desc: "Paperwork handled on your behalf.",
+    items: ["Billboard tax & permits"]
+  },
+  {
+    name: "Delivery Service",
+    desc: "Packing, shipping, and on-site installation.",
+    items: ["Packing, delivery, installation and renovation across Sumatra (excluding Aceh)"]
+  },
+  {
+    name: "Maintenance / Demolition",
+    desc: "Upkeep and teardown, including debris removal.",
+    items: ["Maintenance", "Demolition — mall stores, shophouses, old houses", "Debris removal"]
+  }
+];
+
+function pad(n) { return String(n).padStart(2, "0"); }
+
+// Variant 1
+const v1 = document.getElementById("v1");
+DATA.forEach((cat, i) => {
+  const row = document.createElement("div");
+  row.className = "v1-row";
+  row.innerHTML = `
+    <button class="v1-btn" aria-expanded="false">
+      <span class="v1-num">${pad(i+1)}</span>
+      <span class="v1-title">${cat.name}</span>
+      <span class="v1-icon">+</span>
+    </button>
+    <div class="v1-panel"><div class="v1-panel-inner">${cat.items.map(it => `<div>${it}</div>`).join("")}</div></div>
+  `;
+  row.querySelector(".v1-btn").addEventListener("click", () => {
+    const wasOpen = row.classList.contains("is-open");
+    v1.querySelectorAll(".v1-row").forEach(r => { r.classList.remove("is-open"); r.querySelector("button").setAttribute("aria-expanded","false"); });
+    if (!wasOpen) { row.classList.add("is-open"); row.querySelector("button").setAttribute("aria-expanded","true"); }
+  });
+  v1.appendChild(row);
+});
+
+// Variant 2
+const v2 = document.getElementById("v2");
+DATA.forEach((cat, i) => {
+  const card = document.createElement("div");
+  card.className = "v2-card";
+  card.innerHTML = `
+    <div class="v2-card-head">
+      <div>
+        <div class="v2-card-num">${pad(i+1)}</div>
+        <div class="v2-card-title">${cat.name}</div>
+      </div>
+      <span class="v2-plus">+</span>
+    </div>
+    <div class="v2-panel"><div class="v2-panel-inner">${cat.items.map(it => `<div>${it}</div>`).join("")}</div></div>
+  `;
+  card.addEventListener("click", () => card.classList.toggle("is-open"));
+  v2.appendChild(card);
+});
+
+// Variant 3
+const v3 = document.getElementById("v3");
+DATA.forEach((cat, i) => {
+  const row = document.createElement("div");
+  row.className = "v3-row";
+  row.innerHTML = `
+    <span class="v3-num">${pad(i+1)}</span>
+    <div>
+      <button class="v3-btn" aria-expanded="false">
+        <div class="v3-title">${cat.name}</div>
+        <p class="v3-desc">${cat.desc}</p>
+      </button>
+      <div class="v3-panel"><div class="v3-panel-inner">${cat.items.map(it => `<span class="v3-tag">${it}</span>`).join("")}</div></div>
+    </div>
+  `;
+  row.querySelector(".v3-btn").addEventListener("click", () => {
+    row.classList.toggle("is-open");
+    row.querySelector("button").setAttribute("aria-expanded", row.classList.contains("is-open"));
+  });
+  v3.appendChild(row);
+});
+</script>
+</body>
+</html>

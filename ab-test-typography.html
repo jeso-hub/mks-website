@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B — Typography</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #1c1c1c; font-family: -apple-system, sans-serif; }
+  .bar { display: flex; height: 44px; }
+  .bar > div { flex: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.03em; }
+  .bar .a { background: #3a3a3a; }
+  .bar .b { background: #7a3b2e; }
+  .frames { display: flex; height: calc(100% - 44px); }
+  .frames > div { flex: 1; position: relative; border-right: 2px solid #000; }
+  .frames > div:last-child { border-right: none; }
+  iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="a">A — CURRENT SITE</div>
+    <div class="b">B — BECK-STYLE TYPE</div>
+  </div>
+  <div class="frames">
+    <div><iframe src="index.html"></iframe></div>
+    <div><iframe src="index-b-beckstyle.html"></iframe></div>
+  </div>
+</body>
+</html>

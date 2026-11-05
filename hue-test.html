@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Hue Test</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #111; font-family: -apple-system, sans-serif; }
+  .bar { display: flex; height: 44px; }
+  .bar > div { flex: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; text-align: center; padding: 0 8px; }
+  .bar .cur { background: oklch(0.30 0.06 251.2); }
+  .bar .ind { background: oklch(0.32 0.075 288); }
+  .bar .tea { background: oklch(0.34 0.06 200); }
+  .frames { display: flex; height: calc(100% - 44px); }
+  .frames > div { flex: 1; position: relative; border-right: 2px solid #000; }
+  .frames > div:last-child { border-right: none; }
+  iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="cur">CURRENT — brand navy (oklch 251°)</div>
+    <div class="ind">ALT — indigo-navy (oklch 288°, warmer)</div>
+    <div class="tea">ALT — deep teal (oklch 200°)</div>
+  </div>
+  <div class="frames">
+    <div><iframe src="hue-test-current.html#services"></iframe></div>
+    <div><iframe src="hue-test-indigo.html#services"></iframe></div>
+    <div><iframe src="hue-test-teal.html#services"></iframe></div>
+  </div>
+</body>
+</html>

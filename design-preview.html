@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Karya Sukses — Design Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500&family=Big+Shoulders+Display:wght@600;800&family=Karla:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #15171a;
+    color: #e8e8e6;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: 40px 24px 80px;
+  }
+  .intro {
+    max-width: 760px;
+    margin: 0 auto 56px;
+  }
+  .intro h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #9a9a95;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+  .intro p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #cfcfcb;
+    margin: 0;
+  }
+  .directions {
+    display: grid;
+    gap: 28px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .card {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 5px 10px;
+    border-radius: 3px;
+    z-index: 5;
+  }
+  .card-inner {
+    padding: 44px 40px 40px;
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .card-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    opacity: 0.55;
+  }
+  .card-name {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    opacity: 0.75;
+  }
+  .thesis {
+    margin: 6px 0 14px;
+    max-width: 15ch;
+  }
+  .sample {
+    max-width: 46ch;
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0 0 22px;
+  }
+  .why {
+    font-size: 14.5px;
+    line-height: 1.55;
+    max-width: 56ch;
+    padding-top: 16px;
+    border-top: 1px solid;
+    margin: 0 0 26px;
+  }
+  .swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .swatch {
+    flex: 1 1 120px;
+    min-width: 100px;
+    border-radius: 3px;
+    padding: 14px 12px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .swatch .role {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    opacity: 0.75;
+    margin-bottom: 22px;
+  }
+  .swatch .hex {
+    display: block;
+    font-size: 11.5px;
+  }
+  .choose {
+    max-width: 760px;
+    margin: 56px auto 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: #9a9a95;
+    line-height: 1.7;
+  }
+
+  /* ---- Direction A: Critical Path ---- */
+  .dir-a { background: #e3e2dc; color: #1e2320; }
+  .dir-a .badge { background: #c63b2e; color: #f4f0ea; }
+  .dir-a .card-num, .dir-a .card-name { color: #4a5350; }
+  .dir-a .thesis {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: #2b4c6f;
+  }
+  .dir-a .sample { color: #33372f; }
+  .dir-a .why { border-color: #b9c2c4; color: #4a5350; }
+  .dir-a .swatch.c1 { background: #2b4c6f; color: #e3e2dc; }
+  .dir-a .swatch.c2 { background: #c63b2e; color: #f4f0ea; }
+  .dir-a .swatch.c3 { background: #b9c2c4; color: #1e2320; }
+  .dir-a .swatch.c4 { background: #f4f3ee; color: #1e2320; border: 1px solid #cfd0c9; }
+  .dir-a .swatch.c5 { background: #1e2320; color: #e3e2dc; }
+
+  /* ---- Direction B: Finished Space ---- */
+  .dir-b { background: #e5e1d8; color: #262320; }
+  .dir-b .badge { background: #2e4f7a; color: #f2ede2; }
+  .dir-b .card-num, .dir-b .card-name { color: #6b6154; }
+  .dir-b .thesis {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.12;
+    color: #262320;
+  }
+  .dir-b .sample { font-family: 'Work Sans', sans-serif; color: #3a352c; }
+  .dir-b .why { border-color: #c9bfa9; color: #6b6154; }
+  .dir-b .swatch.c1 { background: #a97d53; color: #2c1f12; }
+  .dir-b .swatch.c2 { background: #2e4f7a; color: #f2ede2; }
+  .dir-b .swatch.c3 { background: #b5402e; color: #f2ede2; }
+  .dir-b .swatch.c4 { background: #f2ede2; color: #262320; border: 1px solid #d6cebb; }
+  .dir-b .swatch.c5 { background: #262320; color: #e5e1d8; }
+
+  /* ---- Direction C: Signage System ---- */
+  .dir-c { background: #ececee; color: #14181c; }
+  .dir-c .badge { background: #d6402c; color: #ececee; }
+  .dir-c .card-num, .dir-c .card-name { color: #4b515c; }
+  .dir-c .thesis {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 0.98;
+    letter-spacing: -0.005em;
+    color: #1b2a4a;
+  }
+  .dir-c .sample { font-family: 'Karla', sans-serif; color: #262b32; }
+  .dir-c .why { border-color: #c9ccc9; color: #4b515c; }
+  .dir-c .swatch.c1 { background: #1b2a4a; color: #ececee; }
+  .dir-c .swatch.c2 { background: #d6402c; color: #ececee; }
+  .dir-c .swatch.c3 { background: #c9ccc9; color: #14181c; }
+  .dir-c .swatch.c4 { background: #f7f7f8; color: #14181c; border: 1px solid #d6d8d6; }
+  .dir-c .swatch.c5 { background: #14181c; color: #ececee; }
+
+  @media (min-width: 640px) {
+    .card-inner { padding: 56px 56px 48px; }
+    .dir-a .thesis { font-size: 60px; }
+    .dir-b .thesis { font-size: 54px; }
+    .dir-c .thesis { font-size: 68px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>MULTI KARYA SUKSES — DESIGN DIRECTIONS</h1>
+    <p>Thesis: <strong>“Commercial interiors finished fast, without cutting corners.”</strong> Three directions below, each built from a different piece of the brief — your logo colours, the finished-interior scene you described, and the speed you compete on. Pick the one that feels like you.</p>
+  </div>
+
+  <div class="directions">
+
+    <!-- DIRECTION A -->
+    <div class="card dir-a">
+      <span class="badge">Recommended</span>
+      <div class="card-inner">
+        <div class="card-head">
+          <span class="card-num">01</span>
+          <span class="card-name">Critical Path</span>
+        </div>
+        <p class="thesis">Commercial interiors finished fast, without cutting corners.</p>
+        <p class="sample">Every project runs on a visible schedule, not a promise — design, permit, build, handover, tracked in the open so a client always knows exactly where their space stands.</p>
+        <p class="why">Steel blue and safety red come straight from your logo. The whole layout is built around a timeline bar — because “faster than others” isn’t a slogan here, it's the actual structure of the page. Barlow Semi Condensed reads like stenciled site signage; IBM Plex Sans keeps the body technical and calm.</p>
+        <div class="swatches">
+          <div class="swatch c1"><span class="role">Steel — primary</span><span class="hex">#2B4C6F</span></div>
+          <div class="swatch c2"><span class="role">Site red — accent</span><span class="hex">#C63B2E</span></div>
+          <div class="swatch c3"><span class="role">Cast steel — secondary</span><span class="hex">#B9C2C4</span></div>
+          <div class="swatch c4"><span class="role">Concrete — bg</span><span class="hex">#E3E2DC</span></div>
+          <div class="swatch c5"><span class="role">Ink</span><span class="hex">#1E2320</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIRECTION B -->
+    <div class="card dir-b">
+      <div class="card-inner">
+        <div class="card-head">
+          <span class="card-num">02</span>
+          <span class="card-name">Finished Space</span>
+        </div>
+        <p class="thesis">Commercial interiors finished fast, without cutting corners.</p>
+        <p class="sample">Picture the wall bay after handover: laptop docked, lightbox glowing, signage hung straight — a government office that looks nothing like a construction site did eight weeks earlier.</p>
+        <p class="why">Built from the actual moment you described — the finished room, not the job site. Oak and plaster tones read as real materials (plywood, millwork) rather than a generic palette; blue and red from your logo appear only as quiet accents. Fraunces at a soft, low-contrast setting feels considered rather than corporate; Work Sans stays out of the way.</p>
+        <div class="swatches">
+          <div class="swatch c1"><span class="role">Oak — secondary</span><span class="hex">#A97D53</span></div>
+          <div class="swatch c2"><span class="role">Signal blue — accent</span><span class="hex">#2E4F7A</span></div>
+          <div class="swatch c3"><span class="role">Ember — accent 2</span><span class="hex">#B5402E</span></div>
+          <div class="swatch c4"><span class="role">Plaster — bg</span><span class="hex">#E5E1D8</span></div>
+          <div class="swatch c5"><span class="role">Charcoal — ink</span><span class="hex">#262320</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIRECTION C -->
+    <div class="card dir-c">
+      <div class="card-inner">
+        <div class="card-head">
+          <span class="card-num">03</span>
+          <span class="card-name">Signage System</span>
+        </div>
+        <p class="thesis">Commercial interiors finished fast, without cutting corners.</p>
+        <p class="sample">Wayfinding, lightboxes, hanging signage, built-in bays — the details a fit-out is actually judged on, shown as a system of panels rather than a wall of paragraphs.</p>
+        <p class="why">Takes the lightbox and signage detail from your brief and makes it the whole visual system: bold navy-and-red panels like an illuminated directory board. Logo colours run at full strength here, not as accents. Big Shoulders Display was drawn for city signage, so the headlines feel fabricated, not typed; Karla keeps the panels legible at a glance.</p>
+        <div class="swatches">
+          <div class="swatch c1"><span class="role">Navy — primary</span><span class="hex">#1B2A4A</span></div>
+          <div class="swatch c2"><span class="role">Signal red — accent</span><span class="hex">#D6402C</span></div>
+          <div class="swatch c3"><span class="role">Panel grey</span><span class="hex">#C9CCC9</span></div>
+          <div class="swatch c4"><span class="role">Porcelain — bg</span><span class="hex">#ECECEE</span></div>
+          <div class="swatch c5"><span class="role">Ink</span><span class="hex">#14181C</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="choose">Reply 1, 2, or 3. If you don't choose, I'll build direction 1 — Critical Path.</p>
+
+</body>
+</html>

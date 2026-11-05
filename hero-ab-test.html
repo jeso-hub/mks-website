@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero A/B — v1 vs v2</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #1c1c1c; font-family: -apple-system, sans-serif; }
+  .bar { display: flex; height: 48px; }
+  .bar > div { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; font-size: 12px; line-height: 1.3; padding: 4px 8px; text-align: center; }
+  .bar .v1 { background: #3a3a3a; }
+  .bar .v2 { background: #2b4c6f; }
+  .bar b { font-size: 13px; }
+  .frames { display: flex; height: calc(100% - 48px); }
+  .frames > div { flex: 1; position: relative; border-right: 2px solid #000; }
+  .frames > div:last-child { border-right: none; }
+  iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="v1"><b>V1 — current</b>redundant lede, underline-hack CTA hierarchy</div>
+    <div class="v2"><b>V2 — revised</b>new lede (one-team + Sumatra-wide), filled-pill primary CTA</div>
+  </div>
+  <div class="frames">
+    <div><iframe src="index.html"></iframe></div>
+    <div><iframe src="hero-v2.html"></iframe></div>
+  </div>
+</body>
+</html>

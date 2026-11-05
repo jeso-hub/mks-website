@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scope Section Color Test</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #111; font-family: -apple-system, sans-serif; }
+  .bar { display: flex; height: 44px; }
+  .bar > div { flex: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; text-align: center; padding: 0 8px; }
+  .bar .a { background: oklch(0.30 0.06 251.2); }
+  .bar .b { background: oklch(0.22 0.05 255); }
+  .bar .c { background: oklch(0.26 0.03 240); }
+  .frames { display: flex; height: calc(100% - 44px); }
+  .frames > div { flex: 1; position: relative; border-right: 2px solid #000; }
+  .frames > div:last-child { border-right: none; }
+  iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="a">A — BRAND NAVY (existing token)</div>
+    <div class="b">B — DEEP NAVY (darker/moodier)</div>
+    <div class="c">C — MUTED SLATE BLUE (desaturated)</div>
+  </div>
+  <div class="frames">
+    <div><iframe src="scope-color-a.html#services"></iframe></div>
+    <div><iframe src="scope-color-b.html#services"></iframe></div>
+    <div><iframe src="scope-color-c.html#services"></iframe></div>
+  </div>
+</body>
+</html>
