@@ -45,6 +45,8 @@
   /* running footer */
   .folio { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; align-items: center; color: var(--ink-muted); z-index: 5; }
   .on-navy .folio, .folio.light { color: var(--on-navy-muted); }
+  .folio.fl-left { right: calc(148.5mm + 18mm); }
+  .folio.fl-right { left: calc(148.5mm + 18mm); }
   .folio .rule { flex: 1; height: 1px; background: currentColor; opacity: .35; margin: 0 5mm; }
 
   /* ---------- 1. Cover ---------- */
@@ -59,10 +61,10 @@
   .cover .kicker { margin-top: auto; color: var(--gold); }
   .cover h1 { font-size: 46pt; line-height: 1.02; font-weight: 400; margin-top: 6mm; }
   .cover h1 em { font-style: italic; font-weight: 300; color: var(--gold); }
-  .cover .lede { margin-top: 7mm; font-size: 12pt; line-height: 1.5; font-weight: 300; max-width: 112mm; color: var(--on-navy-muted); }
+  .cover .lede { margin-top: 7mm; font-size: 13.5pt; line-height: 1.5; font-weight: 400; max-width: 118mm; color: var(--on-navy); }
   .cover .redbar { width: 22mm; height: 1.2mm; background: var(--accent-light); margin-top: 9mm; }
-  .cover .meta { margin-top: auto; display: flex; gap: 12mm; color: var(--on-navy-muted); }
-  .cover .meta b { display: block; color: var(--on-navy); font-family: 'Work Sans'; letter-spacing: .02em; text-transform: none; font-size: 9.5pt; font-weight: 500; margin-top: 1.5mm; }
+  .cover .meta { margin-top: auto; display: flex; gap: 12mm; color: var(--on-navy-muted); font-size: 8pt; }
+  .cover .meta b { display: block; color: var(--on-navy); font-family: 'Work Sans'; letter-spacing: .02em; text-transform: none; font-size: 11.5pt; font-weight: 500; margin-top: 1.5mm; }
   .cover .tag { position: absolute; z-index: 2; right: 14mm; bottom: 12mm; color: #fff; opacity: .85; background: rgba(10,31,53,.55); padding: 2mm 3.5mm; border-radius: 99px; }
 
   /* ---------- 2. Introduction ---------- */
@@ -73,15 +75,18 @@
   .intro .right { position: absolute; left: 132mm; right: 18mm; top: 18mm; bottom: 20mm; display: flex; flex-direction: column; }
   .intro h2 { font-size: 30pt; line-height: 1.08; margin-top: 5mm; }
   .intro h2 span { color: var(--steel); }
-  .intro .body { margin-top: 8mm; display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; font-size: 9.5pt; line-height: 1.6; color: var(--ink-muted); }
-  .intro .body p + p { margin-top: 3mm; }
+  .intro .body { margin-top: 8mm; font-size: 12.5pt; line-height: 1.55; color: var(--ink); max-width: 140mm; }
+  .intro .pull { margin-top: 8mm; font-family: 'Fraunces'; font-size: 19pt; line-height: 1.25; color: var(--steel-ink); border-left: 2px solid var(--accent); padding-left: 5mm; }
+  .intro .pull em { font-style: italic; color: var(--accent); }
+  .intro .folio { left: 132mm; }
+  .intro .body p + p { margin-top: 4mm; }
   .intro .body strong { color: var(--ink); font-weight: 500; }
   .stats { margin-top: auto; display: flex; border-top: 1px solid var(--warm-divider); }
   .stat { padding: 6mm 11mm 0 0; }
   .stat + .stat { border-left: 1px solid var(--warm-divider); padding-left: 11mm; }
   .stat .n { font-family: 'Fraunces'; font-size: 34pt; line-height: 1; color: var(--steel-ink); letter-spacing: -0.02em; }
   .stat .n sup { color: var(--accent); font-size: 18pt; vertical-align: top; position: relative; top: 1.5mm; margin-left: .6mm; }
-  .stat .mono { display: block; margin-top: 3mm; color: var(--ink-muted); font-size: 7pt; }
+  .stat .mono { display: block; margin-top: 3mm; color: var(--ink); font-size: 8pt; }
 
   /* ---------- 3. Why MKS ---------- */
   .why .photo { position: absolute; right: 0; top: 0; bottom: 0; width: 98mm; background-image: url('../assets/sector/corporate-1-reception-lobby-v2.jpg'); }
@@ -118,15 +123,15 @@
   /* ---------- 4. Sectors overview ---------- */
   .sectors .head { position: absolute; left: 18mm; right: 18mm; top: 16mm; display: flex; justify-content: space-between; align-items: flex-end; }
   .sectors h2 { font-size: 26pt; line-height: 1.1; margin-top: 4mm; }
-  .sectors .head p { width: 88mm; font-size: 9.5pt; line-height: 1.55; color: var(--ink-muted); }
+  .sectors .head p { width: 95mm; font-size: 11.5pt; line-height: 1.5; color: var(--ink); }
   .sector-cols { position: absolute; left: 18mm; right: 18mm; top: 58mm; bottom: 20mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
   .scol { position: relative; border-radius: 2mm; overflow: hidden; }
   .scol .photo { position: absolute; inset: 0; }
-  .scol::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,31,53,.95) 0%, rgba(10,31,53,.55) 38%, rgba(10,31,53,0) 62%); }
+  .scol::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,31,53,.97) 0%, rgba(10,31,53,.7) 40%, rgba(10,31,53,0) 66%); }
   .scol .txt { position: absolute; z-index: 2; left: 5mm; right: 5mm; bottom: 5mm; color: var(--on-navy); }
   .scol .txt .mono { color: var(--gold); }
   .scol h3 { font-size: 16pt; margin-top: 1.5mm; line-height: 1.1; }
-  .scol p { margin-top: 2mm; font-size: 8.5pt; line-height: 1.45; color: var(--on-navy-muted); }
+  .scol p { margin-top: 2mm; font-size: 10.5pt; line-height: 1.4; color: #fff; }
 
   /* ---------- 5/6. Sector spreads ---------- */
   .spread { display: grid; grid-template-columns: 1fr 1fr; }
@@ -137,8 +142,8 @@
   .half .big-n { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 12pt; color: var(--accent); }
   .on-navy .big-n { color: var(--gold); }
   .half h2 { font-size: 26pt; line-height: 1.05; margin-top: 3mm; }
-  .half .desc { margin-top: 3mm; font-size: 9.5pt; line-height: 1.55; color: var(--ink-muted); max-width: 105mm; }
-  .on-navy .desc { color: var(--on-navy-muted); }
+  .half .desc { margin-top: 3mm; font-size: 11.5pt; line-height: 1.45; color: var(--ink); max-width: 112mm; }
+  .on-navy .desc { color: var(--on-navy); }
   .gallery { margin-top: 7mm; flex: 1; display: grid; gap: 3mm; }
   .gallery.g4 { grid-template-columns: 1.35fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
   .gallery.g4 .a { grid-row: 1 / 4; }
@@ -146,7 +151,7 @@
   .gallery.g3 .a { grid-row: 1 / 3; }
   .gallery figure { position: relative; margin: 0; border-radius: 1.5mm; overflow: hidden; }
   .gallery figure .photo { position: absolute; inset: 0; }
-  .gallery figcaption { position: absolute; left: 2.5mm; bottom: 2.5mm; z-index: 2; background: rgba(10,31,53,.78); color: #fff; padding: 1.2mm 2.5mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 5.8pt; letter-spacing: .14em; text-transform: uppercase; }
+  .gallery figcaption { position: absolute; left: 2.5mm; bottom: 2.5mm; z-index: 2; background: rgba(10,31,53,.78); color: #fff; padding: 1.4mm 3mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
 
   /* ---------- 7. Services ---------- */
   .services .bg { position: absolute; inset: 0; background-image: url('../assets/sector/hospitality-2-coliving-corridor.jpg'); opacity: .12; filter: grayscale(.4) blur(1.5mm); transform: scale(1.05); }
@@ -188,19 +193,22 @@
   .clients .inner { position: absolute; inset: 16mm 18mm 20mm; display: flex; flex-direction: column; }
   .clients .head { display: flex; justify-content: space-between; align-items: flex-end; }
   .clients h2 { font-size: 26pt; line-height: 1.08; margin-top: 4mm; }
-  .clients .head p { width: 86mm; font-size: 9.5pt; line-height: 1.55; color: var(--ink-muted); }
+  .clients .head p { width: 95mm; font-size: 11pt; line-height: 1.5; color: var(--ink); }
   .logo-wall { margin-top: 7mm; flex: 1; display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(5, 1fr); gap: 2.2mm; }
   .logo-wall .cell { background: var(--panel-light); border-radius: 1.2mm; display: grid; place-items: center; padding: 2.5mm 4mm; min-width: 0; }
   .logo-wall img { max-width: 100%; max-height: 8.5mm; object-fit: contain; }
   .logo-wall img.wide { max-height: 5.5mm; }
   .logo-wall img.square { max-height: 11mm; }
+  .logo-wall img.boost { max-height: 10mm; filter: saturate(1.6) contrast(1.6) brightness(.7); }
+  .logo-wall img.boost2 { filter: saturate(1.8) contrast(2.2) brightness(.5); }
   .logo-wall .wm { font-family: 'Work Sans'; font-weight: 600; font-size: 10.5pt; letter-spacing: .06em; color: var(--steel-ink); text-align: center; line-height: 1.1; }
   .logo-wall .wm small { display: block; margin-top: 1mm; font-family: 'IBM Plex Mono'; font-weight: 500; font-size: 5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
   .logo-wall .cell.more { background: var(--steel-ink); grid-column: span 5; }
   .logo-wall .cell.dark { background: var(--steel-ink); }
   .logo-wall .cell.stack { display: flex; flex-direction: column; justify-content: center; gap: 1.5mm; }
   .logo-wall .cell.stack small { font-family: 'IBM Plex Mono'; font-weight: 500; font-size: 4.6pt; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); text-align: center; }
-  .logo-wall .cell.more span { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 11pt; line-height: 1.15; color: var(--on-navy); text-align: center; }
+  .logo-wall .cell.more span b { font-style: normal; font-weight: 400; color: var(--gold); }
+  .logo-wall .cell.more span { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 19pt; line-height: 1.15; color: var(--on-navy); text-align: center; }
 
   /* ---------- 10. Area ---------- */
   .area .map { position: absolute; right: 10mm; top: 6mm; bottom: 6mm; width: 160mm; display: grid; place-items: center; }
@@ -208,12 +216,12 @@
   .area .map img { position: absolute; inset: 0; width: 100%; height: 100%; }
   .area .inner { position: absolute; left: 18mm; top: 18mm; bottom: 20mm; width: 108mm; display: flex; flex-direction: column; }
   .area h2 { font-size: 28pt; line-height: 1.08; margin-top: 4mm; }
-  .area .lead { margin-top: 5mm; font-size: 9.5pt; line-height: 1.55; color: var(--ink-muted); }
+  .area .lead { margin-top: 5mm; font-size: 11.5pt; line-height: 1.5; color: var(--ink); }
   .provinces { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
-  .prov { padding: 2.6mm 0; border-top: 1px solid var(--warm-divider); }
-  .prov .mono { font-size: 6.4pt; color: var(--steel); }
+  .prov { padding: 2.2mm 0; border-top: 1px solid var(--warm-divider); }
+  .prov .mono { font-size: 7.5pt; color: var(--steel); }
   .prov.home .mono { color: var(--accent); }
-  .prov p { font-size: 9pt; margin-top: .8mm; }
+  .prov p { font-size: 11pt; margin-top: .8mm; line-height: 1.3; }
   .area .credit { position: absolute; right: 18mm; bottom: 14mm; font-size: 6pt; color: var(--ink-muted); }
 
   /* ---------- 11. Back cover ---------- */
@@ -268,7 +276,6 @@
       <span>Trusted by<b>150+ clients</b></span>
     </div>
   </div>
-  <span class="mono tag">Co-living lobby</span>
 </section>
 
 <!-- 2 · INTRODUCTION -->
@@ -281,15 +288,10 @@
     <span class="mono label">01 · About us</span>
     <h2>You have a business to run.<br><span>We take care of the space.</span></h2>
     <div class="body">
-      <div>
-        <p><strong>CV. Multi Karya Sukses turns your vision into a space built around how your business works.</strong></p>
-        <p>We deliver interior fit-out projects for retail, hospitality, and government clients across Sumatra, with a focus on clarity, precision, and strong commercial outcomes.</p>
-      </div>
-      <div>
-        <p>With 8+ years working alongside developers, hospitality groups, and asset owners, we act as a single embedded partner from planning through to opening, managing approvals, design coordination, and construction so every stage stays on track.</p>
-        <p><strong>Spaces that don't just look exceptional. They perform.</strong></p>
-      </div>
+      <p>We build interior fit-outs for <strong>retail, F&amp;B, corporate, and hospitality</strong> clients across Sumatra.</p>
+      <p>One partner from planning to opening: we handle <strong>permits, design, and construction</strong>, so every stage stays on track.</p>
     </div>
+    <p class="pull">Spaces that don't just look exceptional.<br><em>They perform.</em></p>
     <div class="stats">
       <div class="stat"><div class="n">8<sup>+</sup></div><span class="mono">Years in business</span></div>
       <div class="stat"><div class="n">2,700<sup>+</sup></div><span class="mono">Projects delivered</span></div>
@@ -342,9 +344,9 @@
     <p class="desc">Electronics stores, service centers, beauty booths, and specialty retail, from first fixture to final signage.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('retail-xiaomi-storefront.jpg');background-position:71% 62%"></div><figcaption>Xiaomi storefront</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption>Service center</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('../assets/sector/retail-3-grapari-service-centre.jpg')"></div><figcaption>Telco service centre</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('retail-electronics-store.jpg');background-position:center center"></div><figcaption>Electronics store fit-out</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption>OPPO service center</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('../assets/sector/retail-3-grapari-service-centre.jpg')"></div><figcaption>GraPARI Telkomsel</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('retail-electronics-store.jpg');background-position:center center"></div><figcaption>Electronics store</figcaption></figure>
     </div>
   </div>
   <div class="half on-navy">
@@ -352,12 +354,12 @@
     <h2>F&amp;B</h2>
     <p class="desc">Cafés and drink bars built to open fast and handle daily volume, plus the signage that brings customers in.</p>
     <div class="gallery g3">
-      <figure class="a"><div class="photo" style="background-image:url('fnb-tomoro-corner-facade.jpg');background-position:center 65%"></div><figcaption>Tomoro Coffee corner café</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('../assets/sector/fnb-2-bubble-tea-counter.jpg')"></div><figcaption>Ice-cream &amp; tea shop</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('../assets/sector/fnb-3-pylon-sign.jpg')"></div><figcaption>Restaurant pylon sign</figcaption></figure>
+      <figure class="a"><div class="photo" style="background-image:url('fnb-tomoro-corner-facade.jpg');background-position:center 65%"></div><figcaption>Tomoro Coffee</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('../assets/sector/fnb-2-bubble-tea-counter.jpg')"></div><figcaption>Ice-cream &amp; tea</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('../assets/sector/fnb-3-pylon-sign.jpg')"></div><figcaption>KFC pylon sign</figcaption></figure>
     </div>
   </div>
-  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
+  <div class="folio mono fl-left"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
 </section>
 
 <!-- 6 · CORPORATE + HOSPITALITY -->
@@ -367,8 +369,8 @@
     <h2>Corporate &amp; Government</h2>
     <p class="desc">Offices, service centers, and government facilities, with wall bays, workstations, and signage included.</p>
     <div class="gallery g3">
-      <figure class="a"><div class="photo" style="background-image:url('../assets/sector/corporate-1-reception-lobby-v2.jpg');background-position:left center"></div><figcaption>Government reception lobby</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"></div><figcaption>Corporate meeting room</figcaption></figure>
+      <figure class="a"><div class="photo" style="background-image:url('../assets/sector/corporate-1-reception-lobby-v2.jpg');background-position:left center"></div><figcaption>LLDIKTI Wilayah II lobby</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"></div><figcaption>PGN meeting room</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/corporate-3-office-workroom.jpg')"></div><figcaption>Office workroom</figcaption></figure>
     </div>
   </div>
@@ -377,13 +379,13 @@
     <h2>Hospitality</h2>
     <p class="desc">Hotels and co-living spaces, from structural renovation to interior fit-out, ready to welcome guests.</p>
     <div class="gallery g4">
-      <figure class="a"><div class="photo" style="background-image:url('../assets/sector/hospitality-1-coliving-facade.jpg')"></div><figcaption>Co-living building facade</figcaption></figure>
+      <figure class="a"><div class="photo" style="background-image:url('../assets/sector/hospitality-1-coliving-facade.jpg')"></div><figcaption>Mayan co-living</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-4-coliving-lobby.jpg')"></div><figcaption>Co-living lobby</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-2-coliving-corridor.jpg')"></div><figcaption>Upper corridor</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-3-coliving-bedroom.jpg')"></div><figcaption>Co-living bedroom</figcaption></figure>
     </div>
   </div>
-  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
+  <div class="folio mono fl-right"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
 </section>
 
 <!-- 7 · SERVICES (photo per service, as on the website) -->
@@ -438,14 +440,14 @@
       <div class="cell"><img class="wide" src="logos/axioo.png" alt="AXIOO"></div>
       <div class="cell"><img src="logos/zyrex.png" alt="ZYREX"></div>
       <div class="cell"><img class="wide" src="logos/rexus.png" alt="REXUS"></div>
-      <div class="cell"><img src="../assets/clients/telkomsel-grapari.png" alt="GraPARI Telkomsel"></div>
+      <div class="cell"><img class="boost" src="../assets/clients/telkomsel-grapari.png" alt="GraPARI Telkomsel"></div>
       <div class="cell"><img class="wide" src="../assets/clients/sharp.png" alt="Sharp"></div>
       <div class="cell"><img class="wide" src="logos/tecno.svg" alt="TECNO"></div>
       <div class="cell stack"><img class="wide" src="logos/fullmoon.png" alt="Fullmoon"><small>Megaman · Hikvision · Histar</small></div>
       <div class="cell"><img class="wide" src="../assets/clients/megaman.png" alt="Megaman"></div>
       <div class="cell"><img src="../assets/clients/skintific.png" alt="Skintific"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/glad2glow.png" alt="Glad2Glow (G2G)"></div>
-      <div class="cell"><img class="wide" src="logos/timephoria-dark.png" alt="Timephoria"></div>
+      <div class="cell"><img class="wide boost boost2" src="../assets/clients/glad2glow.png" alt="Glad2Glow (G2G)"></div>
+      <div class="cell"><img class="wide boost boost2" src="logos/timephoria-dark.png" alt="Timephoria"></div>
       <div class="cell"><img src="logos/flife.png" alt="FLIFE"></div>
       <div class="cell"><img src="logos/ofero-dark.png" alt="OFERO"></div>
       <div class="cell"><img src="../assets/clients/wedrink.png" alt="Wedrink"></div>
@@ -453,14 +455,14 @@
       <div class="cell"><img src="../assets/clients/dcost.png" alt="D'Cost"></div>
       <div class="cell"><img class="square" src="../assets/clients/bingxue.png" alt="Bingxue"></div>
       <div class="cell"><img src="../assets/clients/federal-oil.png" alt="Federal Oil"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/hartadinata-abadi.png" alt="Hartadinata Abadi"></div>
+      <div class="cell"><img class="wide boost" src="../assets/clients/hartadinata-abadi.png" alt="Hartadinata Abadi"></div>
       <div class="cell"><img class="square" src="../assets/clients/gold-dragon.png" alt="Gold Dragon"></div>
       <div class="cell"><span class="wm">Comforta<small>Hotel</small></span></div>
       <div class="cell"><img class="square" src="logos/roman.svg" alt="ROMAN"></div>
       <div class="cell"><img class="wide" src="logos/atlantic.svg" alt="ATLANTIC"></div>
       <div class="cell"><img class="wide" src="logos/gea-getra.png" alt="GEA GETRA"></div>
       <div class="cell"><img class="wide" src="logos/niko.png" alt="NIKO"></div>
-      <div class="cell more"><span>and many<br>more</span></div>
+      <div class="cell more"><span><b>150+ brands</b> across Sumatra, and growing.</span></div>
     </div>
   </div>
   <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>08</span></div>
