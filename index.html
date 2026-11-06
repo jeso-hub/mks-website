@@ -191,11 +191,28 @@
   .scope { --scope-text: oklch(0.95 0.02 240); --scope-accent: oklch(0.82 0.14 90); background: var(--steel-ink); color: var(--scope-text); }
   .scope .microlabel { color: var(--scope-accent); }
   .scope .section-statement { color: var(--scope-text); }
+  .scope { position: relative; overflow: hidden; }
+  .scope > .wrap { position: relative; z-index: 2; }
   .scope-list { max-width: 720px; }
+  /* Photo per service: fades in behind the section, clear on the right, blending to solid navy on the left */
+  .scope-bg { position: absolute; inset: 0; z-index: 0; }
+  .scope-bg div { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.04); transition: opacity 700ms ease-out, transform 1600ms ease-out; }
+  .scope-bg div.on { opacity: 1; transform: scale(1); }
+  .scope::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(90deg,
+      color-mix(in oklch, var(--steel-ink) 96%, transparent) 0%,
+      color-mix(in oklch, var(--steel-ink) 90%, transparent) 30%,
+      color-mix(in oklch, var(--steel-ink) 70%, transparent) 50%,
+      color-mix(in oklch, var(--steel-ink) 35%, transparent) 72%,
+      color-mix(in oklch, var(--steel-ink) 10%, transparent) 100%); }
+  @media (max-width: 780px) {
+    .scope::after { background: linear-gradient(90deg, color-mix(in oklch, var(--steel-ink) 90%, transparent) 0%, color-mix(in oklch, var(--steel-ink) 72%, transparent) 100%); }
+    .scope-row.is-active .scope-content, .scope-row.is-active .scope-num { transform: none; }
+  }
   .scope-row { display: grid; grid-template-columns: 28px 1fr; gap: 20px; border-left: 2px solid color-mix(in oklch, var(--scope-text) 25%, transparent); padding-left: 20px; margin-bottom: 2px; overflow: hidden; transition: border-color 200ms ease-out; }
-  .scope-row.is-open, .scope-row:hover { border-left-color: var(--scope-accent); }
+  .scope-row.is-open, .scope-row:hover, .scope-row.is-active { border-left-color: var(--scope-accent); }
   .scope-num { display: block; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: color-mix(in oklch, var(--scope-text) 55%, transparent); padding-top: 22px; transition: color 200ms ease-out, transform 250ms cubic-bezier(.2,.7,.2,1); }
-  .scope-row.is-open .scope-num { color: var(--scope-accent); }
+  .scope-row.is-open .scope-num, .scope-row.is-active .scope-num { color: var(--scope-accent); }
   .scope-content { transition: transform 250ms cubic-bezier(.2,.7,.2,1); }
   .scope-btn { display: block; width: 100%; text-align: left; background: none; border: none; padding: 18px 0; cursor: pointer; font-family: inherit; color: inherit; }
   .scope-row:hover .scope-content { transform: translateX(10px); }
@@ -429,6 +446,7 @@
 
     <!-- FULL SCOPE OF WORK (services accordion) -->
     <section class="scope reveal" id="services">
+      <div class="scope-bg" aria-hidden="true"></div>
       <div class="wrap">
         <span data-i18n="svc.label" class="microlabel">(Services)</span>
         <p class="section-statement" data-i18n="svc.statement" style="margin-top:12px;">The full scope of work, category by category.</p>
@@ -807,6 +825,33 @@
       }
     });
   });
+
+  // Services: each row has a photo that fades in behind the section.
+  // Hovering a row, or scrolling it to the middle of the screen (phones), picks the photo.
+  (function () {
+    var photos = ['hospitality-1-coliving-facade.jpg', 'corporate-2-meeting-room.jpg', 'retail-3-grapari-service-centre.jpg',
+                  'fnb-3-pylon-sign.jpg', 'retail-4-accessory-kiosk.jpg', 'retail-1-oppo-service-centre.jpg'];
+    var bg = document.querySelector('.scope-bg');
+    if (!bg) return;
+    var layers = photos.map(function (f) {
+      var d = document.createElement('div');
+      d.style.backgroundImage = "url('assets/sector/" + f + "')";
+      bg.appendChild(d);
+      return d;
+    });
+    function setActive(i) {
+      scopeRows.forEach(function (r, j) { r.classList.toggle('is-active', j === i); });
+      layers.forEach(function (l, j) { l.classList.toggle('on', j === i); });
+    }
+    setActive(0);
+    scopeRows.forEach(function (row, i) { row.addEventListener('mouseenter', function () { setActive(i); }); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setActive(Array.prototype.indexOf.call(scopeRows, e.target)); });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      scopeRows.forEach(function (r) { io.observe(r); });
+    }
+  })();
 
   // Sector tabs: swap watermark, photo caption, and description on click
   var sectorData = {
