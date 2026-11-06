@@ -14,7 +14,8 @@
     --steel: oklch(0.408 0.071 251.2);
     --steel-ink: oklch(0.30 0.06 251.2);
     --navy-deep: oklch(0.235 0.05 251.2);
-    --site-red: oklch(0.556 0.178 29.3);
+    --accent: #2F6FB8;        /* highlight blue, brighter sibling of the page-7 navy */
+    --accent-light: #7FB0E8;  /* same blue, lifted for use on navy backgrounds */
     --gold: oklch(0.82 0.14 90);
     --warm-divider: oklch(0.807 0.032 86.5);
     --bg: oklch(0.914 0.021 85.9);
@@ -31,7 +32,7 @@
   h1, h2, h3, .serif { font-family: 'Fraunces', serif; font-optical-sizing: auto; font-weight: 400; margin: 0; letter-spacing: -0.015em; }
   p { margin: 0; }
   .mono { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; }
-  .label { color: var(--site-red); }
+  .label { color: var(--accent); }
   .on-navy .label { color: var(--gold); }
 
   .page { position: relative; width: 297mm; height: 210mm; overflow: hidden; background: var(--bg); page-break-after: always; break-after: page; }
@@ -59,7 +60,7 @@
   .cover h1 { font-size: 46pt; line-height: 1.02; font-weight: 400; margin-top: 6mm; }
   .cover h1 em { font-style: italic; font-weight: 300; color: var(--gold); }
   .cover .lede { margin-top: 7mm; font-size: 12pt; line-height: 1.5; font-weight: 300; max-width: 112mm; color: var(--on-navy-muted); }
-  .cover .redbar { width: 22mm; height: 1.2mm; background: var(--site-red); margin-top: 9mm; }
+  .cover .redbar { width: 22mm; height: 1.2mm; background: var(--accent-light); margin-top: 9mm; }
   .cover .meta { margin-top: auto; display: flex; gap: 12mm; color: var(--on-navy-muted); }
   .cover .meta b { display: block; color: var(--on-navy); font-family: 'Work Sans'; letter-spacing: .02em; text-transform: none; font-size: 9.5pt; font-weight: 500; margin-top: 1.5mm; }
   .cover .tag { position: absolute; z-index: 2; right: 14mm; bottom: 12mm; color: #fff; opacity: .85; background: oklch(0.235 0.05 251.2 / .55); padding: 2mm 3.5mm; border-radius: 99px; }
@@ -79,7 +80,7 @@
   .stat { padding-top: 6mm; padding-right: 6mm; }
   .stat + .stat { border-left: 1px solid var(--warm-divider); padding-left: 6mm; }
   .stat .n { font-family: 'Fraunces'; font-size: 40pt; line-height: 1; color: var(--steel-ink); letter-spacing: -0.03em; }
-  .stat .n sup { color: var(--site-red); font-size: 22pt; vertical-align: top; position: relative; top: 2mm; }
+  .stat .n sup { color: var(--accent); font-size: 22pt; vertical-align: top; position: relative; top: 2mm; }
   .stat .mono { display: block; margin-top: 3mm; color: var(--ink-muted); font-size: 7pt; }
 
   /* ---------- 3. Why MKS ---------- */
@@ -115,7 +116,7 @@
   .half + .half { border-left: 1px solid var(--warm-divider); }
   .half.on-navy + .half, .half + .half.on-navy { border-left: 0; }
   .half .top { display: flex; justify-content: space-between; align-items: baseline; }
-  .half .big-n { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 12pt; color: var(--site-red); }
+  .half .big-n { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 12pt; color: var(--accent); }
   .on-navy .big-n { color: var(--gold); }
   .half h2 { font-size: 26pt; line-height: 1.05; margin-top: 3mm; }
   .half .desc { margin-top: 3mm; font-size: 9.5pt; line-height: 1.55; color: var(--ink-muted); max-width: 105mm; }
@@ -146,11 +147,11 @@
   .svc ul { list-style: none; margin: 2.5mm 0 0; padding: 0; columns: 2; column-gap: 4mm; font-size: 8.2pt; line-height: 1.55; color: var(--on-navy); }
   .svc ul.one { columns: 1; }
   .svc li { break-inside: avoid; padding-left: 3mm; position: relative; }
-  .svc li::before { content: ""; position: absolute; left: 0; top: 1.55mm; width: 1.2mm; height: 1.2mm; background: var(--site-red); border-radius: 50%; }
+  .svc li::before { content: ""; position: absolute; left: 0; top: 1.55mm; width: 1.2mm; height: 1.2mm; background: var(--accent-light); border-radius: 50%; }
 
   /* ---------- 8. How we deliver ---------- */
   .process .photo { position: absolute; left: 0; top: 0; bottom: 0; width: 100mm; background-image: url('../assets/sector/hospitality-2-coliving-corridor.jpg'); }
-  .process .photo .stamp { position: absolute; left: 14mm; right: 12mm; bottom: 18mm; background: var(--site-red); color: #fff; padding: 6mm 6mm; border-radius: 1.5mm; }
+  .process .photo .stamp { position: absolute; left: 14mm; right: 12mm; bottom: 18mm; background: var(--accent); color: #fff; padding: 6mm 6mm; border-radius: 1.5mm; }
   .process .photo .stamp p { font-family: 'Fraunces'; font-size: 14pt; line-height: 1.25; }
   .process .photo .stamp .mono { display: block; margin-bottom: 3mm; opacity: .8; }
   .process .inner { position: absolute; left: 114mm; right: 18mm; top: 18mm; bottom: 20mm; display: flex; flex-direction: column; }
@@ -161,7 +162,7 @@
   .steps { margin-top: auto; position: relative; }
   .step { display: grid; grid-template-columns: 14mm 1fr; gap: 4mm; padding: 4.2mm 0; border-top: 1px solid var(--warm-divider); }
   .step:last-child { border-bottom: 1px solid var(--warm-divider); }
-  .step .k { font-family: 'Fraunces'; font-size: 20pt; line-height: 1; color: var(--site-red); font-weight: 300; }
+  .step .k { font-family: 'Fraunces'; font-size: 20pt; line-height: 1; color: var(--accent); font-weight: 300; }
   .step h3 { font-size: 13pt; line-height: 1.2; }
   .step p { margin-top: 1.2mm; font-size: 9pt; line-height: 1.5; color: var(--ink-muted); }
 
@@ -187,7 +188,7 @@
   .provinces { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
   .prov { padding: 2.6mm 0; border-top: 1px solid var(--warm-divider); }
   .prov .mono { font-size: 6.4pt; color: var(--steel); }
-  .prov.home .mono { color: var(--site-red); }
+  .prov.home .mono { color: var(--accent); }
   .prov p { font-size: 9pt; margin-top: .8mm; }
   .area .credit { position: absolute; right: 18mm; bottom: 14mm; font-size: 6pt; color: var(--ink-muted); }
 
@@ -420,7 +421,7 @@
 
 <!-- 10 · AREA -->
 <section class="page area">
-  <div class="map"><div class="wrap"><img src="../assets/sumatra-map.svg" alt="Map of Sumatra with MKS service hubs"></div></div>
+  <div class="map"><div class="wrap"><img src="sumatra-map-blue.svg" alt="Map of Sumatra with MKS service hubs"></div></div>
   <div class="inner">
     <span class="mono label">07 · Areas we serve</span>
     <h2>Sumatra-wide,<br>based in Palembang.</h2>
