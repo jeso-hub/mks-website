@@ -201,13 +201,12 @@
   .scope::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
     background: linear-gradient(90deg,
       var(--steel-ink) 0%,
-      color-mix(in oklch, var(--steel-ink) 96%, transparent) 30%,
-      color-mix(in oklch, var(--steel-ink) 82%, transparent) 42%,
-      color-mix(in oklch, var(--steel-ink) 66%, transparent) 56%,
-      color-mix(in oklch, var(--steel-ink) 52%, transparent) 75%,
-      color-mix(in oklch, var(--steel-ink) 45%, transparent) 100%); }
+      color-mix(in oklch, var(--steel-ink) 97%, transparent) 40%,
+      color-mix(in oklch, var(--steel-ink) 88%, transparent) 52%,
+      color-mix(in oklch, var(--steel-ink) 76%, transparent) 66%,
+      color-mix(in oklch, var(--steel-ink) 64%, transparent) 100%); }
   @media (max-width: 780px) {
-    .scope::after { background: linear-gradient(90deg, color-mix(in oklch, var(--steel-ink) 90%, transparent) 0%, color-mix(in oklch, var(--steel-ink) 72%, transparent) 100%); }
+    .scope::after { background: linear-gradient(90deg, color-mix(in oklch, var(--steel-ink) 95%, transparent) 0%, color-mix(in oklch, var(--steel-ink) 85%, transparent) 100%); }
     .scope-row.is-active .scope-content, .scope-row.is-active .scope-num { transform: none; }
   }
   .scope-row { display: grid; grid-template-columns: 28px 1fr; gap: 20px; border-left: 2px solid color-mix(in oklch, var(--scope-text) 25%, transparent); padding-left: 20px; margin-bottom: 2px; overflow: hidden; transition: border-color 200ms ease-out; }
