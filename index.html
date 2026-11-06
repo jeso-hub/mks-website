@@ -200,13 +200,12 @@
   .scope-bg div.on { opacity: 1; transform: scale(1); }
   .scope::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
     background: linear-gradient(90deg,
-      color-mix(in oklch, var(--steel-ink) 95%, transparent) 0%,
-      color-mix(in oklch, var(--steel-ink) 90%, transparent) 25%,
-      color-mix(in oklch, var(--steel-ink) 75%, transparent) 38%,
-      color-mix(in oklch, var(--steel-ink) 50%, transparent) 50%,
-      color-mix(in oklch, var(--steel-ink) 22%, transparent) 62%,
-      color-mix(in oklch, var(--steel-ink) 6%, transparent) 74%,
-      transparent 85%); }
+      var(--steel-ink) 0%,
+      color-mix(in oklch, var(--steel-ink) 96%, transparent) 30%,
+      color-mix(in oklch, var(--steel-ink) 82%, transparent) 42%,
+      color-mix(in oklch, var(--steel-ink) 66%, transparent) 56%,
+      color-mix(in oklch, var(--steel-ink) 52%, transparent) 75%,
+      color-mix(in oklch, var(--steel-ink) 45%, transparent) 100%); }
   @media (max-width: 780px) {
     .scope::after { background: linear-gradient(90deg, color-mix(in oklch, var(--steel-ink) 90%, transparent) 0%, color-mix(in oklch, var(--steel-ink) 72%, transparent) 100%); }
     .scope-row.is-active .scope-content, .scope-row.is-active .scope-num { transform: none; }
