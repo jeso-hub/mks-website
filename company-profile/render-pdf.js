@@ -30,7 +30,7 @@ from PIL import Image
 out, files = sys.argv[1], sys.argv[2:]
 ims = [Image.open(f).convert('RGB') for f in files]
 dpi = ims[0].width / (297 / 25.4)
-ims[0].save(out, save_all=True, append_images=ims[1:], resolution=dpi, quality=90, title='Multi Karya Sukses - Company Profile', author='Multi Karya Sukses')
+ims[0].save(out, save_all=True, append_images=ims[1:], resolution=dpi, quality=90, title='CV. Multi Karya Sukses - Company Profile', author='CV. Multi Karya Sukses')
 `, pdf, ...files]);
   console.log(`wrote ${pdf} (${files.length} pages)`);
 })();
