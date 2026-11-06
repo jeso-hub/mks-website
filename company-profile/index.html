@@ -254,6 +254,18 @@
   .tl-step .dot { width: 10mm !important; height: 10mm !important; font-size: 10pt !important; }
   .tl-step h3 { margin-top: 5mm !important; font-size: 21pt !important; }
   .tl-step p { margin-top: 2.5mm !important; font-size: 13pt !important; line-height: 1.4 !important; }
+
+  .dx .dphoto { position: absolute; left: 0; top: 0; bottom: 0; width: 120mm; }
+  .dx .dpanel { position: absolute; left: 134mm; right: 18mm; top: 16mm; bottom: 20mm; display: flex; flex-direction: column; }
+  .dx h2 { font-size: 32pt !important; line-height: 1.05; margin-top: 4mm; }
+  .dx h2 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .dlist { margin-top: auto; }
+  .dv { display: grid; grid-template-columns: 20mm 1fr auto; align-items: center; gap: 3mm; padding: 4.5mm 0; border-top: 1px solid var(--warm-divider); }
+  .dn { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 30pt; line-height: 1; color: var(--accent); }
+  .dv h3 { font-size: 21pt; line-height: 1.05; color: var(--steel-ink); }
+  .dv p { margin-top: 1.2mm; font-size: 12.5pt; color: var(--ink); }
+  .dp { color: var(--steel); font-size: 8.5pt; }
+  .dint { margin-top: 6mm; font-size: 13pt; line-height: 1.5; color: var(--ink); max-width: 120mm; }
 </style>
 </head>
 <body>
@@ -322,18 +334,15 @@
 </section>
 
 <!-- 4 · SECTORS -->
-<section class="page sectors">
-  <div class="head">
-    <div><span class="mono label">03 · What we build</span><h2>Commercial project expertise<br>across every sector.</h2></div>
-    <p>From national brand roll-outs to government offices and hospitality developments, we build spaces that work hard every day.</p>
+<section class="page sectors dx">
+  <div class="dphoto photo" style="background-image:url('../assets/sector/retail-2-skintific-store.jpg')"></div>
+  <div class="dpanel">
+    <span class="mono label">03 · What we build</span>
+    <h2>Four sectors.<br><em>One team.</em></h2>
+    <p class="dint">Every project, from a mall kiosk to a hotel, is run by the same team from planning to handover.</p>
+    <div class="dlist"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 06</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 06</span></div></div>
   </div>
-  <div class="sector-cols">
-    <div class="scol"><div class="photo" style="background-image:url('retail-beauty-g2g-skintific.jpg');background-position:center 85%"></div><div class="txt"><span class="mono">Sector 01</span><h3>Retail</h3><p>Electronics stores, service centers, beauty booths, and specialty retail.</p></div></div>
-    <div class="scol"><div class="photo" style="background-image:url('fnb-tomoro-facade.jpg');background-position:center 30%"></div><div class="txt"><span class="mono">Sector 02</span><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars built to open fast and handle daily volume.</p></div></div>
-    <div class="scol"><div class="photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"></div><div class="txt"><span class="mono">Sector 03</span><h3>Corporate &amp; Government</h3><p>Offices, service centers, and government facilities.</p></div></div>
-    <div class="scol"><div class="photo" style="background-image:url('../assets/sector/hospitality-3-coliving-bedroom.jpg')"></div><div class="txt"><span class="mono">Sector 04</span><h3>Hospitality</h3><p>Hotels and co-living, from structural renovation to interior fit-out.</p></div></div>
-  </div>
-  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
+  <div class="folio mono fl-right"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
 </section>
 
 <!-- 5 · RETAIL + F&B -->
