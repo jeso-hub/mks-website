@@ -959,18 +959,25 @@
     }
   }
 
-  prevBtn.addEventListener('click', function () {
+  // Step through photos across all sectors in tab order: past the last photo
+  // of one sector, move on to the next sector's first photo (and back again).
+  function stepSectorPhoto(dir) {
     var count = sectorData[currentSectorKey].images.length;
-    currentImageIdx = (currentImageIdx - 1 + count) % count;
-    renderSectorImage(true);
+    var next = currentImageIdx + dir;
+    if (next >= 0 && next < count) {
+      currentImageIdx = next;
+      renderSectorImage(true);
+    } else {
+      var tabs = Array.prototype.slice.call(sectorTabs);
+      var i = tabs.findIndex(function (t) { return t.getAttribute('data-sector') === currentSectorKey; });
+      var tab = tabs[(i + dir + tabs.length) % tabs.length];
+      var len = sectorData[tab.getAttribute('data-sector')].images.length;
+      switchSector(tab, dir > 0 ? 0 : len - 1);
+    }
     restartAutoplay();
-  });
-  nextBtn.addEventListener('click', function () {
-    var count = sectorData[currentSectorKey].images.length;
-    currentImageIdx = (currentImageIdx + 1) % count;
-    renderSectorImage(true);
-    restartAutoplay();
-  });
+  }
+  prevBtn.addEventListener('click', function () { stepSectorPhoto(-1); });
+  nextBtn.addEventListener('click', function () { stepSectorPhoto(1); });
 
   // Auto-advance photos every 5s. Pauses while hovered/focused, off-screen,
   // or the browser tab is hidden; a manual click restarts the full 5s.
@@ -983,8 +990,7 @@
   sectorDisplay.style.setProperty('--sector-interval', SECTOR_INTERVAL + 'ms');
 
   function canAutoplay() {
-    return !reduceMotion && !isHovering && isInView && !document.hidden &&
-      sectorData[currentSectorKey].images.length > 1;
+    return !reduceMotion && !isHovering && !isKbFocus && isInView && !document.hidden;
   }
   function stopAutoplay() {
     clearTimeout(autoplayTimer);
@@ -996,17 +1002,17 @@
     if (!canAutoplay()) return;
     void sectorProgress.offsetWidth; // reset the progress bar
     sectorProgress.classList.add('is-running');
-    autoplayTimer = setTimeout(function () {
-      var count = sectorData[currentSectorKey].images.length;
-      currentImageIdx = (currentImageIdx + 1) % count;
-      renderSectorImage(true);
-      restartAutoplay();
-    }, SECTOR_INTERVAL);
+    autoplayTimer = setTimeout(function () { stepSectorPhoto(1); }, SECTOR_INTERVAL);
   }
   sectorDisplay.addEventListener('mouseenter', function () { isHovering = true; stopAutoplay(); });
   sectorDisplay.addEventListener('mouseleave', function () { isHovering = false; restartAutoplay(); });
-  sectorDisplay.addEventListener('focusin', function () { isHovering = true; stopAutoplay(); });
-  sectorDisplay.addEventListener('focusout', function () { isHovering = false; restartAutoplay(); });
+  // Pause for keyboard focus only; a mouse click on an arrow shouldn't freeze autoplay
+  var isKbFocus = false;
+  sectorDisplay.addEventListener('focusin', function (e) {
+    var kb = false; try { kb = e.target.matches(':focus-visible'); } catch (err) {}
+    if (kb) { isKbFocus = true; stopAutoplay(); }
+  });
+  sectorDisplay.addEventListener('focusout', function () { if (isKbFocus) { isKbFocus = false; restartAutoplay(); } });
   document.addEventListener('visibilitychange', function () { document.hidden ? stopAutoplay() : restartAutoplay(); });
 
   // Hint cue: softly highlight each inactive tab in turn so visitors notice
@@ -1045,17 +1051,25 @@
       userPickedTab = true;
       stopHints();
       if (tab.classList.contains('is-active')) return;
+      switchSector(tab, 0);
+      restartAutoplay();
+    });
+  });
+
+  // Make a sector tab active and show one of its photos (by index)
+  function switchSector(tab, imgIdx) {
       sectorTabs.forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
       currentSectorKey = tab.getAttribute('data-sector');
-      currentImageIdx = 0;
+      currentImageIdx = imgIdx;
       var data = sectorData[currentSectorKey];
+      var idxText = (imgIdx + 1) + '/' + data.images.length;
       var swap = function () {
         sectorWatermark.textContent = loc(data, 'watermark');
-        applyImageSlot(data.images[0]);
-        sectorImageIndexEl.textContent = '1/' + data.images.length;
-        sectorRealIndexEl.textContent = sectorLabel() + ' · 1/' + data.images.length;
+        applyImageSlot(data.images[imgIdx]);
+        sectorImageIndexEl.textContent = idxText;
+        sectorRealIndexEl.textContent = sectorLabel() + ' · ' + idxText;
         sectorCaption.textContent = loc(data, 'caption');
       };
       if (reduceMotion) {
@@ -1071,9 +1085,7 @@
           sectorCaption.style.opacity = '1';
         }, 150);
       }
-      restartAutoplay();
-    });
-  });
+  }
 
   // Language switch: redraw the sector panel in the new language
   if (window.MKSLang) MKSLang.onChange(function () {
