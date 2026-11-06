@@ -69,7 +69,7 @@
 
   /* ---------- 2. Introduction ---------- */
   .intro .left { position: absolute; left: 0; top: 0; bottom: 0; width: 118mm; }
-  .intro .left .photo { position: absolute; inset: 0; background-image: url('corporate-2-meeting-room-pgn.jpg'); background-position: 12% center; }
+  .intro .left .photo { position: absolute; inset: 0; background-image: url('../assets/sector/retail-2-skintific-store.jpg'); background-position: 30% center; }
   .intro .left .quote { position: absolute; left: 0; right: 0; bottom: 0; padding: 10mm 12mm 18mm 18mm; background: linear-gradient(0deg, rgba(10,31,53,.95), rgba(10,31,53,0)); color: var(--on-navy); }
   .intro .left .quote p { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 15pt; line-height: 1.3; }
   .intro .right { position: absolute; left: 132mm; right: 18mm; top: 18mm; bottom: 20mm; display: flex; flex-direction: column; }
@@ -280,6 +280,23 @@
   .fl-brand { display: inline-flex; align-items: center; gap: 2.5mm; }
   .fl-logo { width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--panel-light); display: grid; place-items: center; box-shadow: 0 0 0 .3mm rgba(43,76,111,.25); }
   .fl-logo img { width: 4.6mm; height: 4.6mm; }
+
+  /* round 2 */
+  .mono { font-size: 8.5pt; }
+  .gallery figcaption { font-size: 8pt; }
+  .services .svc { }
+  .svc .strip.band { height: 9mm !important; background: linear-gradient(90deg, rgba(231,191,74,.22), rgba(231,191,74,0)); border-bottom: 1px solid rgba(231,191,74,.35); }
+  .svc .strip.band::after { display: none; }
+  .svc .strip.band .num { bottom: 2mm; font-size: 9pt; }
+  .services .svc ul { font-size: 12pt !important; line-height: 1.45 !important; columns: 1 !important; }
+  .services .svc h3 { font-size: 17pt !important; }
+  .services .svc .lead { font-size: 11pt !important; }
+  .services { background: var(--steel-ink); }
+  .why .intro-p { color: var(--on-navy) !important; font-weight: 400 !important; }
+  .dn { display: none; }
+  .h1x .dv { grid-template-columns: 1fr auto !important; }
+  .cover .meta b { font-size: 11.5pt; white-space: nowrap; }
+  .services .svc ul { font-size: 13pt !important; }
 </style>
 </head>
 <body>
@@ -296,10 +313,8 @@
     <h1>Commercial spaces, built and delivered <em>with precision.</em></h1>
     <p class="lede">Commercial fit-outs and interiors, from the first wall to the last piece of signage. One team, one contract, across Sumatra.</p>
     <div class="redbar"></div>
-    <div class="meta mono">
-      <span>Est. 8+ years<b>Palembang, South Sumatra</b></span>
-      <span>Delivered<b>2,700+ projects</b></span>
-      <span>Trusted by<b>150+ clients</b></span>
+    <div class="meta mono chg" data-note="Stats replaced by sectors">
+      <span>What we build<b>Retail&nbsp;&nbsp;·&nbsp;&nbsp;F&amp;B&nbsp;&nbsp;·&nbsp;&nbsp;Corporate &amp; Government&nbsp;&nbsp;·&nbsp;&nbsp;Hospitality</b></span>
     </div>
   </div>
 </section>
@@ -307,15 +322,15 @@
 <!-- 2 · INTRODUCTION -->
 <section class="page intro">
   <div class="left">
-    <div class="photo"></div>
+    <div class="photo chg" data-note="New photo"></div>
     <div class="quote"><p>“Your vision. Built right.<br>Delivered on time.”</p></div>
   </div>
   <div class="right">
     <span class="mono label">01 · About us</span>
     <h2>You have a business to run.<br><span>We take care of the space.</span></h2>
     <div class="body">
-      <p>We build interior fit-outs for <strong>retail, F&amp;B, corporate, and hospitality</strong> clients across Sumatra.</p>
-      <p>One partner from planning to opening: we handle <strong>permits, design, and construction</strong>, so every stage stays on track.</p>
+      <p class="chg">We build interior fit-outs for <strong>retail, F&amp;B, corporate, and hospitality</strong> clients.</p>
+      <p class="chg">One partner for the whole job: we handle <strong>permits, design, and construction</strong>, so every stage stays on track.</p>
     </div>
     <p class="pull">Spaces that don't just look exceptional.<br><em>They perform.</em></p>
     <div class="stats">
@@ -333,7 +348,7 @@
   <div class="inner">
     <span class="mono label">02 · Why leaders choose MKS</span>
     <h2>One team. Clear communication.<br><em>No surprises.</em></h2>
-    <p class="intro-p">From the first site survey to opening day, <b>one accountable team</b> takes care of everything.</p>
+    <p class="intro-p chg">From the first site survey to opening day, <b>one accountable team</b> takes care of everything.</p>
   </div>
   <div class="timeline">
     <span class="mono label">How we work · from planning to opening</span>
@@ -341,7 +356,7 @@
       <div class="tl-step"><span class="dot">01</span><h3>Plan &amp; permit</h3><p>We handle the permits for you.</p></div>
       <div class="tl-step"><span class="dot">02</span><h3>Design</h3><p>Matched to your brand standards.</p></div>
       <div class="tl-step"><span class="dot">03</span><h3>Build &amp; fit-out</h3><p>Built on time, one contract.</p></div>
-      <div class="tl-step"><span class="dot">04</span><h3>Handover</h3><p>Installed across Sumatra, ready to open.</p></div>
+      <div class="tl-step"><span class="dot">04</span><h3>Handover</h3><p class="chg">Installed, checked, and ready to open.</p></div>
     </div>
   </div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>03</span></div>
@@ -350,10 +365,10 @@
 <!-- 4 · SECTORS -->
 <section class="page sectors h1x">
   <div class="htop">
-    <div class="htxt"><span class="mono label">03 · What we build</span><h2>Four sectors.<br><em>One team.</em></h2><p class="dint">Every project, from a mall kiosk to a hotel, is run by the same team from planning to handover.</p></div>
+    <div class="htxt"><span class="mono label">03 · What we build</span><h2 class="chg">Four sectors.<br><em>One standard.</em></h2><p class="dint chg">Every project, from a mall kiosk to a hotel, is built to the same standard, whatever its size.</p></div>
     <div class="hph ph-empty"><span class="mono">Team photo</span></div>
   </div>
-  <div class="hlist"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 06</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 06</span></div></div>
+  <div class="hlist chg" data-note="Numbers removed"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 05</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 06</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 06</span></div></div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
 </section>
 
@@ -362,7 +377,7 @@
   <div class="half">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 01</span></div>
     <h2>Retail</h2>
-    <p class="desc">Electronics stores, service centers, beauty booths, and specialty retail, from first fixture to final signage.</p>
+    <p class="desc chg">Phone brands, telco counters, and beauty booths in malls and shophouses, from the first fixture to the final sign.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('retail-xiaomi-storefront.jpg');background-position:71% 62%"></div><figcaption>Xiaomi storefront</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption>OPPO service center</figcaption></figure>
@@ -373,7 +388,7 @@
   <div class="half on-navy">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 02</span></div>
     <h2>F&amp;B</h2>
-    <p class="desc">Cafés and drink bars built to open fast and handle daily volume, plus the signage that brings customers in.</p>
+    <p class="desc chg">Coffee chains, fast food, and dessert shops, with the facade and pylon signs that pull customers in.</p>
     <div class="gallery g3">
       <figure class="a"><div class="photo" style="background-image:url('fnb-tomoro-corner-facade.jpg');background-position:center 65%"></div><figcaption>Tomoro Coffee</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/fnb-2-bubble-tea-counter.jpg')"></div><figcaption>Ice-cream &amp; tea</figcaption></figure>
@@ -388,7 +403,7 @@
   <div class="half on-navy">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 03</span></div>
     <h2>Corporate &amp; Government</h2>
-    <p class="desc">Offices, service centers, and government facilities, with wall bays, workstations, and signage included.</p>
+    <p class="desc chg">Government offices, energy companies, and private firms: receptions, meeting rooms, and workrooms.</p>
     <div class="gallery g3">
       <figure class="a"><div class="photo" style="background-image:url('../assets/sector/corporate-1-reception-lobby-v2.jpg');background-position:left center"></div><figcaption>LLDIKTI Wilayah II lobby</figcaption></figure>
       <figure><div class="photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"></div><figcaption>PGN meeting room</figcaption></figure>
@@ -398,7 +413,7 @@
   <div class="half">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 04</span></div>
     <h2>Hospitality</h2>
-    <p class="desc">Hotels and co-living spaces, from structural renovation to interior fit-out, ready to welcome guests.</p>
+    <p class="desc chg">Co-living and hotel projects, from structural renovation to furnished rooms ready for guests.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('../assets/sector/hospitality-1-coliving-facade.jpg')"></div><figcaption>Mayan co-living</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-4-coliving-lobby.jpg')"></div><figcaption>Co-living lobby</figcaption></figure>
@@ -411,24 +426,23 @@
 
 <!-- 7 · SERVICES (photo per service, as on the website) -->
 <section class="page services on-navy">
-  <div class="bg photo"></div>
-  <div class="inner">
+    <div class="inner">
     <div class="head">
       <div><span class="mono label">04 · Services</span><h2>The full scope of work,<br>category by category.</h2></div>
       <p>Six service lines under one roof, so a single contract covers everything from structural work to the sign above your door.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc"><div class="strip photo" style="background-image:url('../assets/sector/hospitality-1-coliving-facade.jpg')"><span class="mono num">01</span></div><div class="body"><h3>Architecture / Civil</h3><p class="lead">Structural renovation, indoor and outdoor.</p>
-        <ul><li>Electrical &amp; AC installation</li><li>Floor tiling</li><li>Granite installation</li><li>Gypsum ceiling</li><li>Rolling door</li><li>Steel canopy</li><li>Store renovation</li><li>Wall painting</li><li>Wall partition</li><li>Water installation</li><li>WPC ceiling</li></ul></div></div>
-      <div class="svc"><div class="strip photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"><span class="mono num">02</span></div><div class="body"><h3>Furniture / Interior</h3><p class="lead">Built-ins and custom furniture for the finished space.</p>
-        <ul><li>Cabinets</li><li>Chairs</li><li>Custom sofas</li><li>Custom tables</li><li>Display booths</li><li>Exhibition booths</li><li>Office backdrops</li><li>TV backdrops</li><li>Wall bays</li></ul></div></div>
-      <div class="svc"><div class="strip photo" style="background-image:url('../assets/sector/retail-3-grapari-service-centre.jpg')"><span class="mono num">03</span></div><div class="body"><h3>Advertising &amp; Branding</h3><p class="lead">Signage and brand identity, fabricated and installed.</p>
-        <ul><li>ACP signage</li><li>Baliho</li><li>Dimensional letters</li><li>Lightbox</li><li>Neon box</li><li>Printing</li><li>Revisual</li><li>Storefront signage</li><li>UV fabric print</li></ul></div></div>
-      <div class="svc"><div class="strip photo" style="background-image:url('../assets/sector/fnb-3-pylon-sign.jpg')"><span class="mono num">04</span></div><div class="body"><h3>Tax &amp; Permits</h3><p class="lead">Paperwork handled on your behalf.</p>
+      <div class="svc"><div class="strip band chg"><span class="mono num">01</span></div><div class="body"><h3>Architecture / Civil</h3><p class="lead">Structural renovation, indoor and outdoor.</p>
+        <ul class="chg"><li>Store renovation</li><li>Gypsum &amp; WPC ceilings</li><li>Floor &amp; granite tiling</li><li>Electrical &amp; AC</li></ul></div></div>
+      <div class="svc"><div class="strip band chg"><span class="mono num">02</span></div><div class="body"><h3>Furniture / Interior</h3><p class="lead">Built-ins and custom furniture for the finished space.</p>
+        <ul class="chg"><li>Display &amp; exhibition booths</li><li>Wall bays</li><li>Custom tables &amp; sofas</li><li>Office &amp; TV backdrops</li></ul></div></div>
+      <div class="svc"><div class="strip band chg"><span class="mono num">03</span></div><div class="body"><h3>Advertising &amp; Branding</h3><p class="lead">Signage and brand identity, fabricated and installed.</p>
+        <ul class="chg"><li>Neon box &amp; lightbox</li><li>ACP &amp; storefront signs</li><li>Dimensional letters</li><li>Baliho &amp; printing</li></ul></div></div>
+      <div class="svc"><div class="strip band chg"><span class="mono num">04</span></div><div class="body"><h3>Tax &amp; Permits</h3><p class="lead">Paperwork handled on your behalf.</p>
         <ul class="one"><li>Billboard tax &amp; permits</li></ul></div></div>
-      <div class="svc"><div class="strip photo" style="background-image:url('../assets/sector/retail-4-accessory-kiosk.jpg')"><span class="mono num">05</span></div><div class="body"><h3>Delivery Service</h3><p class="lead">Packing, shipping, and on-site installation.</p>
-        <ul class="one"><li>Packing, delivery, installation and renovation across Sumatra (excluding Aceh)</li></ul></div></div>
-      <div class="svc"><div class="strip photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"><span class="mono num">06</span></div><div class="body"><h3>Maintenance / Demolition</h3><p class="lead">Upkeep and teardown, including debris removal.</p>
+      <div class="svc"><div class="strip band chg"><span class="mono num">05</span></div><div class="body"><h3>Delivery Service</h3><p class="lead">Packing, shipping, and on-site installation.</p>
+        <ul class="one"><li class="chg">Packing, delivery, and installation to 9 provinces (excluding Aceh)</li></ul></div></div>
+      <div class="svc"><div class="strip band chg"><span class="mono num">06</span></div><div class="body"><h3>Maintenance / Demolition</h3><p class="lead">Upkeep and teardown, including debris removal.</p>
         <ul class="one"><li>Debris removal</li><li>Demolition of mall stores, shophouses, old houses</li><li>Maintenance</li></ul></div></div>
     </div>
   </div>
@@ -440,7 +454,7 @@
   <div class="inner">
     <div class="head">
       <div><span class="mono label">05 · Our clients</span><h2>Brands we&rsquo;ve built for.</h2></div>
-      <p>Stores, service centres, offices, and signage we&rsquo;ve delivered for global electronics brands, national retail and F&amp;B chains, and regional businesses across Sumatra.</p>
+      <p>Stores, service centres, offices, and signage we&rsquo;ve delivered for global electronics brands, national retail and F&amp;B chains, and regional businesses.</p>
     </div>
     <div class="logo-wall">
       <div class="cell"><img src="../assets/clients/kfc.png" alt="KFC"></div>
@@ -483,7 +497,7 @@
       <div class="cell"><img class="wide" src="logos/atlantic.svg" alt="ATLANTIC"></div>
       <div class="cell"><img class="wide" src="logos/gea-getra.png" alt="GEA GETRA"></div>
       <div class="cell"><img class="wide" src="logos/niko.png" alt="NIKO"></div>
-      <div class="cell more"><span><b>150+ brands</b> across Sumatra, and growing.</span></div>
+      <div class="cell more chg"><span><b>150+ brands</b>, and growing.</span></div>
     </div>
   </div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>08</span></div>
