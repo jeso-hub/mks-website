@@ -132,22 +132,22 @@
 
   /* ---------- 7. Services ---------- */
   .services .bg { position: absolute; inset: 0; background-image: url('../assets/sector/hospitality-2-coliving-corridor.jpg'); opacity: .12; filter: grayscale(.4) blur(1.5mm); transform: scale(1.05); }
-  .services .inner { position: absolute; inset: 16mm 18mm 20mm; display: flex; flex-direction: column; }
+  .services .inner { position: absolute; inset: 13mm 16mm 17mm; display: flex; flex-direction: column; }
   .services .head { display: flex; justify-content: space-between; align-items: flex-end; }
-  .services h2 { font-size: 26pt; line-height: 1.08; margin-top: 4mm; }
-  .services .head p { width: 82mm; font-size: 9.5pt; line-height: 1.55; color: var(--on-navy-muted); }
-  .svc-grid { margin-top: 7mm; flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 5mm; }
+  .services h2 { font-size: 23pt; line-height: 1.08; margin-top: 3mm; }
+  .services .head p { width: 90mm; font-size: 11pt; line-height: 1.55; color: var(--on-navy-muted); }
+  .svc-grid { margin-top: 5mm; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1.3fr 1fr; gap: 4mm; }
   .svc { position: relative; background: rgba(10,31,53,.82); border: 1px solid rgba(227,241,251,.14); border-radius: 2mm; overflow: hidden; display: flex; flex-direction: column; }
-  .svc .strip { height: 24mm; flex: none; position: relative; }
+  .svc .strip { height: 15mm; flex: none; position: relative; }
   .svc .strip::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,31,53,.9), rgba(10,31,53,.1)); }
   .svc .strip .num { position: absolute; z-index: 2; left: 4.5mm; bottom: 2.5mm; color: var(--gold); }
-  .svc .body { padding: 3.5mm 4.5mm 4mm; }
-  .svc h3 { font-size: 13pt; line-height: 1.15; }
-  .svc .lead { margin-top: 1mm; font-size: 8pt; color: var(--on-navy-muted); font-style: italic; }
-  .svc ul { list-style: none; margin: 2.5mm 0 0; padding: 0; columns: 2; column-gap: 4mm; font-size: 8.2pt; line-height: 1.55; color: var(--on-navy); }
+  .svc .body { padding: 2.5mm 4mm 3mm; }
+  .svc h3 { font-size: 15.5pt; line-height: 1.15; }
+  .svc .lead { margin-top: 1mm; font-size: 10pt; color: var(--on-navy-muted); font-style: italic; }
+  .svc ul { list-style: none; margin: 2.5mm 0 0; padding: 0; columns: 2; column-gap: 4mm; font-size: 11pt; line-height: 1.42; color: var(--on-navy); }
   .svc ul.one { columns: 1; }
   .svc li { break-inside: avoid; padding-left: 3mm; position: relative; }
-  .svc li::before { content: ""; position: absolute; left: 0; top: 1.55mm; width: 1.2mm; height: 1.2mm; background: var(--accent-light); border-radius: 50%; }
+  .svc li::before { content: ""; position: absolute; left: 0; top: 1.9mm; width: 1.4mm; height: 1.4mm; background: var(--accent-light); border-radius: 50%; }
 
   /* ---------- 8. How we deliver ---------- */
   .process .photo { position: absolute; left: 0; top: 0; bottom: 0; width: 100mm; background-image: url('../assets/sector/hospitality-2-coliving-corridor.jpg'); }
