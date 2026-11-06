@@ -213,6 +213,7 @@
 
   /* ---------- Stats on photo ---------- */
   .stats-photo { display: flex; align-items: center; }
+  .stats-photo-fill { background: url('assets/sector/hospitality-4-coliving-lobby.jpg') center 40% / cover no-repeat; border: 0; }
   .stats-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); position: relative; z-index: 2; padding-top: 40px; padding-bottom: 40px; }
   .stat-figure { font-family: 'Fraunces', serif; font-weight: 300; font-size: 2rem; line-height: 1; color: var(--panel-light); margin-bottom: 8px; }
   .stat-label { color: color-mix(in oklch, var(--panel-light) 72%, transparent); }
@@ -353,9 +354,7 @@
 
     <!-- PROOF: stats over photo -->
     <section class="stats-photo photo-section reveal" id="stats">
-      <div class="photo-fill">
-        <div class="cap"><span class="tag mono" data-i18n="ph.fullbleed">IMAGE — full bleed</span><span data-i18n="ph.stats">a second finished space — the renovated government office</span></div>
-      </div>
+      <div class="photo-fill stats-photo-fill" aria-hidden="true"></div>
       <div class="scrim"></div>
       <div class="wrap stats-grid">
         <div>
