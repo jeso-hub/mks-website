@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV. Multi Karya Sukses — Outdoor Advertising &amp; Signage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* "xoxo" working version: MKS company profile aimed at the outdoor advertising market
+     (baliho, neon box, pylon, storefront signage). Same palette and type as the main 2026 profile,
+     with larger body text for owners and managers (min ~13pt body). A4 landscape, one .page per sheet. */
+  @page { size: 297mm 210mm; margin: 0; }
+  :root {
+    --steel: #2b4c6f; --steel-ink: #152f4b; --navy-deep: #0a1f35;
+    --accent: #1E4D8C; --accent-light: #7FB0E8; --gold: #e7bf4a;
+    --warm-divider: #c9bfa9; --bg: #e9e2d3; --panel: #ded4c0; --panel-light: #f4efe4;
+    --ink: #29221b; --ink-muted: rgba(41,34,27,0.78);
+    --on-navy: #e3f1fb; --on-navy-muted: rgba(227,241,251,0.82);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #555; font-family: 'Work Sans', sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-optical-sizing: auto; font-weight: 400; margin: 0; letter-spacing: -0.015em; }
+  p { margin: 0; }
+  em { font-style: italic; font-weight: 300; }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase; }
+  .label { color: var(--accent); }
+  .on-navy .label { color: var(--gold); }
+  .page { position: relative; width: 297mm; height: 210mm; overflow: hidden; background: var(--bg); break-after: page; }
+  .page:last-child { break-after: auto; }
+  @media screen { .page { margin: 10mm auto; box-shadow: 0 10px 40px rgba(0,0,0,.35); } }
+  .on-navy { background: var(--steel-ink); color: var(--on-navy); }
+  .photo { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .folio { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; align-items: center; color: var(--ink-muted); z-index: 5; font-size: 7.5pt; }
+  .on-navy .folio, .folio.light { color: var(--on-navy-muted); }
+  .folio .rule { flex: 1; height: 1px; background: currentColor; opacity: .35; margin: 0 5mm; }
+
+  /* placeholder for photos MKS still needs to supply */
+  .ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+        background: repeating-linear-gradient(135deg, #1b3a5c 0 6mm, #183552 6mm 12mm); color: var(--on-navy); }
+  .ph div { border: 1.5px dashed rgba(231,191,74,.8); border-radius: 2mm; padding: 5mm 7mm; max-width: 80%; }
+  .ph .mono { color: var(--gold); display: block; }
+  .ph p { margin-top: 2mm; font-family: 'Fraunces'; font-size: 14pt; line-height: 1.25; }
+  .ph small { display: block; margin-top: 2mm; font-size: 10pt; opacity: .8; }
+
+  .brandmark { display: flex; align-items: center; gap: 4mm; }
+  .brandmark .badge { width: 15mm; height: 15mm; border-radius: 50%; background: var(--panel-light); display: grid; place-items: center; }
+  .brandmark .badge img { width: 10.5mm; height: 10.5mm; }
+  .brandmark .name { font-weight: 600; font-size: 12pt; letter-spacing: .02em; }
+  .brandmark .sub { display: block; margin-top: 1mm; color: var(--on-navy-muted); font-size: 8pt; }
+
+  /* 1 · Cover */
+  .cover .photo { position: absolute; right: 0; top: 0; bottom: 0; width: 150mm; background-image: url('img/kfc-pylon.jpg'); background-position: 40% center; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--steel-ink) 0%, var(--steel-ink) 47%, rgba(21,47,75,.55) 56%, rgba(21,47,75,0) 70%); }
+  .cover .inner { position: absolute; z-index: 2; left: 18mm; top: 16mm; bottom: 16mm; width: 150mm; display: flex; flex-direction: column; }
+  .cover .kicker { margin-top: auto; color: var(--gold); }
+  .cover h1 { font-size: 50pt; line-height: 1.02; margin-top: 6mm; }
+  .cover h1 em { color: var(--gold); }
+  .cover .lede { margin-top: 7mm; font-size: 15pt; line-height: 1.45; font-weight: 300; max-width: 128mm; color: var(--on-navy-muted); }
+  .cover .chips { margin-top: 8mm; display: flex; flex-wrap: wrap; gap: 2.5mm; }
+  .chip { border: 1px solid rgba(231,191,74,.6); color: var(--on-navy); border-radius: 99px; padding: 1.8mm 4.5mm; font-size: 11pt; }
+  .cover .meta { margin-top: auto; display: flex; gap: 12mm; color: var(--on-navy-muted); font-size: 8pt; }
+  .cover .meta b { display: block; color: var(--on-navy); font-family: 'Work Sans'; letter-spacing: .01em; text-transform: none; font-size: 12pt; font-weight: 500; margin-top: 1.5mm; }
+  .tag { position: absolute; z-index: 3; right: 12mm; bottom: 12mm; color: #fff; background: rgba(10,31,53,.65); padding: 2mm 3.5mm; border-radius: 99px; font-size: 7.5pt; }
+
+  /* 2 · Intro */
+  .intro .photo { position: absolute; left: 0; top: 0; bottom: 0; width: 112mm; background-image: url('img/fnb-tomoro-facade.jpg'); background-position: center 35%; }
+  .intro .right { position: absolute; left: 126mm; right: 18mm; top: 18mm; bottom: 20mm; display: flex; flex-direction: column; }
+  .intro h2 { font-size: 34pt; line-height: 1.08; margin-top: 5mm; }
+  .intro h2 span { color: var(--steel); }
+  .intro .body { margin-top: 7mm; font-size: 14pt; line-height: 1.5; color: var(--ink); }
+  .intro .body p + p { margin-top: 4mm; }
+  .intro .body strong { font-weight: 600; }
+  .stats { margin-top: auto; display: flex; border-top: 1px solid var(--warm-divider); }
+  .stat { padding: 6mm 10mm 0 0; }
+  .stat + .stat { border-left: 1px solid var(--warm-divider); padding-left: 10mm; }
+  .stat .n { font-family: 'Fraunces'; font-size: 38pt; line-height: 1; color: var(--steel-ink); }
+  .stat .n sup { color: var(--accent); font-size: 20pt; vertical-align: top; position: relative; top: 1.5mm; }
+  .stat .mono { display: block; margin-top: 3mm; color: var(--ink-muted); font-size: 8pt; }
+
+  /* 3 · Products */
+  .products .inner { position: absolute; inset: 15mm 18mm 19mm; display: flex; flex-direction: column; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; }
+  .head h2 { font-size: 32pt; line-height: 1.06; margin-top: 3mm; }
+  .head p { width: 96mm; font-size: 13pt; line-height: 1.45; color: var(--ink-muted); }
+  .on-navy .head p { color: var(--on-navy-muted); }
+  .prod-grid { margin-top: 7mm; flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: 4.5mm; }
+  .prod { position: relative; background: var(--panel-light); border-radius: 2mm; overflow: hidden; display: flex; flex-direction: column; }
+  .prod .strip { height: 26mm; flex: none; position: relative; }
+  .prod .strip .ph div { padding: 1.5mm 3mm; border-width: 1px; }
+  .prod .strip .ph .mono { font-size: 7pt; }
+  .prod .num { position: absolute; z-index: 2; left: 4mm; top: 3mm; background: var(--gold); color: var(--navy-deep); border-radius: 99px; padding: .8mm 2.5mm; font-size: 7.5pt; }
+  .prod .body { padding: 4mm 5mm; }
+  .prod h3 { font-size: 18pt; line-height: 1.1; color: var(--steel-ink); }
+  .prod p { margin-top: 2mm; font-size: 12.5pt; line-height: 1.35; }
+  .prod .best { margin-top: 2mm; font-size: 11pt; color: var(--accent); font-weight: 500; }
+
+  /* 4 · Baliho */
+  .baliho .left { position: absolute; left: 0; top: 0; bottom: 0; width: 140mm; }
+  .baliho .right { position: absolute; left: 154mm; right: 18mm; top: 16mm; bottom: 20mm; display: flex; flex-direction: column; }
+  .baliho h2 { font-size: 34pt; line-height: 1.05; margin-top: 4mm; }
+  .baliho h2 em { color: var(--gold); }
+  .baliho .desc { margin-top: 5mm; font-size: 14pt; line-height: 1.45; color: var(--on-navy-muted); }
+  .checks { margin-top: auto; list-style: none; padding: 0; }
+  .checks li { position: relative; padding: 3.2mm 0 3.2mm 10mm; border-top: 1px solid rgba(227,241,251,.18); font-size: 14pt; line-height: 1.3; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; top: 2.6mm; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--gold); color: var(--navy-deep); font-size: 10pt; font-weight: 600; display: grid; place-items: center; }
+  .checks li b { font-weight: 600; }
+
+  /* 5 · Neon box & storefront gallery */
+  .gal .inner { position: absolute; inset: 15mm 18mm 19mm; display: flex; flex-direction: column; }
+  .gal-grid { margin-top: 7mm; flex: 1; display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3.5mm; }
+  .gal-grid figure { position: relative; margin: 0; border-radius: 2mm; overflow: hidden; }
+  .gal-grid figure.a { grid-row: 1 / 3; }
+  .gal-grid .photo { position: absolute; inset: 0; }
+  .gal-grid figcaption { position: absolute; left: 3mm; bottom: 3mm; z-index: 2; background: rgba(10,31,53,.85); color: #fff; padding: 1.6mm 3.2mm; border-radius: 99px; font-size: 10pt; }
+
+  /* 6 · Permits & process */
+  .permits .photo { position: absolute; right: 0; top: 0; width: 110mm; height: 110mm; background-image: url('img/golden-lamian-storefront.jpg'); }
+  .permits .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--steel-ink) 0%, rgba(21,47,75,0) 45%); }
+  .permits .inner { position: absolute; left: 18mm; top: 16mm; width: 160mm; }
+  .permits h2 { font-size: 34pt; line-height: 1.06; margin-top: 4mm; }
+  .permits h2 em { color: var(--gold); }
+  .permits .intro-p { margin-top: 5mm; font-size: 14pt; line-height: 1.45; color: var(--on-navy-muted); max-width: 150mm; }
+  .permits .intro-p b { color: var(--on-navy); font-weight: 600; }
+  .flow { position: absolute; left: 0; right: 0; bottom: 0; height: 100mm; background: var(--navy-deep); padding: 9mm 18mm 0; }
+  .flow-steps { margin-top: 7mm; display: grid; grid-template-columns: repeat(5, 1fr); gap: 7mm; position: relative; }
+  .flow-steps::before { content: ""; position: absolute; left: 0; right: 0; top: 5mm; height: 1px; background: rgba(231,191,74,.45); }
+  .fs { position: relative; }
+  .fs .dot { position: relative; z-index: 1; display: inline-grid; place-items: center; width: 10mm; height: 10mm; border-radius: 50%; background: var(--gold); color: var(--navy-deep); font-family: 'IBM Plex Mono'; font-weight: 500; font-size: 10pt; }
+  .fs h3 { margin-top: 5mm; font-size: 20pt; line-height: 1.12; }
+  .fs p { margin-top: 2.5mm; font-size: 13.5pt; line-height: 1.38; color: var(--on-navy-muted); }
+
+  /* 7 · Clients */
+  .clients .inner { position: absolute; inset: 15mm 18mm 19mm; display: flex; flex-direction: column; }
+  .logo-wall { margin-top: 7mm; flex: 1; display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2.5mm; }
+  .logo-wall .cell { background: var(--panel-light); border-radius: 1.2mm; display: grid; place-items: center; padding: 3mm 4.5mm; min-width: 0; }
+  .logo-wall img { max-width: 100%; max-height: 10mm; object-fit: contain; }
+  .logo-wall img.wide { max-height: 6.5mm; }
+  .logo-wall img.square { max-height: 13mm; }
+  .logo-wall .wm { font-weight: 600; font-size: 12pt; letter-spacing: .06em; color: var(--steel-ink); text-align: center; line-height: 1.1; }
+  .logo-wall .wm small { display: block; margin-top: 1mm; font-family: 'IBM Plex Mono'; font-size: 6pt; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+  .logo-wall .more { background: var(--steel-ink); grid-column: span 2; }
+  .logo-wall .more span { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 14pt; color: var(--on-navy); }
+
+  /* 8 · Area */
+  .area .map { position: absolute; right: 10mm; top: 6mm; bottom: 6mm; width: 160mm; display: grid; place-items: center; }
+  .area .map .wrap { position: relative; width: 100%; aspect-ratio: 998 / 899; }
+  .area .map img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .area .inner { position: absolute; left: 18mm; top: 18mm; bottom: 20mm; width: 112mm; display: flex; flex-direction: column; }
+  .area h2 { font-size: 32pt; line-height: 1.06; margin-top: 4mm; }
+  .area .lead { margin-top: 5mm; font-size: 14pt; line-height: 1.45; }
+  .provinces { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
+  .prov { padding: 2.6mm 0; border-top: 1px solid var(--warm-divider); }
+  .prov .mono { font-size: 7.5pt; color: var(--steel); }
+  .prov.home .mono { color: var(--accent); }
+  .prov p { font-size: 11.5pt; margin-top: .8mm; }
+  .area .credit { position: absolute; right: 18mm; bottom: 14mm; font-size: 6pt; color: var(--ink-muted); }
+
+  /* 9 · Back cover */
+  .back .photo { position: absolute; inset: 0; background-image: url('img/grapari-facade-sign.jpg'); background-position: center 40%; }
+  .back::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,31,53,.98) 0%, rgba(10,31,53,.96) 60%, rgba(10,31,53,.8) 85%, rgba(10,31,53,.65) 100%); }
+  .back .inner { position: absolute; z-index: 2; left: 18mm; top: 16mm; bottom: 16mm; width: 190mm; display: flex; flex-direction: column; }
+  .back .brandmark { margin-bottom: auto; }
+  .back h2 { font-size: 42pt; line-height: 1.04; margin-top: 4mm; }
+  .back h2 em { color: var(--gold); }
+  .back .lede { margin-top: 5mm; font-size: 15pt; font-weight: 300; color: var(--on-navy-muted); }
+  .contact { margin-top: 10mm; display: grid; grid-template-columns: 1fr .8fr 1.3fr; gap: 8mm; padding-top: 6mm; border-top: 1px solid rgba(227,241,251,.25); }
+  .contact .mono { color: var(--gold); font-size: 8pt; }
+  .contact p { margin-top: 2mm; font-size: 12pt; line-height: 1.5; }
+  .contact .phone { font-family: 'Fraunces'; font-size: 16pt; line-height: 1.35; }
+  .qr-card { position: absolute; z-index: 3; right: 18mm; bottom: 16mm; width: 62mm; background: #fff; border-radius: 2.5mm; padding: 5mm 5mm 4.5mm; text-align: center; box-shadow: 0 6mm 14mm rgba(0,0,0,.35); }
+  .qr-card img { display: block; width: 52mm; height: 52mm; margin: 0 auto; }
+  .qr-card .mono { display: block; margin-top: 3.5mm; color: var(--accent); font-size: 7.5pt; }
+  .qr-card p { margin-top: 1.2mm; font-family: 'Fraunces'; font-size: 14pt; color: var(--steel-ink); }
+</style>
+</head>
+<body>
+
+<!-- 1 · COVER -->
+<section class="page cover on-navy">
+  <div class="photo"></div>
+  <div class="inner">
+    <div class="brandmark">
+      <span class="badge"><img src="../assets/brand/logo-mks.png" alt="MKS"></span>
+      <span><span class="name">CV. Multi Karya Sukses</span><span class="mono sub">Outdoor advertising &amp; signage</span></span>
+    </div>
+    <span class="mono kicker">Company Profile · 2026</span>
+    <h1>Your brand,<br><em>seen from the street.</em></h1>
+    <p class="lede">Baliho, neon boxes, and storefront signs, designed, permitted, built, and installed by one team across Sumatra.</p>
+    <div class="chips"><span class="chip">Baliho</span><span class="chip">Neon box</span><span class="chip">Pylon sign</span><span class="chip">Storefront signage</span></div>
+    <div class="meta mono">
+      <span>Est. 8+ years<b>Palembang, South Sumatra</b></span>
+      <span>Delivered<b>2,700+ projects</b></span>
+      <span>Trusted by<b>150+ clients</b></span>
+    </div>
+  </div>
+  <span class="mono tag">Pylon sign · KFC</span>
+</section>
+
+<!-- 2 · INTRO -->
+<section class="page intro">
+  <div class="photo"></div>
+  <div class="right">
+    <span class="mono label">01 · About us</span>
+    <h2>Your sign works all day.<br><span>We make sure it gets seen.</span></h2>
+    <div class="body">
+      <p><strong>CV. Multi Karya Sukses builds outdoor advertising and signage for brands across Sumatra.</strong></p>
+      <p>From a single neon box to a roadside baliho or a chain-wide sign change, we handle the whole job: site survey, design, permits and billboard tax, production, installation, and upkeep.</p>
+      <p>One team, one contract, one number to call.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">8<sup>+</sup></div><span class="mono">Years in business</span></div>
+      <div class="stat"><div class="n">2,700<sup>+</sup></div><span class="mono">Projects delivered</span></div>
+      <div class="stat"><div class="n">150<sup>+</sup></div><span class="mono">Clients, many returning</span></div>
+    </div>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>02</span></div>
+</section>
+
+<!-- 3 · PRODUCTS -->
+<section class="page products">
+  <div class="inner">
+    <div class="head">
+      <div><span class="mono label">02 · What we make</span><h2>Six ways to put your<br>brand in front of people.</h2></div>
+      <p>Built in our own workshop and installed by our own crew, so quality and timing stay in our hands.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod"><div class="strip"><div class="ph"><div><span class="mono">Photo needed · Baliho</span></div></div><span class="mono num">01</span></div>
+        <div class="body"><h3>Baliho &amp; billboards</h3><p>Large-format roadside boards, single or double-sided.</p><p class="best">Best for: launches, promos, directions</p></div></div>
+      <div class="prod"><div class="strip"><div class="ph"><div><span class="mono">Photo needed · Neon box at night</span></div></div><span class="mono num">02</span></div>
+        <div class="body"><h3>Neon box &amp; lightbox</h3><p>Lit signs that keep working after dark.</p><p class="best">Best for: shops, cafés, clinics</p></div></div>
+      <div class="prod"><div class="strip photo" style="background-image:url('img/kfc-pylon.jpg');background-position:center 30%"><span class="mono num">03</span></div>
+        <div class="body"><h3>Pylon &amp; totem signs</h3><p>Tall standing signs that people see from the road.</p><p class="best">Best for: restaurants, fuel, showrooms</p></div></div>
+      <div class="prod"><div class="strip photo" style="background-image:url('img/retail-xiaomi-storefront.jpg');background-position:70% 30%"><span class="mono num">04</span></div>
+        <div class="body"><h3>Storefront signage</h3><p>ACP fascia and 3D letters in stainless or acrylic.</p><p class="best">Best for: new stores, brand outlets</p></div></div>
+      <div class="prod"><div class="strip photo" style="background-image:url('img/grapari-facade-sign.jpg');background-position:center 15%"><span class="mono num">05</span></div>
+        <div class="body"><h3>Revisual &amp; roll-outs</h3><p>New brand look applied to every outlet, on schedule.</p><p class="best">Best for: chains, distributors</p></div></div>
+      <div class="prod"><div class="strip"><div class="ph"><div><span class="mono">Photo needed · Print work</span></div></div><span class="mono num">06</span></div>
+        <div class="body"><h3>Printing &amp; UV fabric</h3><p>Banners, wall graphics, and fabric prints.</p><p class="best">Best for: events, seasonal campaigns</p></div></div>
+    </div>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>03</span></div>
+</section>
+
+<!-- 4 · BALIHO -->
+<section class="page baliho on-navy">
+  <div class="left"><div class="ph"><div><span class="mono">Photo needed</span><p>A finished MKS baliho on a busy road, shot in daylight</p><small>Best: wide shot with traffic, plus one close-up of the structure</small></div></div></div>
+  <div class="right">
+    <span class="mono label">Featured · Baliho</span>
+    <h2>Big boards,<br><em>no paperwork for you.</em></h2>
+    <p class="desc">A baliho only works if it stands in the right spot, stays legal, and stays lit. We take care of all three.</p>
+    <ul class="checks">
+      <li><b>Site survey</b> for visibility and traffic</li>
+      <li><b>Steel structure</b> built and installed</li>
+      <li><b>Permits and billboard tax</b> handled for you</li>
+      <li><b>Print and lighting</b> to suit day and night</li>
+      <li><b>Visual changes</b> when your campaign changes</li>
+    </ul>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
+</section>
+
+<!-- 5 · NEON BOX & STOREFRONT -->
+<section class="page gal">
+  <div class="inner">
+    <div class="head">
+      <div><span class="mono label">03 · Selected work</span><h2>Signs that bring<br>customers through the door.</h2></div>
+      <p>Neon boxes, fascia signs, and 3D letters for national brands and local businesses.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="a"><div class="photo" style="background-image:url('img/fnb-tomoro-corner-facade.jpg');background-position:center 60%"></div><figcaption>Tomoro Coffee · facade signs</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('img/grapari-facade-sign.jpg');background-position:center 10%"></div><figcaption>GraPARI · lit fascia</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('img/golden-lamian-storefront.jpg');background-position:center 15%"></div><figcaption>Golden Lamian · storefront</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('img/retail-xiaomi-storefront.jpg');background-position:70% 35%"></div><figcaption>Xiaomi · storefront</figcaption></figure>
+      <figure><div class="ph"><div><span class="mono">Photo needed</span><p>Neon box at night</p></div></div></figure>
+    </div>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
+</section>
+
+<!-- 6 · PERMITS & PROCESS -->
+<section class="page permits on-navy">
+  <div class="photo"></div>
+  <div class="inner">
+    <span class="mono label">04 · How we work</span>
+    <h2>We deal with the permits.<br><em>You get the sign up.</em></h2>
+    <p class="intro-p">Permits and billboard tax are where most sign projects get stuck. <b>We handle them for you</b>, so your sign goes up on time and stays up.</p>
+  </div>
+  <div class="flow">
+    <span class="mono label">From first call to a working sign</span>
+    <div class="flow-steps">
+      <div class="fs"><span class="dot">01</span><h3>Site survey</h3><p>We check the location, size, and sight lines.</p></div>
+      <div class="fs"><span class="dot">02</span><h3>Design</h3><p>A mock-up to your brand standards.</p></div>
+      <div class="fs"><span class="dot">03</span><h3>Permits &amp; tax</h3><p>Paperwork filed on your behalf.</p></div>
+      <div class="fs"><span class="dot">04</span><h3>Build &amp; install</h3><p>Our workshop, our crew.</p></div>
+      <div class="fs"><span class="dot">05</span><h3>Upkeep</h3><p>Lamp checks, repairs, and visual changes.</p></div>
+    </div>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
+</section>
+
+<!-- 7 · CLIENTS -->
+<section class="page clients">
+  <div class="inner">
+    <div class="head">
+      <div><span class="mono label">05 · Our clients</span><h2>Brands we&rsquo;ve built for.</h2></div>
+      <p>National brands and regional businesses across Sumatra trust us with their stores and their signs.</p>
+    </div>
+    <div class="logo-wall">
+      <div class="cell"><img src="../assets/clients/kfc.png" alt="KFC"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/samsung.png" alt="Samsung"></div>
+      <div class="cell"><img class="square" src="../assets/clients/xiaomi.png" alt="Xiaomi"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/oppo.png" alt="OPPO"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/vivo.png" alt="vivo"></div>
+      <div class="cell"><img src="../assets/clients/telkomsel-grapari.png" alt="GraPARI Telkomsel"></div>
+      <div class="cell"><img class="square" src="logos/tomoro.png" alt="TOMORO"></div>
+      <div class="cell"><img src="../assets/clients/dcost.png" alt="D'Cost"></div>
+      <div class="cell"><img class="wide" src="logos/infinix.svg" alt="Infinix"></div>
+      <div class="cell"><img class="wide" src="logos/realme.svg" alt="realme"></div>
+      <div class="cell"><img src="logos/pgn.svg" alt="PGN"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/canon.png" alt="Canon"></div>
+      <div class="cell"><img class="wide" src="logos/tecno.svg" alt="TECNO"></div>
+      <div class="cell"><img src="logos/itel.svg" alt="itel"></div>
+      <div class="cell"><img src="../assets/clients/wedrink.png" alt="Wedrink"></div>
+      <div class="cell"><img class="square" src="../assets/clients/bingxue.png" alt="Bingxue"></div>
+      <div class="cell"><img src="../assets/clients/federal-oil.png" alt="Federal Oil"></div>
+      <div class="cell"><img src="../assets/clients/skintific.png" alt="Skintific"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/glad2glow.png" alt="Glad2Glow"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/sharp.png" alt="Sharp"></div>
+      <div class="cell"><img class="wide" src="logos/gree.svg" alt="GREE"></div>
+      <div class="cell"><img class="wide" src="logos/changhong.svg" alt="Changhong"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/hartadinata-abadi.png" alt="Hartadinata Abadi"></div>
+      <div class="cell"><img src="../assets/clients/mdp.png" alt="MDP"></div>
+      <div class="cell"><img class="square" src="../assets/clients/gold-dragon.png" alt="Gold Dragon"></div>
+      <div class="cell"><span class="wm">Comforta<small>Hotel</small></span></div>
+      <div class="cell"><img class="wide" src="logos/axioo.png" alt="AXIOO"></div>
+      <div class="cell"><img class="wide" src="logos/rexus.png" alt="REXUS"></div>
+      <div class="cell"><img class="wide" src="../assets/clients/megaman.png" alt="Megaman"></div>
+      <div class="cell"><img class="square" src="logos/roman.svg" alt="ROMAN"></div>
+      <div class="cell more"><span>and many more</span></div>
+    </div>
+  </div>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>07</span></div>
+</section>
+
+<!-- 8 · AREA -->
+<section class="page area">
+  <div class="map"><div class="wrap"><img src="sumatra-map-blue.svg" alt="Map of Sumatra with MKS service hubs"></div></div>
+  <div class="inner">
+    <span class="mono label">06 · Areas we serve</span>
+    <h2>Sumatra-wide,<br>based in Palembang.</h2>
+    <p class="lead">Signs are built in Palembang, then packed, shipped, and installed by our own crew across nine provinces.</p>
+    <div class="provinces">
+      <div class="prov home"><span class="mono">Sumatera Selatan · HQ</span><p>Palembang, Prabumulih, Muara Enim, Lahat, Pagaralam, Lubuk Linggau</p></div>
+      <div class="prov"><span class="mono">Sumatera Utara</span><p>Medan</p></div>
+      <div class="prov"><span class="mono">Sumatera Barat</span><p>Padang, Bukittinggi</p></div>
+      <div class="prov"><span class="mono">Riau</span><p>Pekanbaru</p></div>
+      <div class="prov"><span class="mono">Kepulauan Riau</span><p>Batam, Tanjung Pinang</p></div>
+      <div class="prov"><span class="mono">Jambi</span><p>Jambi</p></div>
+      <div class="prov"><span class="mono">Bengkulu</span><p>Bengkulu</p></div>
+      <div class="prov"><span class="mono">Bangka Belitung</span><p>Bangka, Belitung</p></div>
+      <div class="prov"><span class="mono">Lampung</span><p>Bandar Lampung</p></div>
+    </div>
+  </div>
+  <p class="credit">Base map: Wikimedia Commons, CC BY-SA 3.0</p>
+  <div class="folio mono"><span>CV. Multi Karya Sukses</span><span class="rule"></span><span>08</span></div>
+</section>
+
+<!-- 9 · BACK COVER -->
+<section class="page back on-navy">
+  <div class="photo"></div>
+  <div class="inner">
+    <div class="brandmark">
+      <span class="badge"><img src="../assets/brand/logo-mks.png" alt="MKS"></span>
+      <span><span class="name">CV. Multi Karya Sukses</span><span class="mono sub">Outdoor advertising &amp; signage</span></span>
+    </div>
+    <span class="mono label">Let's talk</span>
+    <h2>Need a sign up?<br><em>Send us the location.</em></h2>
+    <p class="lede">Share a photo or map pin of the spot. We'll come back with a mock-up and a quote.</p>
+    <div class="contact">
+      <div><span class="mono">Call or WhatsApp</span><p class="phone">+62 812-7953-1753<br>+62 812-7323-4788</p></div>
+      <div><span class="mono">Hours</span><p>Monday to Saturday<br>9:30am – 5:30pm</p></div>
+      <div><span class="mono">Office</span><p>Komplek Kedamaian Permai 2<br>Jalan Gajah Blok EE No. 18<br>Palembang, Sumatera Selatan</p></div>
+    </div>
+  </div>
+  <div class="qr-card">
+    <img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788">
+    <span class="mono">Scan to chat on WhatsApp</span>
+    <p>+62 812-7323-4788</p>
+  </div>
+</section>
+
+</body>
+</html>
