@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services Photo Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: oklch(0.408 0.071 251.2);
+    --steel-ink: oklch(0.30 0.06 251.2);
+    --warm-divider: oklch(0.807 0.032 86.5);
+    --bg: oklch(0.914 0.021 85.9);
+    --ink: oklch(0.258 0.017 67.0);
+    --ink-muted: oklch(0.258 0.017 67.0 / 0.62);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Work Sans', sans-serif; font-size: 17px; line-height: 1.5; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  .microlabel { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 0.7rem; letter-spacing: 0.18em; }
+  .section-statement { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.75rem; line-height: 1.35; max-width: 30ch; margin: 12px 0 48px; }
+
+  /* Option header bars (not part of the design) */
+  .opt-head { padding: 40px 0 20px; }
+  .opt-head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.4rem; margin: 0 0 4px; }
+  .opt-head p { margin: 0; color: var(--ink-muted); max-width: 70ch; font-size: 0.95rem; }
+  .opt-head .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--steel); }
+
+  /* ---------- Existing services styles (copied from index.html) ---------- */
+  .scope { --scope-text: oklch(0.95 0.02 240); --scope-accent: oklch(0.82 0.14 90); background: var(--steel-ink); color: var(--scope-text); padding: 88px 0; position: relative; overflow: hidden; }
+  .scope .microlabel { color: var(--scope-accent); }
+  .scope .section-statement { color: var(--scope-text); }
+  .scope-list { max-width: 720px; position: relative; }
+  .scope-row { display: grid; grid-template-columns: 28px 1fr; gap: 20px; border-left: 2px solid color-mix(in oklch, var(--scope-text) 25%, transparent); padding-left: 20px; margin-bottom: 2px; overflow: hidden; transition: border-color 200ms ease-out; }
+  .scope-row.is-open, .scope-row:hover, .scope-row.is-active { border-left-color: var(--scope-accent); }
+  .scope-num { display: block; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; color: color-mix(in oklch, var(--scope-text) 55%, transparent); padding-top: 22px; transition: color 200ms ease-out, transform 250ms cubic-bezier(.2,.7,.2,1); }
+  .scope-row.is-open .scope-num, .scope-row.is-active .scope-num { color: var(--scope-accent); }
+  .scope-content { transition: transform 250ms cubic-bezier(.2,.7,.2,1); }
+  .scope-btn { display: block; width: 100%; text-align: left; background: none; border: none; padding: 18px 0; cursor: pointer; font-family: inherit; color: inherit; }
+  .scope-row:hover .scope-content, .scope-row.is-active .scope-content { transform: translateX(10px); }
+  .scope-row:hover .scope-num, .scope-row.is-active .scope-num { transform: translateX(10px); }
+  .scope-title { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: 1.3rem; margin: 0 0 6px; color: var(--scope-text); }
+  .scope-desc { color: color-mix(in oklch, var(--scope-text) 70%, transparent); font-size: 0.95rem; font-weight: 300; line-height: 1.55; max-width: 52ch; margin: 0; }
+  .scope-panel { max-height: 0; overflow: hidden; transition: max-height 300ms ease-out; }
+  .scope-row.is-open .scope-panel { max-height: 320px; }
+  .scope-panel-inner { padding: 10px 0 24px; columns: 2; column-gap: 32px; }
+  .scope-panel-inner div { break-inside: avoid; padding: 5px 0; font-size: 0.95rem; font-weight: 300; color: color-mix(in oklch, var(--scope-text) 70%, transparent); }
+  @media (max-width: 480px) { .scope-row.is-active .scope-content, .scope-row.is-active .scope-num { transform: none; } .scope-panel-inner { columns: 1; } .scope-row.is-open .scope-panel { max-height: 900px; } }
+  .scope .wrap { position: relative; z-index: 2; }
+
+  /* ---------- Option A: photo per service, crossfades behind the whole section ---------- */
+  .optA .bg-stack { position: absolute; inset: 0; z-index: 0; }
+  .optA .bg-stack div { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.04); transition: opacity 700ms ease-out, transform 1600ms ease-out; }
+  .optA .bg-stack div.on { opacity: 1; transform: scale(1); }
+  .optA::after { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, color-mix(in oklch, var(--steel-ink) 94%, transparent) 0%, color-mix(in oklch, var(--steel-ink) 82%, transparent) 50%, color-mix(in oklch, var(--steel-ink) 45%, transparent) 100%); }
+  .optA .bg-cap { position: absolute; right: 24px; bottom: 20px; z-index: 2; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; color: color-mix(in oklch, var(--scope-text) 75%, transparent); transition: opacity 300ms; }
+  @media (max-width: 780px) {
+    .optA::after { background: color-mix(in oklch, var(--steel-ink) 80%, transparent); }
+  }
+
+  /* ---------- Option B: one fixed photo behind the section ---------- */
+  .optB { background: var(--steel-ink) url('assets/sector/hospitality-1-coliving-facade.jpg') center 35% / cover no-repeat; }
+  .optB::after { content: ""; position: absolute; inset: 0; z-index: 1; background: color-mix(in oklch, var(--steel-ink) 84%, transparent); }
+
+  /* ---------- Option C: photo column on the side ---------- */
+  .optC .c-grid { display: grid; gap: 48px; }
+  .optC .c-photo { display: none; }
+  .optC .row-thumb { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin: 0 0 12px; }
+  @media (min-width: 900px) {
+    .optC .c-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); align-items: start; }
+    .optC .c-photo { display: block; position: sticky; top: 40px; aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; background: oklch(0.25 0.05 251); }
+    .optC .c-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 500ms ease-out; }
+    .optC .c-photo img.on { opacity: 1; }
+    .optC .c-photo .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 18px 14px; background: linear-gradient(transparent, oklch(0.2 0.03 251 / 0.85)); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--scope-text); z-index: 2; }
+    .optC .row-thumb { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.001ms !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap opt-head"><span class="tag">OPTION A · RECOMMENDED</span><h2>Photo changes with each service</h2><p>Each service has its own photo. As you scroll (or hover a row), that service's photo fades in behind the whole section. The left side stays dark so the text is easy to read.</p></div>
+<section class="scope optA" data-variant="A">
+  <div class="bg-stack"></div>
+  <div class="wrap">
+    <span class="microlabel">(Services)</span>
+    <p class="section-statement">The full scope of work, category by category.</p>
+    <div class="scope-list"></div>
+  </div>
+  <div class="bg-cap"></div>
+</section>
+
+<div class="wrap opt-head"><span class="tag">OPTION B</span><h2>One photo behind the whole section</h2><p>A single project photo sits behind the section with a navy tint. Simplest, but the photo is the same no matter which service you read.</p></div>
+<section class="scope optB" data-variant="B">
+  <div class="wrap">
+    <span class="microlabel">(Services)</span>
+    <p class="section-statement">The full scope of work, category by category.</p>
+    <div class="scope-list"></div>
+  </div>
+</section>
+
+<div class="wrap opt-head"><span class="tag">OPTION C</span><h2>Photo column on the side</h2><p>The list stays on a plain navy background, with a tall photo on the right that swaps as you scroll or hover. On phones, each service gets a small photo above its title instead.</p></div>
+<section class="scope optC" data-variant="C">
+  <div class="wrap">
+    <span class="microlabel">(Services)</span>
+    <p class="section-statement">The full scope of work, category by category.</p>
+    <div class="c-grid">
+      <div class="scope-list"></div>
+      <div class="c-photo"><div class="cap"></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var services = [
+    { t: 'Architecture / Civil', d: 'Structural renovation, indoor and outdoor.', img: 'hospitality-1-coliving-facade.jpg', cap: 'Mayan co-living, Palembang',
+      items: ['Electrical &amp; AC installation','Floor tiling','Granite installation','Gypsum ceiling','Rolling door','Steel canopy','Store renovation (indoor &amp; outdoor)','Wall painting','Wall partition','Water installation','WPC ceiling'] },
+    { t: 'Furniture / Interior', d: 'Built-ins and custom furniture for the finished space.', img: 'corporate-2-meeting-room.jpg', cap: 'Corporate meeting room',
+      items: ['Cabinets','Chairs','Custom sofas','Custom tables','Display booths','Exhibition booths','Office backdrops','TV backdrops','Wall bays'] },
+    { t: 'Advertising &amp; Branding', d: 'Signage and brand identity, fabricated and installed.', img: 'retail-3-grapari-service-centre.jpg', cap: 'GraPARI MDP Palembang',
+      items: ['ACP signage','Baliho','Dimensional letters (stainless / acrylic)','Lightbox','Neon box','Printing','Revisual','Storefront signage','UV fabric print'] },
+    { t: 'Tax &amp; Permits', d: 'Paperwork handled on your behalf.', img: 'fnb-3-pylon-sign.jpg', cap: 'KFC pylon sign',
+      items: ['Billboard tax &amp; permits'] },
+    { t: 'Delivery Service', d: 'Packing, shipping, and on-site installation.', img: 'retail-4-accessory-kiosk.jpg', cap: 'Accessory kiosk, installed on site',
+      items: ['Packing, delivery, installation and renovation across Sumatra (excluding Aceh)'] },
+    { t: 'Maintenance / Demolition', d: 'Upkeep and teardown, including debris removal.', img: 'retail-1-oppo-service-centre.jpg', cap: 'OPPO service centre',
+      items: ['Debris removal','Demolition — mall stores, shophouses, old houses','Maintenance'] }
+  ];
+  var base = 'assets/sector/';
+
+  document.querySelectorAll('.scope').forEach(function (sec) {
+    var v = sec.dataset.variant;
+    var list = sec.querySelector('.scope-list');
+    list.innerHTML = services.map(function (s, i) {
+      var thumb = v === 'C' ? '<img class="row-thumb" src="' + base + s.img + '" alt="" loading="lazy">' : '';
+      return '<div class="scope-row" data-i="' + i + '"><span class="scope-num">0' + (i + 1) + '</span><div class="scope-content"><button class="scope-btn" aria-expanded="false">' + thumb +
+        '<div class="scope-title">' + s.t + '</div><p class="scope-desc">' + s.d + '</p></button><div class="scope-panel"><div class="scope-panel-inner">' +
+        s.items.map(function (x) { return '<div>' + x + '</div>'; }).join('') + '</div></div></div></div>';
+    }).join('');
+
+    var layers = [];
+    var capEl = null;
+    if (v === 'A') {
+      var stack = sec.querySelector('.bg-stack');
+      services.forEach(function (s) { var d = document.createElement('div'); d.style.backgroundImage = 'url(' + base + s.img + ')'; stack.appendChild(d); layers.push(d); });
+      capEl = sec.querySelector('.bg-cap');
+    } else if (v === 'C') {
+      var box = sec.querySelector('.c-photo');
+      services.forEach(function (s) { var im = document.createElement('img'); im.src = base + s.img; im.alt = ''; box.insertBefore(im, box.querySelector('.cap')); layers.push(im); });
+      capEl = box.querySelector('.cap');
+    }
+
+    var rows = sec.querySelectorAll('.scope-row');
+    function setActive(i) {
+      if (v === 'B') return;
+      rows.forEach(function (r, j) { r.classList.toggle('is-active', j === i); });
+      layers.forEach(function (l, j) { l.classList.toggle('on', j === i); });
+      if (capEl) capEl.textContent = services[i].cap.toUpperCase();
+    }
+    setActive(0);
+
+    rows.forEach(function (row, i) {
+      var btn = row.querySelector('.scope-btn');
+      function toggle() { row.classList.toggle('is-open'); btn.setAttribute('aria-expanded', row.classList.contains('is-open')); }
+      btn.addEventListener('click', toggle);
+      row.querySelector('.scope-num').addEventListener('click', toggle);
+      row.addEventListener('mouseenter', function () { setActive(i); });
+      row.addEventListener('mouseleave', function () { if (row.classList.contains('is-open')) { row.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); } });
+    });
+
+    // On scroll (and on phones, where there's no hover): the row nearest the middle of the screen wins.
+    if (v !== 'B' && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setActive(+e.target.dataset.i); });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      rows.forEach(function (r) { io.observe(r); });
+    }
+  });
+</script>
+</body>
+</html>
