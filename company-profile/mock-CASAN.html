@@ -403,12 +403,42 @@
   .b2 .c2 { margin-top: 8mm; grid-template-columns: auto auto; justify-content: start; gap: 0 16mm; }
   .b2 .c2 .phone { font-size: 13pt; }
   .b2 .addr { margin-top: 7mm; color: var(--on-navy); font-size: 9.5pt; letter-spacing: .06em; }
+  /* font pass */
+  .tiles { grid-template-rows: repeat(2, minmax(0,1fr)) !important; min-height: 0; }
+  .services1 .inner { bottom: 22mm !important; }
+  .qr2 p { white-space: nowrap; font-size: 13pt !important; }
+  .why .intro-p { font-size: 13.5pt !important; line-height: 1.5 !important; }
+  .why .intro-p b { font-size: inherit !important; }
+  .qr2 img { width: 30mm !important; height: 30mm !important; }
+  .t { padding: 5.5mm 6.5mm !important; min-height: 0; }
+  .ic { flex-shrink: 0; width: 12mm !important; height: 12mm !important; }
+  .t.gold .ic { width: 20mm !important; height: 20mm !important; }
+  .t:not(.gold) h3 { margin-top: 4mm !important; }
+  .t:not(.gold) p { line-height: 1.32 !important; }
+  /* v2 page 11 */
+  .qr3 { padding: 5mm 6mm !important; gap: 6mm !important; }
+  .qr3 img { width: 38mm !important; height: 38mm !important; flex-shrink: 0; }
+  .qr3 > div { min-width: 0; }
+  .qr3 .mono { color: #1f8f4e !important; font-size: 9pt !important; font-weight: 600; }
+  .qr3 .cta { margin-top: 1.5mm; font-family: 'Fraunces'; font-size: 19pt !important; line-height: 1.05; color: var(--steel-ink); white-space: normal !important; }
+  .qr3 .sub { margin-top: 2.5mm; font-family: 'Work Sans'; font-size: 10pt !important; line-height: 1.4; color: var(--ink); white-space: normal !important; }
+  .qr3 .num { margin-top: 2.5mm; font-family: 'IBM Plex Mono' !important; font-size: 9pt !important; letter-spacing: .04em !important; color: var(--accent) !important; font-weight: 400 !important; white-space: nowrap; }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var modes = ['old','old','mid','mid','mid','mid','new','new','new','old','new'];
+  var rules = {
+    old: function (f) { return f < 13 ? f + 1.5 : f < 30 ? f + 2 : f; },
+    mid: function (f) { return f < 13 ? f * 1.15 + 0.6 : f < 20 ? f * 1.07 + 1 : f < 30 ? f * 1.05 + 1 : f; },
+    new: function (f) { return f < 13 ? f * 1.25 + 0.5 : f < 20 ? f * 1.16 + 1 : f < 30 ? f * 1.12 + 1 : f < 50 ? f * 1.1 : f * 1.06; }
+  };
   var els = Array.prototype.slice.call(document.querySelectorAll('.page *'));
   var sizes = els.map(function (e) { return parseFloat(getComputedStyle(e).fontSize); });
-  els.forEach(function (e, i) { var f = sizes[i]; var add = f < 13 ? 1.5 : f < 30 ? 2 : 0; e.style.fontSize = (f + add) + 'px'; });
+  els.forEach(function (e, i) { var f = sizes[i]; var pg = e.closest('.page'); var idx = pages.indexOf(pg); var mode = modes[idx] || 'new';
+    if (e.matches('.cover .kicker, .intro .label')) mode = 'new';
+    if (e.closest('figcaption')) mode = 'old';
+    var n = rules[mode](f); e.style.fontSize = n + 'px'; });
 });
 </script>
 </head>
@@ -638,7 +668,7 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
   <div class="b2-right">
     <div class="ph-x ph-back"><span class="mono">Photo to come</span><p>Lit signage at night: a neon box or lightbox we built</p></div>
-    <div class="qr2"><img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788"><div><span class="mono">Scan to chat on WhatsApp</span><p>+62 812-7323-4788</p></div></div>
+    <div class="qr2 qr3"><img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788"><div><span class="mono">WhatsApp</span><p class="cta">Scan to chat<br>with us</p><p class="sub">Send a photo of your space. We reply the same day.</p><p class="num mono">+62 812-7323-4788</p></div></div>
   </div>
 </section>
 
