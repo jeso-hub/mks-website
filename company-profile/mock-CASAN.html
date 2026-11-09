@@ -358,13 +358,66 @@
   .sg-cta b { font-family: 'Fraunces'; font-weight: 500; font-size: 15pt; }
   .sg-cta .mono { margin-left: auto; font-size: 10pt; color: var(--navy-deep); letter-spacing: .08em; }
   .sg2 .folio { bottom: 8mm; }
+
+  /* r4 */
+  .ph-x { position: absolute; z-index: 4; border: 1.5px dashed rgba(227,241,251,.45); border-radius: 2mm; background: rgba(10,31,53,.92); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; text-align: center; padding: 0 10mm; }
+  .ph-x .mono { color: var(--gold); }
+  .ph-x p { font-family: 'Fraunces'; font-style: italic; font-weight: 300; font-size: 15pt; color: var(--on-navy); }
+  .cover .photo, .why .photo { background-image: none !important; }
+  .ph-cover { left: 172mm; right: 0; top: 0; bottom: 0; border-radius: 0; border-width: 0 0 0 1.5px; background: #12304f; }
+  .why .photo::after { display: none; }
+  .ph-why { right: 0; top: 0; width: 98mm; height: 112mm; border-radius: 0; background: #12304f; }
+  .intro .left .quote .smp { display: inline-block; background: var(--gold); color: var(--navy-deep); padding: .6mm 2mm; border-radius: 99px; font-size: 7pt; margin-bottom: 3mm; }
+  .intro .left .quote .who { display: block; margin-top: 3mm; color: var(--gold); font-size: 7.5pt; }
+  .intro .left .quote p { font-size: 14pt !important; }
+  .intro .left .quote { background: linear-gradient(0deg, rgba(10,31,53,.98) 0%, rgba(10,31,53,.9) 60%, rgba(10,31,53,0) 100%) !important; padding-top: 22mm !important; }
+  .area .provinces { gap: 0 5mm; }
+  .prov { padding: 1.6mm 0 !important; }
+  .area .lead { margin-top: 3mm !important; }
+  .b2 .photo, .b2::after { display: none; }
+  .b2 { background: var(--navy-deep); }
+  .b2-left { position: absolute; left: 18mm; top: 16mm; bottom: 16mm; width: 150mm; display: flex; flex-direction: column; color: var(--on-navy); }
+  .b2 h2 { font-size: 34pt; line-height: 1.05; margin-top: 4mm; }
+  .b2 h2 em { font-style: italic; font-weight: 300; color: var(--gold); }
+  .b2 .lede { margin-top: 4mm; font-size: 13pt; color: var(--on-navy); }
+  .b2 .lede b { color: var(--gold); font-weight: 600; }
+  .c2 { margin-top: 9mm; padding-top: 6mm; border-top: 1px solid rgba(227,241,251,.25); display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 10mm; }
+  .c2 .mono { color: var(--gold); }
+  .c2 p { margin-top: 1.5mm; font-size: 11pt; line-height: 1.45; }
+  .c2 .phone { font-family: 'Fraunces'; font-size: 15pt; line-height: 1.3; }
+  .b2-right { position: absolute; left: 184mm; right: 18mm; top: 16mm; bottom: 16mm; display: flex; flex-direction: column; gap: 6mm; }
+  .b2-right .ph-x { position: relative; flex: 1; }
+  .qr2 { background: #fff; border-radius: 2.5mm; padding: 4mm; display: flex; align-items: center; gap: 5mm; }
+  .qr2 img { width: 34mm; height: 34mm; }
+  .qr2 .mono { color: var(--accent); }
+  .qr2 p { margin-top: 1.5mm; font-family: 'Fraunces'; font-size: 14pt; color: var(--steel-ink); }
+  /* r5 */
+  .intro .left .quote { z-index: 5; }
+  .ph-intro { inset: 0; border-radius: 0; border-width: 0 1.5px 0 0; background: #12304f; justify-content: flex-start; padding-top: 55mm; }
+  .area .inner { width: 116mm !important; }
+  .area .provinces { display: grid; grid-template-columns: 1.3fr 1fr; gap: 0 7mm; align-items: start; }
+  .pcol { display: flex; flex-direction: column; }
+  .prov { padding: 2.4mm 0 2.6mm !important; }
+  .prov .mono { font-size: 7.5pt !important; letter-spacing: .08em; }
+  .prov p { font-size: 10pt !important; margin-top: 1.8mm !important; line-height: 1.35 !important; }
+  .b2 .c2 { margin-top: 8mm; grid-template-columns: auto auto; justify-content: start; gap: 0 16mm; }
+  .b2 .c2 .phone { font-size: 13pt; }
+  .b2 .addr { margin-top: 7mm; color: var(--on-navy); font-size: 9.5pt; letter-spacing: .06em; }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('.page *'));
+  var sizes = els.map(function (e) { return parseFloat(getComputedStyle(e).fontSize); });
+  els.forEach(function (e, i) { var f = sizes[i]; var add = f < 13 ? 1.5 : f < 30 ? 2 : 0; e.style.fontSize = (f + add) + 'px'; });
+});
+</script>
 </head>
 <body>
 
 <!-- 1 · COVER -->
 <section class="page cover on-navy">
   <div class="photo"></div>
+  <div class="ph-x ph-cover"><span class="mono">Photo to come</span><p>Cover photo: a signature project, not used elsewhere</p></div>
   <div class="inner">
     <div class="brandmark">
       <span class="badge"><img src="../assets/brand/logo-mks.png" alt="MKS"></span>
@@ -374,22 +427,22 @@
     <h1>Commercial spaces, built and delivered <em>with precision.</em></h1>
     <p class="lede">From a single neon box to a full store fit-out. One team, one contract, across Sumatra.</p>
     <div class="redbar"></div>
-    <div class="meta mono chg" data-note="Stats replaced by sectors">
+    <div class="meta mono">
       <span>What we build<b>Retail&nbsp;&nbsp;·&nbsp;&nbsp;F&amp;B&nbsp;&nbsp;·&nbsp;&nbsp;Corporate &amp; Government&nbsp;&nbsp;·&nbsp;&nbsp;Hospitality</b></span>
     </div>
   </div>
 </section>
 <section class="page intro">
   <div class="left">
-    <div class="photo chg" data-note="New photo"></div>
-    <div class="quote"><p>“Your vision. Built right.<br>Delivered on time.”</p></div>
+    <div class="ph-x ph-intro"><span class="mono">Photo to come</span><p>A finished store interior we built</p></div>
+    <div class="quote"><span class="smp mono">Sample quote</span><p>“MKS handled our permits, build, and signage in one go. The store opened on the date we planned.”</p><span class="who mono">Store development manager · national retail brand</span></div>
   </div>
   <div class="right">
     <span class="mono label">01 · About us</span>
     <h2>You have a business to run.<br><span>We take care of the space.</span></h2>
     <div class="body">
-      <p class="chg">We build interior fit-outs for <strong>retail, F&amp;B, corporate, and hospitality</strong> clients.</p>
-      <p class="chg">One partner for the whole job: we handle <strong>permits, design, and construction</strong>, so every stage stays on track.</p>
+      <p>We build interior fit-outs for <strong>retail, F&amp;B, corporate, and hospitality</strong> clients.</p>
+      <p>One partner for the whole job: we handle <strong>permits, design, and construction</strong>, so every stage stays on track.</p>
     </div>
     <p class="pull">Spaces that don't just look exceptional.<br><em>They perform.</em></p>
     <div class="stats">
@@ -402,10 +455,11 @@
 </section>
 <section class="page why on-navy">
   <div class="photo"></div>
+  <div class="ph-x ph-why"><span class="mono">Photo to come</span><p>A project photo not used elsewhere</p></div>
   <div class="inner">
     <span class="mono label">02 · Why leaders choose MKS</span>
     <h2>One team. Clear communication.<br><em>No surprises.</em></h2>
-    <p class="intro-p chg">From the first site survey to opening day, <b>one accountable team</b> takes care of everything.</p>
+    <p class="intro-p">From the first site survey to opening day, <b>one accountable team</b> takes care of everything.</p>
   </div>
   <div class="timeline">
     <span class="mono label">How we work · from planning to opening</span>
@@ -413,7 +467,7 @@
       <div class="tl-step"><span class="dot">01</span><h3>Plan &amp; permit</h3><p>We handle the permits for you.</p></div>
       <div class="tl-step"><span class="dot">02</span><h3>Design</h3><p>Matched to your brand standards.</p></div>
       <div class="tl-step"><span class="dot">03</span><h3>Build &amp; fit-out</h3><p>Built on time, one contract.</p></div>
-      <div class="tl-step"><span class="dot">04</span><h3>Handover</h3><p class="chg">Installed, checked, and ready to open.</p></div>
+      <div class="tl-step"><span class="dot">04</span><h3>Handover</h3><p>Installed, checked, and ready to open.</p></div>
     </div>
   </div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>03</span></div>
@@ -429,24 +483,24 @@
   </div>
   <div class="halves">
     <div class="bh"><div class="bh-top"><span class="mono tagx">Outside</span><h3>Get seen from the street</h3><p>Baliho &amp; billboards · Pylon signs · Neon box · 3D letters · ACP facades</p></div><div class="bh-ph"><div class="sf wide"><span class="mono">Photo to come</span><p>Baliho / billboard</p></div><div class="sf"><span class="mono">Photo to come</span><p>Neon box at night</p></div><div class="sf"><span class="mono">Photo to come</span><p>Pylon sign</p></div></div></div>
-    <div class="bh"><div class="bh-top"><span class="mono tagx">Inside</span><h3>Sell at the counter</h3><p>Menu boards · Lightboxes · Wall graphics · Display booths · Wayfinding</p></div><div class="bh-ph"><div class="sf wide"><span class="mono">Photo to come</span><p>Menu board / lightbox</p></div><div class="sf"><span class="mono">Photo to come</span><p>Wall graphic</p></div><div class="sf"><span class="mono">Photo to come</span><p>Display booth</p></div></div></div>
+    <div class="bh"><div class="bh-top"><span class="mono tagx">Inside</span><h3>Turn visitors into buyers</h3><p>Menu boards · Lightboxes · Wall graphics · Display booths · Wayfinding</p></div><div class="bh-ph"><div class="sf wide"><span class="mono">Photo to come</span><p>Menu board / lightbox</p></div><div class="sf"><span class="mono">Photo to come</span><p>Wall graphic</p></div><div class="sf"><span class="mono">Photo to come</span><p>Display booth</p></div></div></div>
   </div>
   <div class="sg-cta"><b>Need just one sign?</b> Send a photo of your storefront on WhatsApp <span class="mono">+62 812-7323-4788</span></div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
 </section>
 <section class="page sectors h1x">
   <div class="htop">
-    <div class="htxt"><span class="mono label">05 · What we build</span><h2 class="chg">Four sectors.<br><em>One standard.</em></h2><p class="dint chg">Every project, from a mall kiosk to a hotel, is built to the same standard, whatever its size.</p></div>
+    <div class="htxt"><span class="mono label">05 · What we build</span><h2>Four sectors.<br><em>One standard.</em></h2><p class="dint">Every project, from a mall kiosk to a hotel, is built to the same standard, whatever its size.</p></div>
     <div class="hph ph-empty"><span class="mono">Team photo</span></div>
   </div>
-  <div class="hlist chg" data-note="Numbers removed"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 08</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 08</span></div></div>
+  <div class="hlist"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 08</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 08</span></div></div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
 </section>
 <section class="page spread">
   <div class="half">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 01</span></div>
     <h2>Retail</h2>
-    <p class="desc chg">Phone brands, telco counters, and beauty booths in malls and shophouses, from the first fixture to the final sign.</p>
+    <p class="desc">Phone brands, telco counters, and beauty booths in malls and shophouses, from the first fixture to the final sign.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('retail-xiaomi-storefront.jpg');background-position:71% 62%"></div><figcaption>Xiaomi storefront</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption>OPPO service center</figcaption></figure>
@@ -457,7 +511,7 @@
   <div class="half on-navy">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 02</span></div>
     <h2>F&amp;B</h2>
-    <p class="desc chg">Coffee chains, fast food, and dessert shops, with the facade and pylon signs that pull customers in.</p>
+    <p class="desc">Coffee chains, fast food, and dessert shops, with the facade and pylon signs that pull customers in.</p>
     <div class="gallery g3">
       <figure class="a"><div class="photo" style="background-image:url('fnb-tomoro-corner-facade.jpg');background-position:center 65%"></div><figcaption>Tomoro Coffee</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/fnb-2-bubble-tea-counter.jpg')"></div><figcaption>Ice-cream &amp; tea</figcaption></figure>
@@ -470,7 +524,7 @@
   <div class="half on-navy">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 03</span></div>
     <h2>Corporate &amp; Government</h2>
-    <p class="desc chg">Government offices, energy companies, and private firms: receptions, meeting rooms, and workrooms.</p>
+    <p class="desc">Government offices, energy companies, and private firms: receptions, meeting rooms, and workrooms.</p>
     <div class="gallery g3">
       <figure class="a"><div class="photo" style="background-image:url('../assets/sector/corporate-1-reception-lobby-v2.jpg');background-position:left center"></div><figcaption>LLDIKTI Wilayah II lobby</figcaption></figure>
       <figure><div class="photo" style="background-image:url('corporate-2-meeting-room-pgn.jpg')"></div><figcaption>PGN meeting room</figcaption></figure>
@@ -480,7 +534,7 @@
   <div class="half">
     <div class="top"><span class="mono label">Selected work</span><span class="big-n">Sector 04</span></div>
     <h2>Hospitality</h2>
-    <p class="desc chg">Co-living and hotel projects, from structural renovation to furnished rooms ready for guests.</p>
+    <p class="desc">Co-living and hotel projects, from structural renovation to furnished rooms ready for guests.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('../assets/sector/hospitality-1-coliving-facade.jpg')"></div><figcaption>Mayan co-living</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-4-coliving-lobby.jpg')"></div><figcaption>Co-living lobby</figcaption></figure>
@@ -494,7 +548,7 @@
   <div class="inner">
     <div class="head">
       <div><span class="mono label">06 · Our clients</span><h2>Brands we&rsquo;ve built for.</h2></div>
-      <p>Stores, service centres, offices, and signage we&rsquo;ve delivered for global electronics brands, national retail and F&amp;B chains, and regional businesses.</p>
+      <p>We build stores and signs for brand owners, distributors, and their dealers.</p>
     </div>
     <div class="logo-wall">
       <div class="cell"><img src="../assets/clients/kfc.png" alt="KFC"></div>
@@ -537,7 +591,7 @@
       <div class="cell"><img class="wide" src="logos/atlantic.svg" alt="ATLANTIC"></div>
       <div class="cell"><img class="wide" src="logos/gea-getra.png" alt="GEA GETRA"></div>
       <div class="cell"><img class="wide" src="logos/niko.png" alt="NIKO"></div>
-      <div class="cell more chg"><span><b>150+ brands</b>, and growing.</span></div>
+      <div class="cell more"><span><b>150+ brands</b>, and growing.</span></div>
     </div>
   </div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>09</span></div>
@@ -549,41 +603,42 @@
     <h2>Sumatra-wide,<br>based in Palembang.</h2>
     <p class="lead">One team mobilises from our Palembang base to sites across nine provinces, with materials packed, shipped, and installed by our own crew.</p>
     <div class="provinces">
-      <div class="prov home"><span class="mono">Sumatera Selatan · HQ</span><p>Palembang, Prabumulih, Muara Enim, Lahat, Pagaralam, Lubuk Linggau</p></div>
-      <div class="prov"><span class="mono">Sumatera Utara</span><p>Medan</p></div>
-      <div class="prov"><span class="mono">Sumatera Barat</span><p>Padang, Bukittinggi</p></div>
-      <div class="prov"><span class="mono">Riau</span><p>Pekanbaru</p></div>
-      <div class="prov"><span class="mono">Kepulauan Riau</span><p>Batam, Tanjung Pinang</p></div>
-      <div class="prov"><span class="mono">Jambi</span><p>Jambi</p></div>
-      <div class="prov"><span class="mono">Bengkulu</span><p>Bengkulu</p></div>
-      <div class="prov"><span class="mono">Bangka Belitung</span><p>Bangka, Belitung</p></div>
-      <div class="prov"><span class="mono">Lampung</span><p>Bandar Lampung</p></div>
+      <div class="pcol">
+        <div class="prov home"><span class="mono">Sumatera Selatan · HQ</span><p>Palembang, Prabumulih, Muara Enim, Lahat, Pagaralam, Lubuk Linggau</p></div>
+        <div class="prov"><span class="mono">Sumatera Barat</span><p>Padang, Bukittinggi</p></div>
+        <div class="prov"><span class="mono">Kepulauan Riau</span><p>Batam, Tanjung Pinang</p></div>
+        <div class="prov"><span class="mono">Bengkulu</span><p>Bengkulu</p></div>
+      </div>
+      <div class="pcol">
+        <div class="prov"><span class="mono">Sumatera Utara</span><p>Medan</p></div>
+        <div class="prov"><span class="mono">Riau</span><p>Pekanbaru</p></div>
+        <div class="prov"><span class="mono">Jambi</span><p>Jambi</p></div>
+        <div class="prov"><span class="mono">Bangka Belitung</span><p>Bangka, Belitung</p></div>
+        <div class="prov"><span class="mono">Lampung</span><p>Bandar Lampung</p></div>
+      </div>
     </div>
   </div>
   <p class="credit">Base map: Wikimedia Commons, CC BY-SA 3.0</p>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>10</span></div>
 </section>
-<section class="page back on-navy">
-  <div class="photo"></div>
-  <div class="back-ph"><span class="mono">Photo to come</span><p>Lit signage at night: a neon box or lightbox we built</p></div>
-  <div class="inner">
+<section class="page back on-navy b2">
+  <div class="b2-left">
     <div class="brandmark">
       <span class="badge"><img src="../assets/brand/logo-mks.png" alt="MKS"></span>
       <span><span class="name">CV. Multi Karya Sukses</span><span class="mono sub">Commercial fit-out &amp; interiors</span></span>
     </div>
-    <span class="mono label" style="color:var(--gold)">Let's talk</span>
-    <h2 style="margin-top:4mm">Have a space in mind?<br><em>We'll take it from there.</em></h2>
-    <p class="lede"><b>No job too small.</b> Send us a photo of your space on WhatsApp. Same-day response during business hours.</p>
-    <div class="contact">
-      <div><span class="mono">Call or WhatsApp</span><p class="phone">+62 812-7953-1753<br>+62 812-7323-4788</p></div>
-      <div><span class="mono">Hours</span><p>Monday to Saturday<br>9:30am – 5:30pm</p></div>
-      <div><span class="mono">Office</span><p>Komplek Kedamaian Permai 2<br>Jalan Gajah Blok EE No. 18<br>Palembang, Sumatera Selatan</p></div>
+    <span class="mono label" style="color:var(--gold);margin-top:auto">Let's talk</span>
+    <h2>Have a space in mind?<br><em>We'll take it from there.</em></h2>
+    <p class="lede"><b>No job too small.</b> Send us a photo on WhatsApp.</p>
+    <div class="c2">
+      <div><span class="mono">WhatsApp</span><p class="phone">+62 812-7953-1753<br>+62 812-7323-4788</p></div>
+      <div><span class="mono">Instagram</span><p class="phone">@multikaryasukses</p></div>
     </div>
+    <p class="addr mono">Palembang office · Mon to Sat, 9:30 – 17:30</p>
   </div>
-  <div class="qr-card">
-    <img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788">
-    <span class="mono">Scan to chat on WhatsApp</span>
-    <p>+62 812-7323-4788</p>
+  <div class="b2-right">
+    <div class="ph-x ph-back"><span class="mono">Photo to come</span><p>Lit signage at night: a neon box or lightbox we built</p></div>
+    <div class="qr2"><img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788"><div><span class="mono">Scan to chat on WhatsApp</span><p>+62 812-7323-4788</p></div></div>
   </div>
 </section>
 
