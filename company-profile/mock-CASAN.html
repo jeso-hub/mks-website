@@ -393,6 +393,8 @@
   .qr2 p { margin-top: 1.5mm; font-family: 'Fraunces'; font-size: 14pt; color: var(--steel-ink); }
   /* r5 */
   .intro .left .quote { z-index: 5; }
+  .intro-photo { position:absolute; inset:0; z-index:4; background:url('intro-vivo-service-center.jpg') center/cover; }
+  .intro-photo::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,31,53,0) 45%, rgba(10,31,53,.75) 68%, rgba(10,31,53,.95) 100%); }
   .ph-intro { inset: 0; border-radius: 0; border-width: 0 1.5px 0 0; background: #12304f; justify-content: flex-start; padding-top: 55mm; }
   .area .inner { width: 116mm !important; }
   .area .provinces { display: grid; grid-template-columns: 1.3fr 1fr; gap: 0 7mm; align-items: start; }
@@ -503,8 +505,8 @@ document.addEventListener('DOMContentLoaded', function () {
 </section>
 <section class="page intro">
   <div class="left">
-    <div class="ph-x ph-intro"><span class="mono">Photo to come</span><p>A finished store interior we built</p></div>
-    <div class="quote"><span class="smp mono">Sample quote</span><p>“MKS mengurus izin, pembangunan, dan signage sekaligus. Toko kami buka tepat di tanggal yang kami rencanakan.”</p><span class="who mono">Regional Manager · Xiaomi</span></div>
+    <div class="intro-photo"></div>
+    <div class="quote"><span class="smp mono">Sample quote</span><p>“MKS mengurus izin, pembangunan, dan signage sekaligus. Toko kami buka tepat di tanggal yang kami rencanakan.”</p><span class="who mono">Regional Manager · vivo</span></div>
   </div>
   <div class="right">
     <span class="mono label">01 · About us</span>
