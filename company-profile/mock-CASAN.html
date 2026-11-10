@@ -426,11 +426,37 @@
   .qr3 .cta { margin-top: 1.5mm; font-family: 'Fraunces'; font-size: 19pt !important; line-height: 1.05; color: var(--steel-ink); white-space: normal !important; }
   .qr3 .sub { margin-top: 2.5mm; font-family: 'Work Sans'; font-size: 10pt !important; line-height: 1.4; color: var(--ink); white-space: normal !important; }
   .qr3 .num { margin-top: 2.5mm; font-family: 'IBM Plex Mono' !important; font-size: 9pt !important; letter-spacing: .04em !important; color: var(--accent) !important; font-weight: 400 !important; white-space: nowrap; }
+  /* merged services */
+  .svcm .sm-head { position: absolute; left: 18mm; right: 18mm; top: 15mm; display: flex; justify-content: space-between; align-items: flex-end; gap: 12mm; }
+  .svcm h2 { font-size: 30pt; line-height: 1.06; margin-top: 4mm; }
+  .svcm h2 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .svcm .sm-head p { width: 105mm; font-size: 11.5pt; line-height: 1.5; color: var(--ink); }
+  .sm-body { position: absolute; left: 18mm; right: 18mm; top: 56mm; bottom: 38mm; display: grid; grid-template-columns: 1.45fr 1fr; gap: 6mm; }
+  .sm-sign { background: var(--steel-ink); border-radius: 3mm; border-bottom: 1.5mm solid var(--gold); padding: 6mm 7mm; display: flex; flex-direction: column; color: var(--on-navy); min-height: 0; }
+  .sm-st { display: flex; align-items: center; gap: 4mm; }
+  .sm-st .ic { width: 14mm; height: 14mm; background: var(--gold); flex-shrink: 0; }
+  .sm-st .ic svg { stroke: var(--navy-deep); }
+  .sm-st .mono { color: var(--gold); font-size: 7.5pt; }
+  .sm-st h3 { font-size: 21pt; color: var(--gold); margin-top: 1mm; line-height: 1.05; }
+  .sm-halves { margin-top: 5mm; display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .sm-halves .tagx { background: var(--gold); color: var(--navy-deep); font-size: 7.5pt; }
+  .sm-halves h4 { margin-top: 2.5mm; font-family: 'Fraunces'; font-weight: 400; font-size: 14pt; line-height: 1.15; color: #fff; }
+  .sm-halves p { margin-top: 1.5mm; font-size: 10pt; line-height: 1.45; color: var(--on-navy); }
+  .sm-ph { margin-top: 5mm; flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .sm-ph .sf { background: rgba(255,255,255,.06); border-color: rgba(227,241,251,.35); }
+  .sm-ph .sf .mono { color: var(--gold); font-size: 6.5pt; }
+  .sm-ph .sf p { color: var(--on-navy); font-size: 10.5pt; }
+  .sm-list { display: grid; grid-template-rows: repeat(4, minmax(0,1fr)); gap: 3mm; min-height: 0; }
+  .sm-row { background: var(--panel-light); border-radius: 2.5mm; border-left: 1.5mm solid var(--accent); padding: 0 5mm; display: flex; align-items: center; gap: 4mm; }
+  .sm-row .ic { width: 11mm; height: 11mm; flex-shrink: 0; }
+  .sm-row h3 { font-size: 14pt; line-height: 1.1; color: var(--steel-ink); }
+  .sm-row p { margin-top: 1mm; font-size: 10pt; line-height: 1.35; color: var(--ink); }
+  .svcm .folio { bottom: 8mm; }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
-  var modes = ['old','old','mid','mid','mid','mid','new','new','new','old','new'];
+  var modes = ['old','old','mid','mid','mid','new','new','new','old','new'];
   var rules = {
     old: function (f) { return f < 13 ? f + 1.5 : f < 30 ? f + 2 : f; },
     mid: function (f) { return f < 13 ? f * 1.15 + 0.6 : f < 20 ? f * 1.07 + 1 : f < 30 ? f * 1.05 + 1 : f; },
@@ -505,29 +531,37 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>03</span></div>
 </section>
-<section class="page services1">
-  <div class="inner"><div class="head"><div><span class="mono label">03 · Services</span><h2>Everything your space needs,<br><em>under one contract.</em></h2></div></div><div class="tiles"><div class="t gold"><span class="ic"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="20" rx="2"/><path d="M14 28v12M34 28v12M12 18h24"/></svg></span><h3>Signage &amp; Billboards</h3><p>Neon box, lightbox, ACP, baliho. Permits handled.</p><span class='mono nx'>See next page →</span></div><div class="t"><span class="ic"><svg viewBox="0 0 48 48"><path d="M6 40h36M10 40V20l14-10 14 10v20"/><path d="M19 40V28h10v12"/></svg></span><h3>Architecture / Civil</h3><p>Renovation, ceilings, tiling, electrical &amp; AC.</p></div><div class="t"><span class="ic"><svg viewBox="0 0 48 48"><path d="M8 26h32v8H8zM12 34v6M36 34v6M12 26V16a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v10"/></svg></span><h3>Furniture / Interior</h3><p>Booths, wall bays, custom tables &amp; backdrops.</p></div><div class="t"><span class="ic"><svg viewBox="0 0 48 48"><path d="M4 14h24v18H4zM28 20h8l6 6v6H28z"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/></svg></span><h3>Delivery &amp; Install</h3><p>Packed, shipped, and installed in 9 provinces.</p></div><div class="t"><span class="ic"><svg viewBox="0 0 48 48"><path d="M30 8a8 8 0 0 0-8 10L8 32l8 8 14-14a8 8 0 0 0 10-8l-5 3-5-5z"/></svg></span><h3>Maintenance / Demolition</h3><p>Upkeep, teardown, and debris removal.</p></div></div></div>
-  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
-</section>
-<section class="page signage sg2">
-  <div class="sg-head">
-    <div><span class="mono label">04 · Signage &amp; branding</span><h2>Your brand, <em>outside and in.</em></h2></div>
-    <p>Order signage on its own, or as part of your fit-out. Designed, fabricated, and installed by our team, with billboard tax and permits handled for you.</p>
+<section class="page svcm">
+  <div class="sm-head">
+    <div><span class="mono label">03 · Services</span><h2>Everything your space needs,<br><em>under one contract.</em></h2></div>
+    <p>From one sign to a full fit-out. Designed, built, and installed by our own team, with permits and billboard tax handled for you.</p>
   </div>
-  <div class="halves">
-    <div class="bh"><div class="bh-top"><span class="mono tagx">Outside</span><h3>Get seen from the street</h3><p>Baliho &amp; billboards · Pylon signs · Neon box · 3D letters · ACP facades</p></div><div class="bh-ph"><div class="sf wide"><span class="mono">Photo to come</span><p>Baliho / billboard</p></div><div class="sf"><span class="mono">Photo to come</span><p>Neon box at night</p></div><div class="sf"><span class="mono">Photo to come</span><p>Pylon sign</p></div></div></div>
-    <div class="bh"><div class="bh-top"><span class="mono tagx">Inside</span><h3>Turn visitors into buyers</h3><p>Menu boards · Lightboxes · Wall graphics · Display booths · Wayfinding</p></div><div class="bh-ph"><div class="sf wide"><span class="mono">Photo to come</span><p>Menu board / lightbox</p></div><div class="sf"><span class="mono">Photo to come</span><p>Wall graphic</p></div><div class="sf"><span class="mono">Photo to come</span><p>Display booth</p></div></div></div>
+  <div class="sm-body">
+    <div class="sm-sign">
+      <div class="sm-st"><span class="ic"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="20" rx="2"/><path d="M14 28v12M34 28v12M12 18h24"/></svg></span><div><span class="mono">Signature service</span><h3>Signage &amp; advertising</h3></div></div>
+      <div class="sm-halves">
+        <div><span class="mono tagx">Outside</span><h4>Get seen from the street</h4><p>Baliho &amp; billboards · Pylon signs · Neon box · 3D letters · ACP facades</p></div>
+        <div><span class="mono tagx">Inside</span><h4>Turn visitors into buyers</h4><p>Menu boards · Lightboxes · Wall graphics · Display booths · Wayfinding</p></div>
+      </div>
+      <div class="sm-ph"><div class="sf"><span class="mono">Photo to come</span><p>Baliho / billboard</p></div><div class="sf"><span class="mono">Photo to come</span><p>Neon box at night</p></div><div class="sf"><span class="mono">Photo to come</span><p>Menu board / lightbox</p></div></div>
+    </div>
+    <div class="sm-list">
+      <div class="sm-row"><span class="ic"><svg viewBox="0 0 48 48"><path d="M6 40h36M10 40V20l14-10 14 10v20"/><path d="M19 40V28h10v12"/></svg></span><div><h3>Architecture / Civil</h3><p>Renovation, ceilings, tiling, electrical &amp; AC.</p></div></div>
+      <div class="sm-row"><span class="ic"><svg viewBox="0 0 48 48"><path d="M8 26h32v8H8zM12 34v6M36 34v6M12 26V16a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v10"/></svg></span><div><h3>Furniture / Interior</h3><p>Booths, wall bays, custom tables &amp; backdrops.</p></div></div>
+      <div class="sm-row"><span class="ic"><svg viewBox="0 0 48 48"><path d="M4 14h24v18H4zM28 20h8l6 6v6H28z"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/></svg></span><div><h3>Delivery &amp; Install</h3><p>Packed, shipped, and installed in 9 provinces.</p></div></div>
+      <div class="sm-row"><span class="ic"><svg viewBox="0 0 48 48"><path d="M30 8a8 8 0 0 0-8 10L8 32l8 8 14-14a8 8 0 0 0 10-8l-5 3-5-5z"/></svg></span><div><h3>Maintenance / Demolition</h3><p>Upkeep, teardown, and debris removal.</p></div></div>
+    </div>
   </div>
   <div class="sg-cta"><b>Need just one sign?</b> Send a photo of your storefront on WhatsApp <span class="mono">+62 812-7323-4788</span></div>
-  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
+  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
 </section>
 <section class="page sectors h1x">
   <div class="htop">
-    <div class="htxt"><span class="mono label">05 · What we build</span><h2>Four sectors.<br><em>One standard.</em></h2><p class="dint">Every project, from a mall kiosk to a hotel, is built to the same standard, whatever its size.</p></div>
+    <div class="htxt"><span class="mono label">04 · What we build</span><h2>Four sectors.<br><em>One standard.</em></h2><p class="dint">Every project, from a mall kiosk to a hotel, is built to the same standard, whatever its size.</p></div>
     <div class="hph ph-empty"><span class="mono">Team photo</span></div>
   </div>
   <div class="hlist"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 08</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 08</span></div></div>
-  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
+  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
 </section>
 <section class="page spread">
   <div class="half">
@@ -551,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <figure><div class="photo" style="background-image:url('../assets/sector/fnb-3-pylon-sign.jpg')"></div><figcaption>KFC pylon sign</figcaption></figure>
     </div>
   </div>
-  <div class="folio mono fl-left"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>07</span></div>
+  <div class="folio mono fl-left"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>06</span></div>
 </section>
 <section class="page spread">
   <div class="half on-navy">
@@ -575,12 +609,12 @@ document.addEventListener('DOMContentLoaded', function () {
       <figure><div class="photo" style="background-image:url('../assets/sector/hospitality-3-coliving-bedroom.jpg')"></div><figcaption>Co-living bedroom</figcaption></figure>
     </div>
   </div>
-  <div class="folio mono fl-right"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>08</span></div>
+  <div class="folio mono fl-right"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>07</span></div>
 </section>
 <section class="page clients">
   <div class="inner">
     <div class="head">
-      <div><span class="mono label">06 · Our clients</span><h2>Brands we&rsquo;ve built for.</h2></div>
+      <div><span class="mono label">05 · Our clients</span><h2>Brands we&rsquo;ve built for.</h2></div>
       <p>We build stores and signs for brand owners, distributors, and their dealers.</p>
     </div>
     <div class="logo-wall">
@@ -627,12 +661,12 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="cell more"><span><b>150+ brands</b>, and growing.</span></div>
     </div>
   </div>
-  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>09</span></div>
+  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>08</span></div>
 </section>
 <section class="page area">
   <div class="map"><div class="wrap"><img src="sumatra-map-blue.svg" alt="Map of Sumatra with MKS service hubs"></div></div>
   <div class="inner">
-    <span class="mono label">07 · Areas we serve</span>
+    <span class="mono label">06 · Areas we serve</span>
     <h2>Sumatra-wide,<br>based in Palembang.</h2>
     <p class="lead">One team mobilises from our Palembang base to sites across nine provinces, with materials packed, shipped, and installed by our own crew.</p>
     <div class="provinces">
@@ -652,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
   <p class="credit">Base map: Wikimedia Commons, CC BY-SA 3.0</p>
-  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>10</span></div>
+  <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>09</span></div>
 </section>
 <section class="page back on-navy b2">
   <div class="b2-left">
