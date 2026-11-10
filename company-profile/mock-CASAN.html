@@ -465,6 +465,11 @@
   .bk-photo .cap { position: absolute; left: 2.5mm; bottom: 2.5mm; background: rgba(10,31,53,.78); color: #fff; padding: 1.4mm 3mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
   .bk-photo::after { content: ""; position: absolute; inset: 0; border-radius: 2mm; background: rgba(10,31,53,.55); }
 .cv-ph{position:absolute;z-index:1;overflow:hidden;left:172mm;right:0;top:0;bottom:0}.cv-ph i{position:absolute;inset:-4mm;background:url('cover-xiaomi-store.jpg') center 40%/cover;filter:blur(1.2px) saturate(.7)}.cv-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,31,53,1) 0%,rgba(10,31,53,.55) 25%,rgba(10,31,53,.5) 100%)}
+  .logo-wall .cell { padding: 3mm 3mm !important; }
+  .logo-wall img, .logo-wall img.wide, .logo-wall img.square, .logo-wall img.boost { max-width: none; max-height: none; }
+  .logo-wall .wm { font-size: 8.5pt !important; letter-spacing: .04em; }
+  .logo-wall .wm small { font-size: 4.6pt !important; }
+  .gallery figcaption.cap-sm { font-size: 7pt !important; white-space: nowrap; letter-spacing: .03em; }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -583,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <p class="desc">Phone brands, telco counters, and beauty booths in malls and shophouses, from the first fixture to the final sign.</p>
     <div class="gallery g4">
       <figure class="a"><div class="photo" style="background-image:url('retail-xiaomi-storefront.jpg');background-position:71% 62%"></div><figcaption>Xiaomi storefront</figcaption></figure>
-      <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption>OPPO service center</figcaption></figure>
+      <figure><div class="photo" style="background-image:url('../assets/sector/retail-1-oppo-service-centre.jpg')"></div><figcaption class="cap-sm">OPPO service center</figcaption></figure>
       <figure><div class="photo" style="background-image:url('../assets/sector/retail-3-grapari-service-centre.jpg')"></div><figcaption>GraPARI Telkomsel</figcaption></figure>
       <figure><div class="photo" style="background-image:url('retail-electronics-store.jpg');background-position:center center"></div><figcaption>Electronics store</figcaption></figure>
     </div>
@@ -632,46 +637,46 @@ document.addEventListener('DOMContentLoaded', function () {
       <p>We build stores and signs for brand owners, distributors, and their dealers.</p>
     </div>
     <div class="logo-wall">
-      <div class="cell"><img src="../assets/clients/kfc.png" alt="KFC"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/samsung.png" alt="Samsung"></div>
-      <div class="cell"><img class="square" src="../assets/clients/apple.png" alt="Apple"></div>
-      <div class="cell"><img class="square" src="../assets/clients/xiaomi.png" alt="Xiaomi"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/oppo.png" alt="OPPO"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/vivo.png" alt="vivo"></div>
+      <div class="cell"><img src="logos-norm/kfc.png" alt="KFC"></div>
+      <div class="cell"><img class="wide" src="logos-norm/samsung.png" alt="Samsung"></div>
+      <div class="cell"><img class="square" src="logos-norm/apple.png" alt="Apple"></div>
+      <div class="cell"><img class="square" src="logos-norm/xiaomi.png" alt="Xiaomi"></div>
+      <div class="cell"><img class="wide" src="logos-norm/oppo.png" alt="OPPO"></div>
+      <div class="cell"><img class="wide" src="logos-norm/vivo.png" alt="vivo"></div>
       <div class="cell"><img class="wide" src="logos/infinix.svg" alt="Infinix"></div>
-      <div class="cell"><img src="../assets/clients/mdp.png" alt="MDP"></div>
+      <div class="cell"><img src="logos-norm/mdp.png" alt="MDP"></div>
       <div class="cell"><img src="logos/itel.svg" alt="itel"></div>
       <div class="cell"><img class="wide" src="logos/realme.svg" alt="realme"></div>
       <div class="cell"><img src="logos/pgn.svg" alt="PGN"></div>
       <div class="cell"><img class="wide" src="logos/changhong.svg" alt="Changhong"></div>
       <div class="cell"><img class="wide" src="logos/gree.svg" alt="GREE"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/canon.png" alt="Canon"></div>
-      <div class="cell"><img class="square" src="logos/rog.png" alt="ASUS ROG"></div>
-      <div class="cell"><img class="wide" src="logos/axioo.png" alt="AXIOO"></div>
-      <div class="cell"><img src="logos/zyrex.png" alt="ZYREX"></div>
-      <div class="cell"><img class="wide" src="logos/rexus.png" alt="REXUS"></div>
-      <div class="cell"><img class="boost" src="../assets/clients/telkomsel-grapari.png" alt="GraPARI Telkomsel"></div>
-      <div class="cell"><img class="wide" src="../assets/clients/sharp.png" alt="Sharp"></div>
+      <div class="cell"><img class="wide" src="logos-norm/canon.png" alt="Canon"></div>
+      <div class="cell"><img class="square" src="logos-norm/rog.png" alt="ASUS ROG" data-s="1.5"></div>
+      <div class="cell"><img class="wide" src="logos-norm/axioo.png" alt="AXIOO"></div>
+      <div class="cell"><img src="logos-norm/zyrex.png" alt="ZYREX"></div>
+      <div class="cell"><img class="wide" src="logos-norm/rexus.png" alt="REXUS"></div>
+      <div class="cell"><img class="boost" src="logos-norm/telkomsel-grapari.png" alt="GraPARI Telkomsel" data-s="2"></div>
+      <div class="cell"><img class="wide" src="logos-norm/sharp.png" alt="Sharp"></div>
       <div class="cell"><img class="wide" src="logos/tecno.svg" alt="TECNO"></div>
-      <div class="cell stack"><img class="wide" src="logos/fullmoon.png" alt="Fullmoon"><small>Megaman · Hikvision · Histar</small></div>
-      <div class="cell"><img class="wide" src="../assets/clients/megaman.png" alt="Megaman"></div>
-      <div class="cell"><img src="../assets/clients/skintific.png" alt="Skintific"></div>
-      <div class="cell"><img class="wide boost boost2" src="../assets/clients/glad2glow.png" alt="Glad2Glow (G2G)"></div>
-      <div class="cell"><img class="wide boost boost2" src="logos/timephoria-dark.png" alt="Timephoria"></div>
-      <div class="cell"><img src="logos/flife.png" alt="FLIFE"></div>
-      <div class="cell"><img src="logos/ofero-dark.png" alt="OFERO"></div>
-      <div class="cell"><img src="../assets/clients/wedrink.png" alt="Wedrink"></div>
-      <div class="cell"><img class="square" src="logos/tomoro.png" alt="TOMORO"></div>
-      <div class="cell"><img src="../assets/clients/dcost.png" alt="D'Cost"></div>
-      <div class="cell"><img class="square" src="../assets/clients/bingxue.png" alt="Bingxue"></div>
-      <div class="cell"><img src="../assets/clients/federal-oil.png" alt="Federal Oil"></div>
-      <div class="cell"><img class="wide boost" src="../assets/clients/hartadinata-abadi.png" alt="Hartadinata Abadi"></div>
-      <div class="cell"><img class="square" src="../assets/clients/gold-dragon.png" alt="Gold Dragon"></div>
+      <div class="cell"><img src="logos-norm/fullmoon.png" alt="Fullmoon"></div>
+      <div class="cell"><img class="wide" src="logos-norm/megaman.png" alt="Megaman"></div>
+      <div class="cell"><img src="logos-norm/skintific.png" alt="Skintific" data-s="0.75"></div>
+      <div class="cell"><img class="wide boost boost2" src="logos-norm/glad2glow.png" alt="Glad2Glow (G2G)"></div>
+      <div class="cell"><img class="wide boost boost2" src="logos-norm/timephoria-dark.png" alt="Timephoria"></div>
+      <div class="cell"><img src="logos-norm/flife.png" alt="FLIFE"></div>
+      <div class="cell"><img src="logos-norm/ofero-dark.png" alt="OFERO"></div>
+      <div class="cell"><img src="logos-norm/wedrink.png" alt="Wedrink"></div>
+      <div class="cell"><img class="square" src="logos-norm/tomoro.png" alt="TOMORO"></div>
+      <div class="cell"><img src="logos-norm/dcost.png" alt="D'Cost"></div>
+      <div class="cell"><img class="square" src="logos-norm/bingxue.png" alt="Bingxue"></div>
+      <div class="cell"><img src="logos-norm/federal-oil.png" alt="Federal Oil" data-s="0.85"></div>
+      <div class="cell"><img class="wide boost" src="logos-norm/hartadinata-abadi.png" alt="Hartadinata Abadi" data-s="2.5"></div>
+      <div class="cell"><img class="square" src="logos-norm/gold-dragon.png" alt="Gold Dragon"></div>
       <div class="cell"><span class="wm">Comforta<small>Hotel</small></span></div>
       <div class="cell"><img class="square" src="logos/roman.svg" alt="ROMAN"></div>
       <div class="cell"><img class="wide" src="logos/atlantic.svg" alt="ATLANTIC"></div>
-      <div class="cell"><img class="wide" src="logos/gea-getra.png" alt="GEA GETRA"></div>
-      <div class="cell"><img class="wide" src="logos/niko.png" alt="NIKO"></div>
+      <div class="cell"><img class="wide" src="logos-norm/gea-getra.png" alt="GEA GETRA"></div>
+      <div class="cell"><img class="wide" src="logos-norm/niko.png" alt="NIKO"></div>
       <div class="cell more"><span><b>150+ brands</b>, and growing.</span></div>
     </div>
   </div>
@@ -712,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <h2>Have a space in mind?<br><em>We'll take it from there.</em></h2>
     <p class="lede"><b>No job too small.</b> Send us a photo on WhatsApp.</p>
     <div class="c2">
-      <div><span class="mono">WhatsApp</span><p class="phone">+62 812-7953-1753<br>+62 812-7323-4788</p></div>
+      <div><span class="mono">WhatsApp</span><p class="phone">+62 812-7323-4788</p></div>
       <div><span class="mono">Instagram</span><p class="phone">@multikaryasukses</p></div>
     </div>
     <div class="c3">
@@ -726,5 +731,17 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
+<script>
+(function(){
+  var AREA=95, MAXW=21, MAXH=10;
+  function fit(img){
+    var a=img.naturalWidth/img.naturalHeight; if(!a) return;
+    var k=parseFloat(img.dataset.s||1); var h=Math.sqrt(AREA*k/a), w=h*a;
+    if(w>MAXW){w=MAXW;h=w/a;} if(h>MAXH){h=MAXH;w=h*a;}
+    img.style.width=w+'mm'; img.style.height=h+'mm';
+  }
+  document.querySelectorAll('.logo-wall img').forEach(function(img){ if(img.complete) fit(img); else img.addEventListener('load',function(){fit(img);}); });
+})();
+</script>
 </body>
 </html>
