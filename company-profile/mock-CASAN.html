@@ -471,6 +471,22 @@
   .logo-wall .wm small { font-size: 4.6pt !important; }
   .gallery figcaption.cap-sm { font-size: 7pt !important; white-space: nowrap; letter-spacing: .03em; }
   .clients .head p { width: auto !important; white-space: nowrap; }
+  .p5 .label { color: var(--accent); }
+  .p5 h2 { font-size: 32pt !important; line-height: 1.05; margin-top: 4mm; font-weight: 400; }
+  .p5 h2 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .p5 .crew { position: relative; aspect-ratio: 1673/940; background: url('team-photo.jpg') center/100% 100% no-repeat; border-radius: 2mm; }
+  .p5 .crew .cap { position:absolute; left:2.5mm; bottom:2.5mm; background:rgba(10,31,53,.78); color:#fff; padding:1.4mm 3mm; border-radius:99px; font-family:'IBM Plex Mono'; font-size:8pt; letter-spacing:.06em; text-transform:uppercase; }
+  .v3 .top { position:absolute; left:18mm; right:18mm; top:18mm; display:flex; justify-content:space-between; align-items:flex-end; }
+  .v3 h2 { font-size: 28pt !important; }
+  .v3 .top .dint { max-width: 100mm; margin:0; }
+  .v3 .body { position:absolute; left:18mm; right:18mm; top:58mm; bottom:28mm; display:grid; grid-template-columns: 185mm 1fr; gap:12mm; align-items:center; }
+  .v3 .crew { width:100%; }
+  .v3 .slist { display:flex; flex-direction:column; }
+  .v3 .si { display:grid; grid-template-columns: 9mm 1fr auto; align-items:baseline; padding:4.5mm 0; border-top:1px solid rgba(43,76,111,.25); }
+  .v3 .si:last-child { border-bottom:1px solid rgba(43,76,111,.25); }
+  .v3 .si h3 { font-family:'Fraunces'; font-weight:400; font-size:14pt !important; line-height:1.15; color: var(--steel-ink); }
+  .v3 .si .sn { color: var(--accent); font-size:7.5pt !important; }
+  .v3 .si .sp { color: var(--ink-muted); font-size:7.5pt !important; }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -574,12 +590,9 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="sg-cta"><b>Need just one sign?</b> Send a photo of your storefront on WhatsApp <span class="mono">+62 812-7323-4788</span></div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>04</span></div>
 </section>
-<section class="page sectors h1x">
-  <div class="htop">
-    <div class="htxt"><span class="mono label">04 · What we build</span><h2>Four sectors.<br><em>One standard.</em></h2><p class="dint">Every project, from a mall kiosk to a hotel, is built by our own crew to the same standard, whatever its size.</p></div>
-    <div class="hph team-ph"><span class="cap">MKS site crew</span></div>
-  </div>
-  <div class="hlist"><div class="dv"><span class="dn">01</span><div><h3>Retail</h3><p>Electronics stores, service centers, and beauty booths.</p></div><span class="mono dp">p. 06</span></div><div class="dv"><span class="dn">02</span><div><h3>F&amp;B</h3><p>Cafés, restaurants, and drink bars.</p></div><span class="mono dp">p. 06</span></div><div class="dv"><span class="dn">03</span><div><h3>Corporate &amp; Government</h3><p>Offices and public service facilities.</p></div><span class="mono dp">p. 07</span></div><div class="dv"><span class="dn">04</span><div><h3>Hospitality</h3><p>Hotels and co-living spaces.</p></div><span class="mono dp">p. 07</span></div></div>
+<section class="page p5 v3">
+  <div class="top"><div><span class="mono label">04 · What we build</span><h2>Four sectors. <em>One standard.</em></h2></div><p class="dint">From a mall kiosk to a hotel, every project is built by our own crew to the same standard.</p></div>
+  <div class="body"><div class="crew"><span class="cap">MKS site crew</span></div><div class="slist"><div class="si"><span class="mono sn">01</span><h3>Retail</h3><span class="mono sp">p. 06</span></div><div class="si"><span class="mono sn">02</span><h3>F&amp;B</h3><span class="mono sp">p. 06</span></div><div class="si"><span class="mono sn">03</span><h3>Corporate &amp;<br>Government</h3><span class="mono sp">p. 07</span></div><div class="si"><span class="mono sn">04</span><h3>Hospitality</h3><span class="mono sp">p. 07</span></div></div></div>
   <div class="folio mono"><span class="fl-brand"><span class="fl-logo"><img src="../assets/brand/logo-mks.png" alt=""></span>CV. Multi Karya Sukses</span><span class="rule"></span><span>05</span></div>
 </section>
 <section class="page spread">
