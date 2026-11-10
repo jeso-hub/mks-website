@@ -459,6 +459,7 @@
   .team-ph .cap { position: absolute; left: 2.5mm; bottom: 2.5mm; background: rgba(10,31,53,.78); color: #fff; padding: 1.4mm 3mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
   .bk-photo { position: relative; flex: 1; border-radius: 2mm; background: url('signage-pylon-night.jpg') center 40%/cover no-repeat; }
   .bk-photo .cap { position: absolute; left: 2.5mm; bottom: 2.5mm; background: rgba(10,31,53,.78); color: #fff; padding: 1.4mm 3mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
+  .bk-photo::after { content: ""; position: absolute; inset: 0; border-radius: 2mm; background: rgba(10,31,53,.55); }
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -714,7 +715,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
   <div class="b2-right">
-    <div class="bk-photo"><span class="cap">Multi-brand pylon sign</span></div>
+    <div class="bk-photo"></div>
     <div class="qr2 qr3"><img src="whatsapp-qr-4788.svg" alt="QR code: chat on WhatsApp, +62 812-7323-4788"><div><span class="mono">WhatsApp</span><p class="cta">Scan to chat<br>with us</p><p class="sub">Send a photo of your space. We reply the same day.</p><p class="num mono">+62 812-7323-4788</p></div></div>
   </div>
 </section>
