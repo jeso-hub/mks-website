@@ -464,6 +464,7 @@
   .bk-photo { position: relative; flex: 1; border-radius: 2mm; background: url('signage-pylon-night.jpg') center 40%/cover no-repeat; }
   .bk-photo .cap { position: absolute; left: 2.5mm; bottom: 2.5mm; background: rgba(10,31,53,.78); color: #fff; padding: 1.4mm 3mm; border-radius: 99px; font-family: 'IBM Plex Mono'; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
   .bk-photo::after { content: ""; position: absolute; inset: 0; border-radius: 2mm; background: rgba(10,31,53,.55); }
+.cv-ph{position:absolute;z-index:1;overflow:hidden;left:172mm;right:0;top:0;bottom:0}.cv-ph i{position:absolute;inset:-4mm;background:url('cover-xiaomi-store.jpg') center 40%/cover;filter:blur(1.2px) saturate(.7)}.cv-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,31,53,1) 0%,rgba(10,31,53,.55) 25%,rgba(10,31,53,.5) 100%)}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -488,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 1 · COVER -->
 <section class="page cover on-navy">
   <div class="photo"></div>
-  <div class="ph-x ph-cover"><span class="mono">Photo to come</span><p>Cover photo: a signature project, not used elsewhere</p></div>
+  <div class="cv-ph"><i></i></div>
   <div class="inner">
     <div class="brandmark">
       <span class="badge"><img src="../assets/brand/logo-mks.png" alt="MKS"></span>
