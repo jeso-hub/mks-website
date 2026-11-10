@@ -402,7 +402,10 @@
   .prov p { font-size: 10pt !important; margin-top: 1.8mm !important; line-height: 1.35 !important; }
   .b2 .c2 { margin-top: 8mm; grid-template-columns: auto auto; justify-content: start; gap: 0 16mm; }
   .b2 .c2 .phone { font-size: 13pt; }
-  .b2 .addr { margin-top: 7mm; color: var(--on-navy); font-size: 9.5pt; letter-spacing: .06em; }
+  .b2 .c2 { margin-top: 6mm !important; grid-template-columns: 70mm auto !important; gap: 0 !important; }
+  .b2 .c3 { margin-top: 6mm; display: grid; grid-template-columns: 70mm auto; justify-content: start; gap: 0; }
+  .b2 .c3 .mono { color: var(--gold); }
+  .b2 .c3 p { margin-top: 1.5mm; font-size: 10pt; line-height: 1.45; color: var(--on-navy); }
   /* font pass */
   .tiles { grid-template-rows: repeat(2, minmax(0,1fr)) !important; min-height: 0; }
   .services1 .inner { bottom: 22mm !important; }
@@ -664,7 +667,10 @@ document.addEventListener('DOMContentLoaded', function () {
       <div><span class="mono">WhatsApp</span><p class="phone">+62 812-7953-1753<br>+62 812-7323-4788</p></div>
       <div><span class="mono">Instagram</span><p class="phone">@multikaryasukses</p></div>
     </div>
-    <p class="addr mono">Palembang office · Mon to Sat, 9:30 – 17:30</p>
+    <div class="c3">
+      <div><span class="mono">Office</span><p>Komplek Kedamaian Permai 2<br>Jalan Gajah Blok EE No. 18<br>Palembang, Sumatera Selatan</p></div>
+      <div><span class="mono">Hours</span><p>Mon to Sat<br>9:30 – 17:30</p></div>
+    </div>
   </div>
   <div class="b2-right">
     <div class="ph-x ph-back"><span class="mono">Photo to come</span><p>Lit signage at night: a neon box or lightbox we built</p></div>
